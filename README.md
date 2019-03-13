@@ -7,7 +7,9 @@ Including 3 members
 2. Nguyen Phuong Tinh
 3. Nguyen Ky Nguyen
 4. Dang Tien Anh
+
 PREFACE
+
 Belonging to the growing of society, computerization of business in every field has become increasingly necessary. Instead of storing and processing all records, documents, increasingly agencies have switched to use software supporting for the information import, export, storage and reports, summaries as well. In those which often work with the above tasks, business management is a department among required computerized management system. Understand those needs, we have chosen to implement the project of Restaurant Management.
 SOFWARE INTRODUCTION
 In general, Restaurant management system sets up and running with the following contents:
