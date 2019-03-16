@@ -22,6 +22,7 @@ Belonging to the growing of society, computerization of business in every field 
 
 # SOFWARE INTRODUCTION
 In general, Restaurant management system sets up and running with the following contents:
+
  1.Receiving Customer’s Order
  
  2.Listing the number of parties
