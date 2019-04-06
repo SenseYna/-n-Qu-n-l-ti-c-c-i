@@ -48,7 +48,7 @@ In general, Restaurant management system sets up and running with the following 
  
  - Programming language: C#
  
- - Source code management tool: Gitlab
+ - Source code management tool: Github, Gitlab, Gitkraken
 
 # ACKNOWLEDGEMENTS
 During Introduction of Software Engineering class and implementing the project of Restaurant Management, we have received extremely precious knowledge from Mr. Nguyen Cong Hoan. With this completion, our team would like to express the gratitude to Mr. Nguyen Cong Hoan for all his thoroughness.
