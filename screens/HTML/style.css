@@ -1,0 +1,64 @@
+.grid {
+    display: grid;
+    grid-template-columns: 150px auto 150px;
+    grid-template-rows: repeat(3, 200px);
+    grid-gap: 1em;
+  }
+body{
+    margin: 0 auto;
+    max-width: 100em;
+    padding: 2em 0;
+    background: #c0c0c0 url(https://www.shimano-steps.com/content/dam/steps/News/transnapoli/tansnapoli_martin_bissig_0927.jpg) fixed;
+       background-origin: border-box;
+    background-position: bottom;
+        
+}
+/*section {
+    width: 100%;
+    padding: 0 7%;
+    display: table;
+    margin: 0;
+    max-width: none;
+    height: 100vh;
+}*/
+
+header,
+aside,
+article,
+footer {
+  
+  padding: 1em;
+}
+header, footer {
+  grid-column: 1 / 4;
+}
+h2{
+    display: block;
+    color: white; 
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 200;
+    font-size: 60px;
+    margin: 3px;
+    height: 46px;
+    padding: 10px 16px;
+
+}
+.input-lg {
+    margin: 3px;
+    height: 46px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 0.5px;
+    border-radius: 0px;
+}
+.input-lg2{
+    width: 250px;
+    background-color: #3F51B5;
+    color: white;
+}
+
+.grid > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
