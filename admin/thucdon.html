@@ -97,67 +97,59 @@
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Trang chủ</span>
-        </a>
-      </li>
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Thực đơn</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Đồ ăn:</h6>
-          <a class="dropdown-item" href=""> Danh sách món ăn</a>
-          <a class="dropdown-item" href="login.html">Thêm món ăn</a>
-          <a class="dropdown-item" href="register.html">Register</a>
-          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Đồ uống: </h6>
-          <a class="dropdown-item" href="404.html">Đồ uống</a>
-          <a class="dropdown-item" href="404.html">404 Page</a>
-          <a class="dropdown-item" href="blank.html">Blank Page</a>
-        </div>
-      </li> -->
-      <li class="nav-item">
-        <a class="nav-link" href="thucdon.html">
-          <!-- <i class="fas fa-fw fa-table"></i> -->
-          <span>Thực đơn</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="khachhang.html">
-          <!-- <i class="fas fa-fw fa-table"></i> -->
-          <span>Khách hàng</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="dichvu.html">
-          <!-- <i class="fas fa-fw fa-chart-area"></i> -->
-          <span>Dịch vụ</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <!-- <i class="fas fa-fw fa-table"></i> -->
-          <span>Doanh Thu</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="nhansu.html">
-          <!-- <i class="fas fa-fw fa-table"></i> -->
-          <span>Nhân sự</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="404.html">
-          <!-- <i class="fas fa-fw fa-table"></i> -->
-          <span>Báo cáo</span></a>
-      </li>
-    </ul>
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Trang chủ</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="thucdon.html">
+            <!-- <i class="fas fa-fw fa-table"></i> -->
+            <span>Thực đơn</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="dichvu.html">
+            <!-- <i class="fas fa-fw fa-chart-area"></i> -->
+            <span>Dịch vụ</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="charts.html">
+            <!-- <i class="fas fa-fw fa-table"></i> -->
+            <span>Doanh Thu</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="nhansu.html">
+            <!-- <i class="fas fa-fw fa-table"></i> -->
+            <span>Nhân sự</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="404.html">
+            <!-- <i class="fas fa-fw fa-table"></i> -->
+            <span>Báo cáo</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sokhachhang.html">
+            <!-- <i class="fas fa-fw fa-table"></i> -->
+            <span>Sổ khách hàng</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="phieukhachhang.html">
+            <!-- <i class="fas fa-fw fa-table"></i> -->
+            <span>Phiếu khách hàng</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="hoadon.html">
+            <!-- <i class="fas fa-fw fa-table"></i> -->
+            <span>Hoá đơn khách hàng</span></a>
+        </li>
+      </ul>
 
     <div id="content-wrapper">
 
       <div class="container-fluid">
 
-        <!-- Breadcrumbs-->
+        <!-- Breadcrumbs món ăn-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
                 <a href="thucdon.html">Thực đơn</a>
@@ -264,10 +256,10 @@
             </div>
           </div>
           <div class="card-header">
-            <button type="button" class="btn btn-success">Thêm món ăn</button>
+            <button type="button" class="btn btn-success" onclick="openMenuFood()">Thêm món ăn</button>
           </div>
         </div>
-        <!-- Breadcrumbs-->
+        <!-- Breadcrumbs đồ uống-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="thucdon.html">Thực đơn</a>
@@ -377,14 +369,11 @@
             </div>
           </div>
           <div class="card-header">
-            <button type="button" class="btn btn-success">Thêm đồ uống</button>
+            <button type="button" class="btn btn-success" onclick="openMenuDrink()">Thêm đồ uống</button>
           </div>
         </div>
       </div>
     </div>
-
-
-
   </div>
   <!-- /.container-fluid -->
 
@@ -396,6 +385,134 @@
       </div>
     </div>
   </footer>
+
+          <!-- table dữ liệu để hiển thị hoá đơn cọc trước tiệc -->
+          <div id="menuFood" style="height: 100%;
+          width: 100%;
+          display: none;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-color: rgb(0,0,0);
+          background-color: rgba(0,0,0, 0.9); ">
+            <span class="closebtn" onclick="closeMenuFood()" title="Close Overlay" style="color:#fff">x</span>
+            <div class="overlay-content">
+              <form action="action_page.php">
+                <div class="form-group">
+                  <h1 style="color:#fff">THÊM MÓN ĂN</h1>
+                </div>
+
+  
+                <div class="form-group">
+                  <label for="inputAddress" style="color:#fff">Tên món ăn</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Tên món ăn">
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress2" style="color:#fff">Mô tả món ăn</label>
+                  <input type="text" class="form-control" id="inputAddress2" placeholder="Mô tả">
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress2" style="color:#fff">Giá món ăn</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Giá">
+                  </div>
+                  <div class="form-group">
+                      <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="customFile">
+                          <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                  </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputState" style="color:#fff">Loại món ăn</label>
+                        <select id="inputState" class="form-control">
+                          <option selected>Món chính</option>
+                          <option> Món khai vị </option>
+                          <option> Món súp </option>
+                          <option> Món tráng miệng </option>
+                        </select>
+                      </div>
+                  </div>
+  
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck" style="color:#fff">
+                      Xác nhận
+                    </label>
+                  </div>
+                </div>
+  
+                <button type="submit" class="btn btn-primary">Thêm món ăn</button>
+              </form>
+            </div>
+          </div>
+
+                    <!-- table dữ liệu để hiển thị hoá đơn cọc trước tiệc -->
+                    <div id="menuDrink" style="height: 100%;
+                    width: 100%;
+                    display: none;
+                    position: fixed;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    background-color: rgb(0,0,0);
+                    background-color: rgba(0,0,0, 0.9); ">
+                      <span class="closebtn" onclick="closeMenuDrink()" title="Close Overlay" style="color:#fff">x</span>
+                      <div class="overlay-content">
+                        <form action="action_page.php">
+                          <div class="form-group">
+                            <h1 style="color:#fff">THÊM ĐỒ UỐNG</h1>
+                          </div>
+          
+            
+                          <div class="form-group">
+                            <label for="inputAddress" style="color:#fff">Tên đồ uống</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Tên đồ uống">
+                          </div>
+                          <div class="form-group">
+                            <label for="inputAddress2" style="color:#fff">Mô tả đồ uống</label>
+                            <input type="text" class="form-control" id="inputAddress2" placeholder="Mô tả">
+                          </div>
+                          <div class="form-group">
+                              <label for="inputAddress2" style="color:#fff">Giá món đồ uống</label>
+                              <input type="text" class="form-control" id="inputAddress2" placeholder="Giá">
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                  </div>
+                            </div>
+          
+          
+                          <div class="form-row">
+                              <div class="form-group col-md-3">
+                                  <label for="inputState" style="color:#fff">Loại đồ uống</label>
+                                  <select id="inputState" class="form-control">
+                                    <option selected>Bia</option>
+                                    <option> Rượu </option>
+                                    <option> Nước ngọt </option>
+                                    <option> Nước suối </option>
+                                  </select>
+                                </div>
+                            </div>
+            
+                          <div class="form-group">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="gridCheck">
+                              <label class="form-check-label" for="gridCheck" style="color:#fff">
+                                Xác nhận
+                              </label>
+                            </div>
+                          </div>
+            
+                          <button type="submit" class="btn btn-primary">Thêm món ăn</button>
+                        </form>
+                      </div>
+                    </div>
 
   </div>
   <!-- /.content-wrapper -->
@@ -427,7 +544,31 @@
       </div>
     </div>
   </div>
-
+  <script>
+      function openMenuFood() {
+        document.getElementById("menuFood").style.display = "block";
+      }
+  
+      function closeMenuFood() {
+        document.getElementById("menuFood").style.display = "none";
+      }
+  </script>
+  <script>
+      function openMenuDrink() {
+        document.getElementById("menuDrink").style.display = "block";
+      }
+  
+      function closeMenuDrink() {
+        document.getElementById("menuDrink").style.display = "none";
+      }
+  </script>
+<script>
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function() {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+    </script>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
