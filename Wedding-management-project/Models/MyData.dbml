@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLiMonAn" Class="MyDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\QuanLiMonAn.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QuanLiMonAnConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MonAn" Member="MonAns">
+    <Type Name="MonAn">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaMA" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="TenMA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MoTaMA" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DonViTinh" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="DonGiaMA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

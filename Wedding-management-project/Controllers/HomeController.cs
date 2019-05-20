@@ -13,7 +13,7 @@ namespace Wedding_management_project.Controllers
             return View();
         }
 
-        public ActionResult Menu()
+        public ActionResult MonAn()
         {
             return View();
         }
