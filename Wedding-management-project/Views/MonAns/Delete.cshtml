@@ -1,0 +1,64 @@
+﻿@model Wedding_management_project.Models.QLMonAn
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>XÓA MÓN ĂN</h2>
+
+<h3>Bạn có chắc muốn xóa món ăn này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaMA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaMA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenMA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenMA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTaMA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTaMA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonViTinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonViTinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGiaMA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGiaMA)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>
