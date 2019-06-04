@@ -12,8 +12,11 @@ namespace Wedding_management_project.Models
         string strCon;
         public DataConnection()
         {
-            strCon = ConfigurationManager.ConnectionStrings["QuanLiMonAnConnectionString"].ConnectionString;
+            strCon = ConfigurationManager.ConnectionStrings["QuanLiTiecCuoiConnectionString"].ConnectionString;
         }
+
+        public IEnumerable<object> Categories { get; internal set; }
+
         public SqlConnection getConnection()
         {
             return new SqlConnection(strCon);
