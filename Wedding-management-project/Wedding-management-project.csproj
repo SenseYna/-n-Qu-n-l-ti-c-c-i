@@ -129,6 +129,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MonAnsController.cs" />
+    <Compile Include="Controllers\NhanViensController.cs" />
+    <Compile Include="Controllers\ThucUongsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,12 +141,14 @@
       <DependentUpon>MyData.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\QLMonAn.cs" />
+    <Compile Include="Models\QLNhanVien.cs" />
+    <Compile Include="Models\QLThucUong.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\QuanLiMonAn.mdf" />
-    <Content Include="App_Data\QuanLiMonAn_log.ldf">
-      <DependentUpon>QuanLiMonAn.mdf</DependentUpon>
+    <Content Include="App_Data\QuanLiTiecCuoi.mdf" />
+    <Content Include="App_Data\QuanLiTiecCuoi_log.ldf">
+      <DependentUpon>QuanLiTiecCuoi.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -201,8 +205,13 @@
     <Content Include="Views\Home\DichVu.cshtml" />
     <Content Include="Views\Home\BaoCao.cshtml" />
     <Content Include="Views\Home\DoanhThu.cshtml" />
-    <Content Include="Views\MonAns\Index.cshtml" />
     <Content Include="Views\MonAns\Create.cshtml" />
+    <Content Include="Views\NhanViens\Index.cshtml" />
+    <Content Include="Views\MonAns\Index.cshtml" />
+    <Content Include="Views\MonAns\Edit.cshtml" />
+    <Content Include="Views\MonAns\Delete.cshtml" />
+    <Content Include="Views\ThucUongs\Index.cshtml" />
+    <Content Include="Views\ThucUongs\Create.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

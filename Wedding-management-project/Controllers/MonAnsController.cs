@@ -17,6 +17,8 @@ namespace Wedding_management_project.Controllers
         }
         public ActionResult Create()
         {
+            ViewBag.Error = TempData["e"] == null ? "" : TempData["e"].ToString();
+            ViewBag.Files = TempData["file"] == null ? new List<string>() : (List<string>)TempData["file"];
             return View();
         }
 
@@ -24,13 +26,49 @@ namespace Wedding_management_project.Controllers
 
         public ActionResult Create(QLMonAn strMA)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) 
             {
+
                 ListMonAn MA = new ListMonAn();
                 MA.AddMonAn(strMA);
                 return RedirectToAction("Index");
             }
             return View();
+        }
+
+
+        //Sửa món ăn
+        public ActionResult Edit(string id ="")
+        {
+            ListMonAn MA = new ListMonAn();
+            List<QLMonAn> obj = MA.getMonAn(id);
+            return View(obj.FirstOrDefault());
+        }
+
+        [HttpPost]
+
+        public ActionResult Edit(QLMonAn strMA)
+        {
+                ListMonAn MA = new ListMonAn();
+                MA.EditMonAn(strMA);
+                return RedirectToAction("Index");
+        }
+
+        //Xóa món ăn
+        public ActionResult Delete(string id = "")
+        {
+            ListMonAn MA = new ListMonAn();
+            List<QLMonAn> obj = MA.getMonAn(id);
+            return View(obj.FirstOrDefault());
+        }
+
+        [HttpPost]
+
+        public ActionResult Delete(QLMonAn strMA)
+        {
+            ListMonAn MA = new ListMonAn();
+            MA.DeleteMonAn(strMA);
+            return RedirectToAction("Index");
         }
     }
 }
