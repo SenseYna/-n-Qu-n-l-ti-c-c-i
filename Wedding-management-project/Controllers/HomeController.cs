@@ -10,6 +10,7 @@ namespace Wedding_management_project.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
 

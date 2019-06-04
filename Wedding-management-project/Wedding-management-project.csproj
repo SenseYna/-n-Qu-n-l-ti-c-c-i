@@ -127,8 +127,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\code\SessionHelper.cs" />
+    <Compile Include="Areas\Admin\code\UserSession.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MonAnsController.cs" />
+    <Compile Include="Controllers\NhanViensController.cs" />
+    <Compile Include="Controllers\ThucUongsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,12 +146,14 @@
       <DependentUpon>MyData.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\QLMonAn.cs" />
+    <Compile Include="Models\QLNhanVien.cs" />
+    <Compile Include="Models\QLThucUong.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\QuanLiMonAn.mdf" />
-    <Content Include="App_Data\QuanLiMonAn_log.ldf">
-      <DependentUpon>QuanLiMonAn.mdf</DependentUpon>
+    <Content Include="App_Data\QuanLiTiecCuoi.mdf" />
+    <Content Include="App_Data\QuanLiTiecCuoi_log.ldf">
+      <DependentUpon>QuanLiTiecCuoi.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -165,6 +174,8 @@
       <LastGenOutput>MyData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <None Include="Models\MyData.dbml.layout">
       <DependentUpon>MyData.dbml</DependentUpon>
     </None>
@@ -201,10 +212,17 @@
     <Content Include="Views\Home\DichVu.cshtml" />
     <Content Include="Views\Home\BaoCao.cshtml" />
     <Content Include="Views\Home\DoanhThu.cshtml" />
-    <Content Include="Views\MonAns\Index.cshtml" />
     <Content Include="Views\MonAns\Create.cshtml" />
+    <Content Include="Views\NhanViens\Index.cshtml" />
+    <Content Include="Views\MonAns\Index.cshtml" />
+    <Content Include="Views\MonAns\Edit.cshtml" />
+    <Content Include="Views\MonAns\Delete.cshtml" />
+    <Content Include="Views\ThucUongs\Index.cshtml" />
+    <Content Include="Views\ThucUongs\Create.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Views\Shared\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -220,6 +238,15 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{921a31d3-805c-40ff-983c-b200ee168ff5}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
