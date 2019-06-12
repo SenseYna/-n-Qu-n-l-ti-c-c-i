@@ -37,7 +37,7 @@
                         <div class="card-body-icon">
                         </div>
                         <div class="media">
-                            <img class="ml-3 imgFixSize" src="https://znews-photo.zadn.vn/w660/Uploaded/zxgovb/2015_08_09/2.jpg"
+                            <img class="ml-3 imgFixSize" src="~/App_Data/"
                                  alt="..." style="
                           width: 200px;
                           height: 128px;
@@ -52,7 +52,7 @@
 
                     </div>
                     <div class="card-footer text-white clearfix small z-1" href="#">
-                        <a class="float-left"  @Html.ActionLink("Sửa", "Edit", new { id = item.ID }, new { @style = "color:White;" })
+                        <a class="float-left" @Html.ActionLink("Sửa", "Edit", new { id = item.ID }, new { @style = "color:White;" })
                         <a class="float-right" @Html.ActionLink("Xóa", "Delete", new { id = item.ID },new { @style = "color:White;" })
                     </div>
                 </div>

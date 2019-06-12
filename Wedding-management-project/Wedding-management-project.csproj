@@ -216,7 +216,6 @@
     <Content Include="Views\MonAns\Delete.cshtml" />
     <Content Include="Views\ThucUongs\Index.cshtml" />
     <Content Include="Views\ThucUongs\Create.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Start\NewFolder1\" />

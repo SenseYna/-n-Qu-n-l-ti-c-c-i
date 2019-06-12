@@ -18,8 +18,8 @@ namespace Wedding_management_project.Controllers
         }
         public ActionResult Create()
         {
-            ViewBag.LoaiMA = new SelectList(a.getMonAn(string.Empty), "LoaiMA", "LoaiMA");
-
+            ViewBag.Error = TempData["e"] == null ? "" : TempData["e"].ToString();
+            ViewBag.Files = TempData["file"] == null ? new List<string>() : (List<string>)TempData["file"];
             return View();
         }
 
@@ -50,9 +50,9 @@ namespace Wedding_management_project.Controllers
 
         public ActionResult Edit(QLMonAn strMA)
         {
-            ListMonAn MA = new ListMonAn();
-            MA.EditMonAn(strMA);
-            return RedirectToAction("Index");
+                ListMonAn MA = new ListMonAn();
+                MA.EditMonAn(strMA);
+                return RedirectToAction("Index");
         }
 
         //Xóa món ăn

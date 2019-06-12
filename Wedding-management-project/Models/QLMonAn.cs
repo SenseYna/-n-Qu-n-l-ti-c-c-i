@@ -29,6 +29,7 @@ namespace Wedding_management_project.Models
         [Required(ErrorMessage = "Bạn cần nhập vào Loại Món Ăn")]
         [Display(Name = "Loại món ăn")]
         public string LoaiMA { set; get; }
+
     }
     class ListMonAn
     {
@@ -99,7 +100,7 @@ namespace Wedding_management_project.Models
         // Sửa dữ liệu (sửa món ăn)
         public void EditMonAn(QLMonAn strMA)
         {
-            string sql = "UPDATE MonAn SET MaMA = N'" + strMA.MaMA + "', TenMA=N'" + strMA.TenMA + "', MoTaMA=N'" + strMA.MoTaMA + "', DonViTinh=N'" + strMA.DonViTinh + "', DonGiaMA=N'" + strMA.DonGiaMA + "' WHERE Id="+strMA.ID;
+            string sql = "UPDATE MonAn SET MaMA = N'" + strMA.MaMA + "', TenMA=N'" + strMA.TenMA + "', MoTaMA=N'" + strMA.MoTaMA + "', DonViTinh=N'" + strMA.DonViTinh + "', DonGiaMA=N'" + strMA.DonGiaMA + "', LoaiMA=N'" + strMA.LoaiMA + "' WHERE Id=" + strMA.ID;
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 
