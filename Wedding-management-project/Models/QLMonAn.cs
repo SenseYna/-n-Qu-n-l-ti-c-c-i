@@ -10,10 +10,8 @@ namespace Wedding_management_project.Models
 {
     public class QLMonAn
     {
-        public int ID { set; get; }
-        [Required(ErrorMessage = "Bạn cần nhập vào Mã Món Ăn")]
         [Display(Name = "Mã món ăn")]
-        public string MaMA { set; get; }
+        public string MAMA { set; get; }
         [Required(ErrorMessage = "Bạn cần nhập vào Tên Món Ăn")]
         [Display(Name = "Tên món ăn")]
         public string TenMA { set; get; }
@@ -27,7 +25,7 @@ namespace Wedding_management_project.Models
         [Display(Name = "Đơn giá")]
         public string DonGiaMA { set; get; }
         [Required(ErrorMessage = "Bạn cần nhập vào Loại Món Ăn")]
-        [Display(Name = "Loại món ăn")]
+        [Display(Name = "Loại")]
         public string LoaiMA { set; get; }
 
     }
@@ -40,16 +38,16 @@ namespace Wedding_management_project.Models
         }
 
         //Viết phương thức lấy dữ liệu nhân viên từ CSDL
-        public List<QLMonAn> getMonAn(string ID)
+        public List<QLMonAn> getMonAn(string MAMA)
         {
             string sql;
-            if (string.IsNullOrEmpty(ID))
+            if (string.IsNullOrEmpty(MAMA))
             {
                 sql = "SELECT * FROM MonAn";
             }
             else
             {
-                sql = "SELECT * FROM MonAn WHERE Id=" + ID;
+                sql = "SELECT * FROM MonAn WHERE MaMA='" + MAMA + "'";
             }
 
             List<QLMonAn> strList = new List<QLMonAn>();
@@ -70,8 +68,7 @@ namespace Wedding_management_project.Models
             {
                 strMA = new QLMonAn();
 
-                strMA.ID = Convert.ToInt32(dt.Rows[i]["ID"].ToString());
-                strMA.MaMA = dt.Rows[i]["MaMA"].ToString();
+                strMA.MAMA = dt.Rows[i]["MAMA"].ToString();
                 strMA.TenMA = dt.Rows[i]["TenMA"].ToString();
                 strMA.MoTaMA= dt.Rows[i]["MoTaMA"].ToString();
                 strMA.DonViTinh = dt.Rows[i]["DonViTinh"].ToString();
@@ -85,7 +82,7 @@ namespace Wedding_management_project.Models
         // Thêm dữ liệu (thêm món ăn)
         public void AddMonAn(QLMonAn strMA)
         {
-            string sql = "INSERT INTO MonAn(MaMA, TenMA, MoTaMA, DonViTinh, DonGiaMA, LoaiMA)VALUES(N'" + strMA.MaMA + "',N'" + strMA.TenMA + "',N'" + strMA.MoTaMA + "',N'" + strMA.DonViTinh + "',N'" + strMA.DonGiaMA + "',N'" + strMA.LoaiMA + "')";
+            string sql = "INSERT INTO MonAn(TenMA, MoTaMA, DonViTinh, DonGiaMA, LoaiMA)VALUES(N'" + strMA.TenMA + "',N'" + strMA.MoTaMA + "',N'" + strMA.DonViTinh + "',N'" + strMA.DonGiaMA + "',N'" + strMA.LoaiMA + "')";
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -100,7 +97,7 @@ namespace Wedding_management_project.Models
         // Sửa dữ liệu (sửa món ăn)
         public void EditMonAn(QLMonAn strMA)
         {
-            string sql = "UPDATE MonAn SET MaMA = N'" + strMA.MaMA + "', TenMA=N'" + strMA.TenMA + "', MoTaMA=N'" + strMA.MoTaMA + "', DonViTinh=N'" + strMA.DonViTinh + "', DonGiaMA=N'" + strMA.DonGiaMA + "', LoaiMA=N'" + strMA.LoaiMA + "' WHERE Id=" + strMA.ID;
+            string sql = "UPDATE MonAn SET  TenMA=N'" + strMA.TenMA + "', MoTaMA=N'" + strMA.MoTaMA + "', DonViTinh=N'" + strMA.DonViTinh + "', DonGiaMA=N'" + strMA.DonGiaMA + "', LoaiMA=N'" + strMA.LoaiMA + "' WHERE MaMA='" + strMA.MAMA + "'";
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -115,7 +112,7 @@ namespace Wedding_management_project.Models
         // Xóa dữ liệu (xóa món ăn)
         public void DeleteMonAn(QLMonAn strMA)
         {
-            string sql = "DELETE FROM MonAn WHERE Id=" + strMA.ID;
+            string sql = "DELETE FROM MonAn WHERE MaMA='" + strMA.MAMA + "'";
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 

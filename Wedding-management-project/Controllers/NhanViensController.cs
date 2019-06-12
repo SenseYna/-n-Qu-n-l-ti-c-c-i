@@ -16,6 +16,7 @@ namespace Wedding_management_project.Controllers
             List<QLNhanVien> obj = strNV.getNhanVien(string.Empty);
             return View(obj);
         }
+        //Thêm nhân viên
         public ActionResult Create()
         {
             return View();
@@ -32,6 +33,39 @@ namespace Wedding_management_project.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+        }
+        //Sửa nhân viên
+        public ActionResult Edit(string manv = "")
+        {
+            ListNhanVien NV = new ListNhanVien();
+            List<QLNhanVien> obj = NV.getNhanVien(manv);
+            return View(obj.FirstOrDefault());
+        }
+
+        [HttpPost]
+
+        public ActionResult Edit(QLNhanVien strNV)
+        {
+            ListNhanVien NV = new ListNhanVien();
+            NV.EditNhanVien(strNV);
+            return RedirectToAction("Index");
+        }
+
+        //Xóa nhân viên
+        public ActionResult Delete(string manv = "")
+        {
+            ListNhanVien NV = new ListNhanVien();
+            List<QLNhanVien> obj = NV.getNhanVien(manv);
+            return View(obj.FirstOrDefault());
+        }
+
+        [HttpPost]
+
+        public ActionResult Delete(QLNhanVien strNV)
+        {
+            ListNhanVien NV = new ListNhanVien();
+            NV.DeleteNhanVien(strNV);
+            return RedirectToAction("Index");
         }
     }
 }

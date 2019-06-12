@@ -8,11 +8,6 @@
 <h2>Index</h2>
 
 
-@{
-    ViewBag.Title = "NhanSu";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
@@ -20,226 +15,57 @@
     </li>
     <li class="breadcrumb-item active">Tables</li>
 </ol>
-<!-- DataTables admin -->
-<div class="card mb-3">
-    <div class="card-header">
-        <i class="fas fa-table"></i>
-        Danh sách admin
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>Mã NV</th>
-                        <th>Tên NV</th>
-                        <th>Giới tính</th>
-                        <th>Địa chỉ</th>
-                        <th>SĐT</th>
-                        <th>Email</th>
-                        <th>CNND</th>
-                        <th>Chức vụ</th>
-                        <th>username</th>
-                        <th>password</th>
-                        <th>      </th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>Mã NV</th>
-                        <th>Tên NV</th>
-                        <th>Giới tính</th>
-                        <th>Địa chỉ</th>
-                        <th>SĐT</th>
-                        <th>Email</th>
-                        <th>CNND</th>
-                        <th>Chức vụ</th>
-                        <th>username</th>
-                        <th>password</th>
-                        <th> </th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <td>KH01</td>
-                        <td>Đạt 09</td>
-                        <td>Chưa rõ</td>
-                        <td>KTX KHU B</td>
-                        <td>012345678</td>
-                        <td>dat09@gmail.com</td>
-                        <td>12345667</td>
-                        <td>giám đốc</td>
-                        <td>user1</td>
-                        <td>********</td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sửa</button>
-                            <button type="button" class="btn btn-success">Xoá</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>KH01</td>
-                        <td>Đạt 09</td>
-                        <td>Chưa rõ</td>
-                        <td>KTX KHU B</td>
-                        <td>012345678</td>
-                        <td>dat09@gmail.com</td>
-                        <td>12345667</td>
-                        <td>giám đốc</td>
-                        <td>user2</td>
-                        <td>******</td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sửa</button>
-                            <button type="button" class="btn btn-success">Xoá</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="card-footer small text-muted"> <button type="button" class="btn btn-success">Thêm admin</button></div>
-</div>
 <!-- DataTables nhân viên -->
 <div class="card mb-3">
     <div class="card-header">
         <i class="fas fa-table"></i>
         Danh sách nhân viên
     </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>@Html.DisplayNameFor(model => model.MaNV)</th>
-                        <th>@Html.DisplayNameFor(model => model.TenNV)</th>
-                        <th>@Html.DisplayNameFor(model => model.GioiTinh)</th>
-                        <th>@Html.DisplayNameFor(model => model.DiaChi)</th>
-                        <th>SĐT</th>
-                        <th>Email</th>
-                        <th>CNND</th>
-                        <th>Chức vụ</th>
-                        <th>username</th>
-                        <th>password</th>
-                        <th> </th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>Mã NV</th>
-                        <th>Tên NV</th>
-                        <th>Giới tính</th>
-                        <th>Địa chỉ</th>
-                        <th>SĐT</th>
-                        <th>Email</th>
-                        <th>CNND</th>
-                        <th>Chức vụ</th>
-                        <th>username</th>
-                        <th>password</th>
-                        <th> </th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <td>KH01</td>
-                        <td>Đạt 09</td>
-                        <td>Chưa rõ</td>
-                        <td>KTX KHU B</td>
-                        <td>012345678</td>
-                        <td>dat09@gmail.com</td>
-                        <td>12345667</td>
-                        <td>giám đốc</td>
-                        <td>user1</td>
-                        <td>********</td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sửa</button>
-                            <button type="button" class="btn btn-success">Xoá</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>KH01</td>
-                        <td>Đạt 09</td>
-                        <td>Chưa rõ</td>
-                        <td>KTX KHU B</td>
-                        <td>012345678</td>
-                        <td>dat09@gmail.com</td>
-                        <td>12345667</td>
-                        <td>giám đốc</td>
-                        <td>user2</td>
-                        <td>******</td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sửa</button>
-                            <button type="button" class="btn btn-success">Xoá</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.MANV)</th>
+                            <th>@Html.DisplayNameFor(model => model.TenNV)</th>
+                            <th>@Html.DisplayNameFor(model => model.GioiTinh)</th>
+                            <th>@Html.DisplayNameFor(model => model.DiaChi)</th>
+                            <th>@Html.DisplayNameFor(model => model.SĐT)</th>
+                            <th>@Html.DisplayNameFor(model => model.CMND)</th>
+                            <th>@Html.DisplayNameFor(model => model.Email)</th>
+                            <th>Chức vụ</th>
+                            <th>username</th>
+                            <th>password</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.MANV)</td>
+                                <td>@Html.DisplayFor(modelItem => item.TenNV)</td>
+                                <td>@Html.DisplayFor(modelItem => item.GioiTinh)</td>
+                                <td>@Html.DisplayFor(modelItem => item.DiaChi)</td>
+                                <td>@Html.DisplayFor(modelItem => item.SĐT)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CMND)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                <td>giám đốc</td>
+                                <td>user1</td>
+                                <td>********</td>
+                                <td>
+                                    <button type="button" class="btn btn-success">@Html.ActionLink("Sửa", "Edit", new { manv = item.MANV }, new { @style = "color:White;" }) </button>
+                                    <button type="button" class="btn btn-success">@Html.ActionLink("Xóa", "Delete", new { manv = item.MANV }, new { @style = "color:White;" })</button>
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </div>
         </div>
-    </div>
-    <div class="card-footer small text-muted"> <button type="button" class="btn btn-success" onclick="openSearch()">Thêm nhân viên</button></div>
+    <div class="card-footer small text-muted"> <button type="button" class="btn btn-warning">@Html.ActionLink("Thêm nhân viên", "Create")</button></div>
 </div>
 <p class="small text-center text-muted my-5">
     <em>More table examples coming soon...</em>
 </p>
-
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MaNV)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TenNV)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GioiTinh)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SĐT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CMND)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaNV)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenNV)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GioiTinh)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiaChi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SĐT)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CMND)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
-    }
-
-</table>

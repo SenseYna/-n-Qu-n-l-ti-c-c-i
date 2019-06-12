@@ -15,6 +15,7 @@ namespace Wedding_management_project.Controllers
             List<QLMonAn> obj = strMA.getMonAn(string.Empty);
             return View(obj);
         }
+        //Thêm món ăn
         public ActionResult Create()
         {
             ViewBag.Error = TempData["e"] == null ? "" : TempData["e"].ToString();
@@ -38,10 +39,10 @@ namespace Wedding_management_project.Controllers
 
 
         //Sửa món ăn
-        public ActionResult Edit(string id ="")
+        public ActionResult Edit(string mama ="")
         {
             ListMonAn MA = new ListMonAn();
-            List<QLMonAn> obj = MA.getMonAn(id);
+            List<QLMonAn> obj = MA.getMonAn(mama);
             return View(obj.FirstOrDefault());
         }
 
@@ -55,10 +56,10 @@ namespace Wedding_management_project.Controllers
         }
 
         //Xóa món ăn
-        public ActionResult Delete(string id = "")
+        public ActionResult Delete(string mama = "")
         {
             ListMonAn MA = new ListMonAn();
-            List<QLMonAn> obj = MA.getMonAn(id);
+            List<QLMonAn> obj = MA.getMonAn(mama);
             return View(obj.FirstOrDefault());
         }
 
