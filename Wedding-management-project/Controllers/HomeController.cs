@@ -4,19 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Wedding_management_project.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-
-            return View();
+                return View();
         }
 
         public ActionResult MonAn()
         {
-            return View();
+            return View("Index", "MonAnsController");
         }
 
         public ActionResult SoKhachHang()

@@ -33,6 +33,38 @@ namespace Wedding_management_project.Models
         [Display(Name = "Email NV")]
         public string Email { set; get; }
     }
+
+    public class Login
+    {
+        public Login (){}
+        public bool checkLogin(string userName, string passWord)
+        {
+            DataConnection db = new DataConnection();
+            SqlConnection con = db.getConnection();
+            string sql;
+            sql = "SELECT * FROM NhanVien";
+            SqlDataAdapter cmd = new SqlDataAdapter(sql, con);
+            DataTable dt = new DataTable("NhanVien");
+
+            //Mở kết nối
+            con.Open();
+            cmd.Fill(dt);
+
+            //Đóng kết nối
+            cmd.Dispose();
+            con.Close();
+            var Str = "MaNV = '" + userName + "' and GioiTinh = '" + passWord + "'";
+            DataRow[] rows = dt.Select(Str);  //(x => x.MaNV == userName && x => x.GioiTinh == passWord);
+            if (rows.Length > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
     class ListNhanVien
     {
         DataConnection db;
