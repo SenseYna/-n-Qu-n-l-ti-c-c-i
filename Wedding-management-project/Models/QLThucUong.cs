@@ -93,7 +93,7 @@ namespace Wedding_management_project.Models
             con.Close();
         }
         // Sửa dữ liệu (sửa món ăn)
-        public void EditMonAn(QLThucUong strTU)
+        public void EditThucUong(QLThucUong strTU)
         {
             string sql = "UPDATE ThucUong SET MaTU = N'" + strTU.MaTU + "', TenTU=N'" + strTU.TenTU + "', MoTaTU=N'" + strTU.MoTaTU + "', DonViTinh=N'" + strTU.DonViTinh + "', DonGiaTU=N'" + strTU.DonGiaTU + "' WHERE Id=" + strTU.ID;
             SqlConnection con = db.getConnection();

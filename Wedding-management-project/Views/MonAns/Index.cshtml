@@ -43,7 +43,7 @@
                           height: 128px;
                       ">
                         </div>
-                        <div class="mr-5">@Html.DisplayNameFor(model => model.MaMA): @Html.DisplayFor(modelItem => item.MaMA) </div>
+                        <div class="mr-5">@Html.DisplayNameFor(model => model.MAMA): @Html.DisplayFor(modelItem => item.MAMA) </div>
                         <div class="mr-5">@Html.DisplayNameFor(model => model.TenMA): @Html.DisplayFor(modelItem => item.TenMA)</div>
                         <div class="mr-5">@Html.DisplayNameFor(model => model.MoTaMA): @Html.DisplayFor(modelItem => item.MoTaMA)</div>
                         <div class="mr-5">@Html.DisplayNameFor(model => model.DonViTinh): @Html.DisplayFor(modelItem => item.DonViTinh)</div>
@@ -52,15 +52,15 @@
 
                     </div>
                     <div class="card-footer text-white clearfix small z-1" href="#">
-                        <a class="float-left" @Html.ActionLink("Sửa", "Edit", new { id = item.ID }, new { @style = "color:White;" })
-                        <a class="float-right" @Html.ActionLink("Xóa", "Delete", new { id = item.ID },new { @style = "color:White;" })
+                        <a class="float-left" @Html.ActionLink("Sửa", "Edit", new { mama = item.MAMA }, new { @style = "color:White;" })
+                        <a class="float-right" @Html.ActionLink("Xóa", "Delete", new { mama = item.MAMA },new { @style = "color:White;" })
                     </div>
                 </div>
             </div>
         }
     </div>
     <div class="card-header">
-        <button type="button" class="btn btn-warning" onclick="">@Html.ActionLink("Thêm món ăn", "Create", new { @style = "color:White;" })</button>
+        <button type="button" class="btn btn-warning" onclick="">@Html.ActionLink("Thêm món ăn", "Create")</button>
     </div>
 </div>
 
