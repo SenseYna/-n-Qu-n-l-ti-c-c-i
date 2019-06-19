@@ -12,3 +12,17 @@ C:\Users\Administrator\Desktop\Wedding-management-project\Models\obj\Debug\Model
 C:\Users\Administrator\Desktop\Wedding-management-project\Models\obj\Debug\Models.csproj.CopyComplete
 C:\Users\Administrator\Desktop\Wedding-management-project\Models\obj\Debug\Models.dll
 C:\Users\Administrator\Desktop\Wedding-management-project\Models\obj\Debug\Models.pdb
+C:\Users\thien\Desktop\Wedding-management-project\Models\bin\Debug\QuanLiTiecCuoi.mdf
+C:\Users\thien\Desktop\Wedding-management-project\Models\bin\Debug\QuanLiTiecCuoi_log.ldf
+C:\Users\thien\Desktop\Wedding-management-project\Models\bin\Debug\Models.dll.config
+C:\Users\thien\Desktop\Wedding-management-project\Models\bin\Debug\Models.dll
+C:\Users\thien\Desktop\Wedding-management-project\Models\bin\Debug\Models.pdb
+C:\Users\thien\Desktop\Wedding-management-project\Models\bin\Debug\EntityFramework.dll
+C:\Users\thien\Desktop\Wedding-management-project\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\thien\Desktop\Wedding-management-project\Models\bin\Debug\EntityFramework.xml
+C:\Users\thien\Desktop\Wedding-management-project\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\thien\Desktop\Wedding-management-project\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\Users\thien\Desktop\Wedding-management-project\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\thien\Desktop\Wedding-management-project\Models\obj\Debug\Models.csproj.CopyComplete
+C:\Users\thien\Desktop\Wedding-management-project\Models\obj\Debug\Models.dll
+C:\Users\thien\Desktop\Wedding-management-project\Models\obj\Debug\Models.pdb

@@ -14,6 +14,7 @@ namespace Wedding_management_project.Common
             MD5 md5 = new MD5CryptoServiceProvider();
 
             //compute hash from the bytes of text  
+            if (text == null) text = "";
             md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
 
             //get hash result after compute it  

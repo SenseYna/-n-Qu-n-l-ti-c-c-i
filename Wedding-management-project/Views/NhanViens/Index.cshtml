@@ -33,9 +33,8 @@
                             <th>@Html.DisplayNameFor(model => model.SĐT)</th>
                             <th>@Html.DisplayNameFor(model => model.CMND)</th>
                             <th>@Html.DisplayNameFor(model => model.Email)</th>
-                            <th>Chức vụ</th>
-                            <th>username</th>
-                            <th>password</th>
+                            <th>@Html.DisplayNameFor(model => model.Password)</th>
+
                             <th> </th>
                         </tr>
                     </thead>
@@ -50,9 +49,8 @@
                                 <td>@Html.DisplayFor(modelItem => item.SĐT)</td>
                                 <td>@Html.DisplayFor(modelItem => item.CMND)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                                <td>giám đốc</td>
-                                <td>user1</td>
-                                <td>********</td>
+                                <td>@Html.DisplayFor(modelItem => item.Password)</td>
+
                                 <td>
                                     <button type="button" class="btn btn-success">@Html.ActionLink("Sửa", "Edit", new { manv = item.MANV }, new { @style = "color:White;" }) </button>
                                     <button type="button" class="btn btn-success">@Html.ActionLink("Xóa", "Delete", new { manv = item.MANV }, new { @style = "color:White;" })</button>

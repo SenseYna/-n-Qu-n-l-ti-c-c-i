@@ -238,3 +238,5 @@ C:\Users\Administrator\Desktop\Wedding-management-project\Wedding-management-pro
 C:\Users\Administrator\Desktop\Wedding-management-project\Wedding-management-project\obj\Debug\Wedding-management-project.csproj.CopyComplete
 C:\Users\Administrator\Desktop\Wedding-management-project\Wedding-management-project\obj\Debug\Wedding-management-project.dll
 C:\Users\Administrator\Desktop\Wedding-management-project\Wedding-management-project\obj\Debug\Wedding-management-project.pdb
+C:\Users\thien\Desktop\Wedding-management-project\Wedding-management-project\bin\QuanLiTiecCuoi.mdf
+C:\Users\thien\Desktop\Wedding-management-project\Wedding-management-project\bin\QuanLiTiecCuoi_log.ldf

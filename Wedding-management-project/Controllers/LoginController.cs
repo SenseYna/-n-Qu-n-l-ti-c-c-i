@@ -23,6 +23,7 @@ namespace Wedding_management_project.Controllers
         public ActionResult Login(LoginModel model)
         {
             var dao = new Login();
+            if (model.Password == null) model.Password = "";
             var result = dao.checkLogin(model.UserName, Encryptor.MD5Hash(model.Password));
             if (result)
             {
@@ -34,6 +35,12 @@ namespace Wedding_management_project.Controllers
             {
                 ModelState.AddModelError("", "Đăng nhập không đúng.");
             }
+            return View("Index");
+        }
+
+        public ActionResult ClearSession()
+        {
+            Session.Clear();
             return View("Index");
         }
     }

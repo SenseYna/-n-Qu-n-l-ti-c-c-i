@@ -17,5 +17,6 @@ namespace Wedding_management_project
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+      
     }
 }

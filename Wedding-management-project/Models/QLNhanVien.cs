@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using Wedding_management_project.Common;
 
 namespace Wedding_management_project.Models
 {
@@ -30,6 +31,9 @@ namespace Wedding_management_project.Models
         [Required(ErrorMessage = "Bạn cần nhập vào Email NV")]
         [Display(Name = "Email")]
         public string Email { set; get; }
+        [Required(ErrorMessage = "Bạn cần nhập vào Password")]
+        [Display(Name = "Password")]
+        public string Password { set; get; }
     }
 
     public class Login
@@ -51,7 +55,8 @@ namespace Wedding_management_project.Models
             //Đóng kết nối
             cmd.Dispose();
             con.Close();
-            var Str = "MaNV = '" + userName + "' and GioiTinh = '" + passWord + "'";
+            var Str = "MaNV = '" + userName + "' and Password = '" + passWord + "'";
+       
             DataRow[] rows = dt.Select(Str);  //(x => x.MaNV == userName && x => x.GioiTinh == passWord);
             if (rows.Length > 0)
             {
@@ -109,6 +114,7 @@ namespace Wedding_management_project.Models
                 strNV.SĐT = dt.Rows[i]["SĐT"].ToString();
                 strNV.CMND = dt.Rows[i]["CMND"].ToString();
                 strNV.Email = dt.Rows[i]["Email"].ToString();
+                strNV.Password = dt.Rows[i]["Password"].ToString();
 
                 strList.Add(strNV);
             }
@@ -117,7 +123,8 @@ namespace Wedding_management_project.Models
         // Thêm dữ liệu (thêm nhân viên)
         public void AddNhanVien(QLNhanVien strNV)
         {
-            string sql = "INSERT INTO NhanVien(TenNV, GioiTinh, DiaChi, SĐT, CMND, Email)VALUES(N'" + strNV.TenNV + "',N'" + strNV.GioiTinh + "',N'" + strNV.DiaChi + "',N'" + strNV.SĐT + "',N'" + strNV.CMND + "',N'" + strNV.Email + "')";
+            
+            string sql = "INSERT INTO NhanVien(TenNV, GioiTinh, DiaChi, SĐT, CMND, Email, Password)VALUES(N'" + strNV.TenNV + "',N'" + strNV.GioiTinh + "',N'" + strNV.DiaChi + "',N'" + strNV.SĐT + "',N'" + strNV.CMND + "',N'" + strNV.Email + "',N'" + Encryptor.MD5Hash(strNV.Password) + "')";
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -132,7 +139,8 @@ namespace Wedding_management_project.Models
         //Sửa dữ liệu nhân viên
         public void EditNhanVien(QLNhanVien strNV)
         {
-            string sql = "UPDATE NhanVien SET  TenNV=N'" + strNV.TenNV + "', GioiTinh=N'" + strNV.GioiTinh + "', DiaChi=N'" + strNV.DiaChi + "', SĐT=N'" + strNV.SĐT + "', CMND=N'" + strNV.CMND + "', Email=N'" + strNV.Email + "' WHERE MaNV='" + strNV.MANV +"'" ;
+           
+            string sql = "UPDATE NhanVien SET  TenNV=N'" + strNV.TenNV + "', GioiTinh=N'" + strNV.GioiTinh + "', DiaChi=N'" + strNV.DiaChi + "', SĐT=N'" + strNV.SĐT + "', CMND=N'" + strNV.CMND + "', Email=N'" + strNV.Email + "', Password=N'" + Encryptor.MD5Hash(strNV.Password) + "' WHERE MaNV='" + strNV.MANV +"'" ;
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 
