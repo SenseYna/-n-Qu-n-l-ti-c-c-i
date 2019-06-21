@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Admin - Quản lí tiệc cưới</title>
+    <title> Home - Quản lí tiệc cưới</title>
 
     <!-- Useless-->
     <link href="~/Content/js/sb-admin.min.js" rel="stylesheet" type="text/javascript" />
@@ -94,10 +94,10 @@
         <ul class="sidebar navbar-nav nav" >
             <li class="nav-item active">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                @Html.ActionLink("Trang chủ", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                @Html.ActionLink("Trang chủ", "Index", "Home", new { area = "Admin" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Thực đơn", "Index", "MonAns", new { area = "" }, new { @class = "nav-link" })
+                @Html.ActionLink("Thực đơn", "Index", "MonAns", new { area = "Admin" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
                 @Html.ActionLink("Dịch vụ", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
