@@ -91,7 +91,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="sidebar navbar-nav nav" >
+        <ul class="sidebar navbar-nav nav">
             <li class="nav-item active">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 @Html.ActionLink("Trang chủ", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
@@ -100,11 +100,8 @@
                 @Html.ActionLink("Thực đơn", "Index", "MonAns", new { area = "" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Dịch vụ", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
-            </li>
-            <li class="nav-item">
-                @Html.ActionLink("Doanh Thu", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
-            </li>
+                @Html.ActionLink("Dịch vụ", "Index", "DichVus", new { area = "" }, new { @class = "nav-link" })
+            </li>>
             <li class="nav-item">
                 @Html.ActionLink("Nhân sự", "Index", "NhanViens", new { area = "" }, new { @class = "nav-link" })
             </li>
@@ -112,13 +109,16 @@
                 @Html.ActionLink("Báo cáo", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Sổ Khách Hàng", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                @Html.ActionLink("Khách Hàng", "Index", "KhachHangs", new { area = "" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Phiếu Khách Hàng", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                @Html.ActionLink("Phiếu đặt tiệc", "Index", "PhieuDatTiecs", new { area = "" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Hóa đơn", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                @Html.ActionLink("Sổ đặt tiệc", "Index", "SoDatTiecs", new { area = "" }, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Phiếu theo dõi tiệc", "Index", "PhieuTheoDoiTiecs", new { area = "" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
                 @Html.ActionLink("Đăng xuất", "ClearSession", "Login", new { area = "" }, new { @class = "nav-link" })

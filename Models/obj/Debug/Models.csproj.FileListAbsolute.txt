@@ -26,3 +26,17 @@ C:\Users\thien\Desktop\Wedding-management-project\Models\obj\Debug\Models.csproj
 C:\Users\thien\Desktop\Wedding-management-project\Models\obj\Debug\Models.csproj.CopyComplete
 C:\Users\thien\Desktop\Wedding-management-project\Models\obj\Debug\Models.dll
 C:\Users\thien\Desktop\Wedding-management-project\Models\obj\Debug\Models.pdb
+D:\Học Đại\CNPM\Wedding-management-project\Models\bin\Debug\QuanLiTiecCuoi.mdf
+D:\Học Đại\CNPM\Wedding-management-project\Models\bin\Debug\QuanLiTiecCuoi_log.ldf
+D:\Học Đại\CNPM\Wedding-management-project\Models\bin\Debug\Models.dll.config
+D:\Học Đại\CNPM\Wedding-management-project\Models\bin\Debug\Models.dll
+D:\Học Đại\CNPM\Wedding-management-project\Models\bin\Debug\Models.pdb
+D:\Học Đại\CNPM\Wedding-management-project\Models\bin\Debug\EntityFramework.dll
+D:\Học Đại\CNPM\Wedding-management-project\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\Học Đại\CNPM\Wedding-management-project\Models\bin\Debug\EntityFramework.xml
+D:\Học Đại\CNPM\Wedding-management-project\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\Học Đại\CNPM\Wedding-management-project\Models\obj\Debug\Models.csprojAssemblyReference.cache
+D:\Học Đại\CNPM\Wedding-management-project\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\Học Đại\CNPM\Wedding-management-project\Models\obj\Debug\Models.csproj.CopyComplete
+D:\Học Đại\CNPM\Wedding-management-project\Models\obj\Debug\Models.dll
+D:\Học Đại\CNPM\Wedding-management-project\Models\obj\Debug\Models.pdb

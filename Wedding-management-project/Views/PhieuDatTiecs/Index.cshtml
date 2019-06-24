@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Wedding_management_project.Models.QLPhieuDatTiec>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Tables</li>
+        </ol>
+
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Sổ khách hàng
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+
+                                <th>@Html.DisplayNameFor(model => model.MAPDT)</th>
+                                <th>@Html.DisplayNameFor(model => model.MaKH)</th>
+                                <th>@Html.DisplayNameFor(model => model.MaNV)</th>
+                                <th>@Html.DisplayNameFor(model => model.MaS)</th>
+                                <th>@Html.DisplayNameFor(model => model.TenCR)</th>
+                                <th>@Html.DisplayNameFor(model => model.TenCD)</th>
+                                <th>@Html.DisplayNameFor(model => model.NgayTC)</th>
+                                <th>@Html.DisplayNameFor(model => model.GioTC)</th>
+                                <th>@Html.DisplayNameFor(model => model.SoMamDK)</th>
+                                <th>@Html.DisplayNameFor(model => model.SoTienCocTT)</th>
+                                <th>@Html.DisplayNameFor(model => model.GhiChu)</th>
+                                <th>@Html.DisplayNameFor(model => model.NgayTao)</th>
+                            </tr>
+                        </thead>
+                        @foreach (var item in Model)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.MAPDT)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MaKH)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MaNV)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MaS)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TenCR)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TenCD)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.NgayTC)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.GioTC)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SoMamDK)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SoTienCocTT)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.GhiChu)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.NgayTao)</td>
+                                    <td>
+                                        <button type="button" class="btn btn-success">@Html.ActionLink("Sửa", "Edit", new { mapdt = item.MAPDT }, new { @style = "color:White;" }) </button>
+                                        <button type="button" class="btn btn-success">@Html.ActionLink("Xóa", "Delete", new { mapdt = item.MAPDT }, new { @style = "color:White;" })</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+                        </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted"> <button type="button" class="btn btn-warning">@Html.ActionLink("Thêm phiếu đặt tiệc", "Create")</button></div>
+        </div>
+
+        <p class="small text-center text-muted my-5">
+            <em>More table examples coming soon...</em>
+        </p>
+
+    </div>
+    <!-- /.container-fluid -->
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright © KyNguyen 2019</span>
+            </div>
+        </div>
+    </footer>
+</div>
