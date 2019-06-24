@@ -5,13 +5,15 @@ using System.Web;
 using System.Web.Mvc;
 using Wedding_management_project.Common;
 
-namespace Wedding_management_project.Controllers
+namespace Wedding_management_project.Areas.User.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "Login", new { area = "User" });
+           
+            if (Session[CommonConstants.USER_SESSION] == null) return RedirectToAction("Index", "Login"); //Check session Đăng nhập
+            return View();
         }
 
         

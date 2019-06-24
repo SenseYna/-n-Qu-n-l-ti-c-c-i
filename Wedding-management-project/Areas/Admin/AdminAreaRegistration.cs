@@ -17,7 +17,9 @@ namespace Wedding_management_project.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+             //   new { Controller = "Home"},
+                new[] { "Wedding_management_project.Areas.Admin.Controllers" }
             );
         }
     }

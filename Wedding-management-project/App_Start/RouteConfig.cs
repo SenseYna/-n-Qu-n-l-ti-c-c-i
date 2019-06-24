@@ -18,7 +18,8 @@ namespace Wedding_management_project
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index",  id = UrlParameter.Optional },
+                namespaces: new string[] { "Wedding_management_project.Controllers" }
             );   
 
         }

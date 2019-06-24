@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Home - Quản lí tiệc cưới</title>
+    <title> Admin - Quản lí tiệc cưới</title>
 
     <!-- Useless-->
     <link href="~/Content/js/sb-admin.min.js" rel="stylesheet" type="text/javascript" />
@@ -100,28 +100,31 @@
                 @Html.ActionLink("Thực đơn", "Index", "MonAns", new { area = "Admin" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Dịch vụ", "Index", "DichVus", new { area = "" }, new { @class = "nav-link" })
-            </li>>
-            <li class="nav-item">
-                @Html.ActionLink("Nhân sự", "Index", "NhanViens", new { area = "" }, new { @class = "nav-link" })
+                @Html.ActionLink("Dịch vụ", "Index", "Home", new { area = "Admin" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Báo cáo", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                @Html.ActionLink("Doanh Thu", "Index", "Home", new { area = "Admin" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Khách Hàng", "Index", "KhachHangs", new { area = "" }, new { @class = "nav-link" })
+                @Html.ActionLink("Nhân sự", "Index", "NhanViens", new { area = "Admin" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Phiếu đặt tiệc", "Index", "PhieuDatTiecs", new { area = "" }, new { @class = "nav-link" })
+                @Html.ActionLink("Báo cáo", "Index", "Home", new { area = "Admin" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Sổ đặt tiệc", "Index", "SoDatTiecs", new { area = "" }, new { @class = "nav-link" })
+                @Html.ActionLink("Sổ Khách Hàng", "Index", "Home", new { area = "Admin" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Phiếu theo dõi tiệc", "Index", "PhieuTheoDoiTiecs", new { area = "" }, new { @class = "nav-link" })
+                @Html.ActionLink("Phiếu Khách Hàng", "Index", "Home", new { area = "Admin" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Đăng xuất", "ClearSession", "Login", new { area = "" }, new { @class = "nav-link" })
+                @Html.ActionLink("Hóa đơn", "Index", "Home", new { area = "Admin" }, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Nhân viên", "Index", "Home", new { area = "User" }, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Đăng xuất", "Index", "Logout", new { area = "Admin" }, new { @class = "nav-link" })
             </li>
         </ul>
 
