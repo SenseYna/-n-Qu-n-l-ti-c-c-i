@@ -1,0 +1,908 @@
+﻿
+@{
+    ViewBag.Title = "HoaDon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Tables</li>
+</ol>
+<!-- Tìm kiếm khách hàng  -->
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Nhập mã khách hàng / Tên khách hàng"
+           aria-label="Recipient's username" aria-describedby="button-addon2">
+    <div class="">
+        <button class="btn btn-warning" type="button" id="button-addon2">Tìm kiếm</button>
+    </div>
+</div>
+<!-- DataTables hoá đơn cọc trước tiệc -->
+<div class="card mb-3">
+    <div class="card-header">
+        <button type="button" class="btn btn-success">Danh sách hoá đơn cọc trước tiệc</button>
+        <button type="button" class="btn btn-success">Thêm hoá đơn cọc trước tiệc </button>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã cọc</th>
+                        <th>Loại cọc</th>
+                        <th>Mã NV quản lí</th>
+                        <th>Mã NV thu ngân</th>
+                        <th>Mã KH</th>
+                        <th>Tên KH</th>
+                        <th>SĐT</th>
+                        <th>Địa chỉ</th>
+                        <th>CMND</th>
+                        <th>Tên cô dâu</th>
+                        <th>Tên chú rể</th>
+                        <th>Ngày tổ chức </th>
+                        <th>Giờ tổ chức</th>
+                        <th>Sảnh tổ chức</th>
+                        <th>Số mâm dự kiến</th>
+                        <th>Số tiền đặc cọc</th>
+                        <th>Ngày đặt cọc</th>
+                        <th> </th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user1</td>
+                        <td>********</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sửa</button>
+                            <button type="button" class="btn btn-success">Xoá</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="openHoaDonCocTruocTiec()">
+                                In hoá
+                                đơn
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user1</td>
+                        <td>********</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sửa</button>
+                            <button type="button" class="btn btn-success">Xoá</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="openHoaDonCocTruocTiec()">
+                                In hoá
+                                đơn
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user1</td>
+                        <td>********</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sửa</button>
+                            <button type="button" class="btn btn-success">Xoá</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="openHoaDonCocTruocTiec()">
+                                In hoá
+                                đơn
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user1</td>
+                        <td>********</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sửa</button>
+                            <button type="button" class="btn btn-success">Xoá</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="openHoaDonCocTruocTiec()">
+                                In hoá
+                                đơn
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user1</td>
+                        <td>********</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sửa</button>
+                            <button type="button" class="btn btn-success">Xoá</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="openHoaDonCocTruocTiec()">
+                                In hoá
+                                đơn
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user1</td>
+                        <td>********</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sửa</button>
+                            <button type="button" class="btn btn-success">Xoá</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="openHoaDonCocTruocTiec()">
+                                In hoá
+                                đơn
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user1</td>
+                        <td>********</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sửa</button>
+                            <button type="button" class="btn btn-success">Xoá</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="openHoaDonCocTruocTiec()">
+                                In hoá
+                                đơn
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user1</td>
+                        <td>********</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sửa</button>
+                            <button type="button" class="btn btn-success">Xoá</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="openHoaDonCocTruocTiec()">
+                                In hoá
+                                đơn
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- DataTables hoá đơn cọc giữa tiệc -->
+<div class="card mb-3">
+    <div class="card-header">
+        <button type="button" class="btn btn-success">Danh sách hoá đơn cọc giữa tiệc</button>
+        <button type="button" class="btn btn-success">Thêm hoá đơn cọc giữa tiệc </button>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã cọc</th>
+                        <th>Loại cọc</th>
+                        <th>Mã NV quản lí</th>
+                        <th>Mã NV thu ngân</th>
+                        <th>Mã KH</th>
+                        <th>Tên KH</th>
+                        <th>SĐT</th>
+                        <th>Địa chỉ</th>
+                        <th>CMND</th>
+                        <th>Tên cô dâu</th>
+                        <th>Tên chú rể</th>
+                        <th>Ngày tổ chức </th>
+                        <th>Giờ tổ chức</th>
+                        <th>Sảnh tổ chức</th>
+                        <th>Số mâm dự kiến</th>
+                        <th>Số lượng mâm phát sinh</th>
+                        <th>Mã memu</th>
+                        <th>Đơn giá menu</th>
+                        <th>Giá Hoa</th>
+                        <th>Giá Nhạc</th>
+                        <th>Giá MC</th>
+                        <th>Giá Vũ Công</th>
+                        <th>Giá bánh cưới</th>
+                        <th>Số tiền đặc cọc</th>
+                        <th>Ngày đặt cọc</th>
+                        <th> </th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user1</td>
+                        <td>********</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sửa</button>
+                            <button type="button" class="btn btn-success">Xoá</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="openHoaDonCocGiuaTiec()">
+                                In hoá
+                                đơn
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user1</td>
+                        <td>********</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sửa</button>
+                            <button type="button" class="btn btn-success">Xoá</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="openHoaDonCocGiuaTiec()">
+                                In hoá
+                                đơn
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- DataTables hoá đơn thanh toán cuối tiệc -->
+<div class="card mb-3">
+    <div class="card-header">
+        <button type="button" class="btn btn-success">Danh sách hoá đơn thanh toán</button>
+        <button type="button" class="btn btn-success">Thêm hoá đơn thanh toán </button>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã cọc</th>
+                        <th>Loại cọc</th>
+                        <th>Mã NV quản lí</th>
+                        <th>Mã NV thu ngân</th>
+                        <th>Mã KH</th>
+                        <th>Tên KH</th>
+                        <th>SĐT</th>
+                        <th>Địa chỉ</th>
+                        <th>CMND</th>
+                        <th>Tên cô dâu</th>
+                        <th>Tên chú rể</th>
+                        <th>Ngày tổ chức </th>
+                        <th>Giờ tổ chức</th>
+                        <th>Sảnh tổ chức</th>
+                        <th>Số mâm dự kiến</th>
+                        <th>Số lượng mâm phát sinh</th>
+                        <th>Mã memu</th>
+                        <th>Đơn giá menu</th>
+                        <th>Giá Hoa</th>
+                        <th>Giá Nhạc</th>
+                        <th>Giá MC</th>
+                        <th>Giá Vũ Công</th>
+                        <th>Giá bánh cưới</th>
+                        <th>Số tiền đặc cọc</th>
+                        <th>Ngày đặt cọc</th>
+                        <th> </th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user1</td>
+                        <td>********</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sửa</button>
+                            <button type="button" class="btn btn-success">Xoá</button>
+                        </td>
+                        <td><button type="button" class="btn btn-success" onclick="openHoaDonThanhToanTiec()">In hoá đơn</button></td>
+                    </tr>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user1</td>
+                        <td>********</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sửa</button>
+                            <button type="button" class="btn btn-success">Xoá</button>
+                        </td>
+                        <td><button type="button" class="btn btn-success" onclick="openHoaDonThanhToanTiec()">In hoá đơn</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<p class="small text-center text-muted my-5">
+    <em>More table examples coming soon...</em>
+</p>
+<!-- table dữ liệu để hiển thị hoá đơn cọc trước tiệc -->
+<div id="hoaDonCocTruocTiec" style="height: 100%;
+        width: 100%;
+        display: none;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0, 0.9); ">
+    <span class="closebtn" onclick="closeHoaDonCocTruocTiec()" title="Close Overlay" style="color:#fff">x</span>
+    <div class="overlay-content">
+        <form action="action_page.php">
+            <div class="form-group">
+                <h1 style="color:#fff">HOÁ ĐƠN THANH TOÁN CỌC TRƯỚC TIỆC</h1>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputCity" style="color:#fff">Mã cọc</label>
+                    <input type="text" class="form-control" id="inputMaCoc">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputCity" style="color:#fff">Loại cọc</label>
+                    <input type="text" class="form-control" id="inputLoaiCoc">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputZip" style="color:#fff">Mã nhân viên quản lí</label>
+                    <input type="text" class="form-control" id="inputNVQL">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputCity" style="color:#fff">Mã nhân viên thu ngân</label>
+                    <input type="text" class="form-control" id="inputNVTN">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-1">
+                    <label for="inputEmail4" style="color:#fff">Mã khách hàng</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Mã khách hàng">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4" style="color:#fff">Tên Khách hàng</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="Tên khách hàng">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputPassword4" style="color:#fff">Số điện thoại</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="Số điện thoại">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputPassword4" style="color:#fff">Địa chỉ</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="Địa chỉ">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputPassword4" style="color:#fff">CMND</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="CMND">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4" style="color:#fff">Tên Chú rể</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Tên chú rể">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4" style="color:#fff">Tên cô dâu</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Tên cô dâu">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4" style="color:#fff">Ngày tổ chức</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Ngày tổ chức">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4" style="color:#fff">Giờ tổ chức</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Giờ tổ chức">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4" style="color:#fff">Sảnh tổ chức</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Sảnh tổ chức">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4" style="color:#fff">Mâm dự kiến </label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Mâm dự kiến">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress" style="color:#fff">Số tiền cọc</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Số tiền cọc">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2" style="color:#fff">Ngày cọc</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Ngày cọc">
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck" style="color:#fff">
+                        Duyệt in hoá đơn
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">In hoá đơn</button>
+        </form>
+    </div>
+</div>
+<!-- table dữ liệu để hiển thị hoá đơn cọc giữa tiệc -->
+<div id="hoaDonCocGiuaTiec" style="height: 100%;
+                width: 100%;
+                display: none;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0, 0.9); ">
+    <span class="closebtn" onclick="closeHoaDonCocGiuaTiec()" title="Close Overlay" style="color:#fff">x</span>
+    <div class="overlay-content">
+        <form action="action_page.php">
+            <div class="form-group">
+                <h1 style="color:#fff">HOÁ ĐƠN THANH TOÁN CỌC GIỮA TIỆC</h1>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputCity" style="color:#fff">Mã cọc</label>
+                    <input type="text" class="form-control" id="inputMaCoc">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputCity" style="color:#fff">Loại cọc</label>
+                    <input type="text" class="form-control" id="inputLoaiCoc">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputZip" style="color:#fff">Mã nhân viên quản lí</label>
+                    <input type="text" class="form-control" id="inputNVQL">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputCity" style="color:#fff">Mã nhân viên thu ngân</label>
+                    <input type="text" class="form-control" id="inputNVTN">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-1">
+                    <label for="inputEmail4" style="color:#fff">Mã khách hàng</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Mã khách hàng">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4" style="color:#fff">Tên Khách hàng</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="Tên khách hàng">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputPassword4" style="color:#fff">Số điện thoại</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="Số điện thoại">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputPassword4" style="color:#fff">Địa chỉ</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="Địa chỉ">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputPassword4" style="color:#fff">CMND</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="CMND">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4" style="color:#fff">Tên Chú rể</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Tên chú rể">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4" style="color:#fff">Tên cô dâu</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Tên cô dâu">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4" style="color:#fff">Ngày tổ chức</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Ngày tổ chức">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4" style="color:#fff">Giờ tổ chức</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Giờ tổ chức">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Sảnh tổ chức</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Sảnh tổ chức">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Mâm dự kiến </label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Mâm dự kiến">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Mâm phát sinh </label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Mâm phát sinh">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-1">
+                    <label for="inputEmail4" style="color:#fff">Mã menu</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Ngày tổ chức">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="inputEmail4" style="color:#fff">Đơn giá menu</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Đơn giá menu">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Giá hoa</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Giá hoa">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Giá nhạc</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Giá nhạc">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Giá MC </label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Giá MC">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Giá vũ công </label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Giá vũ công">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Giá bánh cưới </label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Giá bánh cưới">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress" style="color:#fff">Số tiền cọc</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Số tiền cọc">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2" style="color:#fff">Ngày cọc</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Ngày cọc">
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck" style="color:#fff">
+                        Duyệt in hoá đơn
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">In hoá đơn</button>
+        </form>
+    </div>
+</div>
+<!-- table dữ liệu để hiển thị hoá đơn thanh toán tiệc -->
+<div id="hoaDonThanhToan" style="height: 100%;
+                width: 100%;
+                display: none;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0, 0.9); ">
+    <span class="closebtn" onclick="closeHoaDonThanhToanTiec()" title="Close Overlay" style="color:#fff">x</span>
+    <div class="overlay-content">
+        <form action="action_page.php">
+            <div class="form-group">
+                <h1 style="color:#fff">HOÁ ĐƠN THANH TOÁN TIỆC</h1>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputCity" style="color:#fff">Mã cọc</label>
+                    <input type="text" class="form-control" id="inputMaCoc">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputCity" style="color:#fff">Loại cọc</label>
+                    <input type="text" class="form-control" id="inputLoaiCoc">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputZip" style="color:#fff">Mã nhân viên quản lí</label>
+                    <input type="text" class="form-control" id="inputNVQL">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputCity" style="color:#fff">Mã nhân viên thu ngân</label>
+                    <input type="text" class="form-control" id="inputNVTN">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-1">
+                    <label for="inputEmail4" style="color:#fff">Mã khách hàng</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Mã khách hàng">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4" style="color:#fff">Tên Khách hàng</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="Tên khách hàng">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputPassword4" style="color:#fff">Số điện thoại</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="Số điện thoại">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputPassword4" style="color:#fff">Địa chỉ</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="Địa chỉ">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputPassword4" style="color:#fff">CMND</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="CMND">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4" style="color:#fff">Tên Chú rể</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Tên chú rể">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4" style="color:#fff">Tên cô dâu</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Tên cô dâu">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4" style="color:#fff">Ngày tổ chức</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Ngày tổ chức">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4" style="color:#fff">Giờ tổ chức</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Giờ tổ chức">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Sảnh tổ chức</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Sảnh tổ chức">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Mâm dự kiến </label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Mâm dự kiến">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Mâm phát sinh </label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Mâm phát sinh">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-1">
+                    <label for="inputEmail4" style="color:#fff">Mã menu</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Ngày tổ chức">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="inputEmail4" style="color:#fff">Đơn giá menu</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Đơn giá menu">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Giá hoa</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Giá hoa">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Giá nhạc</label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Giá nhạc">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Giá MC </label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Giá MC">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Giá vũ công </label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Giá vũ công">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4" style="color:#fff">Giá bánh cưới </label>
+                    <input type="text" class="form-control" id="inputMaKhachHang" placeholder="Giá bánh cưới">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress" style="color:#fff">Số tiền cọc</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Số tiền cọc">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2" style="color:#fff">Ngày cọc</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Ngày cọc">
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck" style="color:#fff">
+                        Duyệt in hoá đơn
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">In hoá đơn</button>
+        </form>
+    </div>
+</div>
+
+

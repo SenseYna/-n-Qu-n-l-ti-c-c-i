@@ -1,0 +1,154 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+
+namespace Wedding_management_project.Models
+{
+    public class QLPhieuDatTiec
+    {
+        [Display(Name = "Mã phiếu đặt tiệc")]
+        public string MAPDT { set; get; }
+        [Required(ErrorMessage = "Bạn cần nhập vào Mã Khách hàng")]
+        [Display(Name = "Mã Khách hàng")]
+        public string MaKH { set; get; }
+        [Required(ErrorMessage = "Bạn cần nhập vào Mã Nhân viên")]
+        [Display(Name = "Mã Nhân viên")]
+        public string MaNV { set; get; }
+        [Required(ErrorMessage = "Bạn cần nhập vào Mã Sảnh")]
+        [Display(Name = "Mã Sảnh")]
+        public string MaS { set; get; }
+        [Required(ErrorMessage = "Bạn cần nhập vào Tên Chú rể")]
+        [Display(Name = "Tên Chú rể")]
+        public string TenCR { set; get; }
+        [Required(ErrorMessage = "Bạn cần nhập vào Tên Cô dâu")]
+        [Display(Name = "Tên Cô dâu")]
+        public string TenCD { set; get; }
+        [Required(ErrorMessage = "Bạn cần nhập vào Ngày tổ chức")]
+        [Display(Name = "Ngày tổ chức")]
+        [DataType(DataType.Date)]
+        public DateTime NgayTC { set; get; }
+        [Required(ErrorMessage = "Bạn cần nhập vào Giờ tổ chức")]
+        [Display(Name = "Giờ tổ chức")]
+        [DataType(DataType.Time)]
+        public DateTime GioTC { set; get; }
+        [Required(ErrorMessage = "Bạn cần nhập Số mâm dự kiến")]
+        [Display(Name = "Số mâm dự kiến")]
+        public int SoMamDK { set; get; }
+        [Required(ErrorMessage = "Bạn cần nhập Số tiền cọc  trước tiệc")]
+        [Display(Name = "Số tiền cọc trước tiệc")]
+        public decimal SoTienCocTT { set; get; }
+        [Required(ErrorMessage = "Bạn cần nhập vào Ghi chú")]
+        [Display(Name = "Ghi chú")]
+        public string GhiChu { set; get; }
+        [Required(ErrorMessage = "Bạn cần nhập vào Ngày tạo")]
+        [Display(Name = "Ngày tạo")]
+        [DataType(DataType.Date)]
+        public DateTime NgayTao { set; get; }
+    }
+    class ListPhieuDatTiec
+    {
+        DataConnection db;
+        public ListPhieuDatTiec()
+        {
+            db = new DataConnection();
+        }
+
+        //Viết phương thức lấy dữ liệu nhân viên từ CSDL
+        public List<QLPhieuDatTiec> getPhieuDatTiec(string MAPDT)
+        {
+            string sql;
+            if (string.IsNullOrEmpty(MAPDT))
+            {
+                sql = "SELECT * FROM PhieuDatTiec";
+            }
+            else
+            {
+                sql = "SELECT * FROM PhieuDatTiec WHERE MaPDT='" + MAPDT + "'";
+            }
+
+            List<QLPhieuDatTiec> strList = new List<QLPhieuDatTiec>();
+            SqlConnection con = db.getConnection();
+            SqlDataAdapter cmd = new SqlDataAdapter(sql, con);
+            DataTable dt = new DataTable();
+
+            //Mở kết nối
+            con.Open();
+            cmd.Fill(dt);
+
+            //Đóng kết nối
+            cmd.Dispose();
+            con.Close();
+
+            QLPhieuDatTiec strPDT;
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                strPDT = new QLPhieuDatTiec();
+
+                strPDT.MAPDT =dt.Rows[i]["MAPDT"].ToString();
+                strPDT.MaKH = dt.Rows[i]["MaKH"].ToString();
+                strPDT.MaNV = dt.Rows[i]["MaNV"].ToString();
+                strPDT.MaS = dt.Rows[i]["MaS"].ToString();
+                strPDT.TenCR = dt.Rows[i]["TenCR"].ToString();
+                strPDT.TenCD = dt.Rows[i]["TenCD"].ToString();
+                strPDT.NgayTC = Convert.ToDateTime(dt.Rows[i]["NgayTC"].ToString());
+                strPDT.GioTC = Convert.ToDateTime(dt.Rows[i]["GioTC"].ToString());
+                strPDT.SoMamDK = Convert.ToInt32(dt.Rows[i]["SoMamDK"].ToString());
+                strPDT.SoTienCocTT = Convert.ToDecimal(dt.Rows[i]["SoTienCocTT"].ToString());
+                strPDT.GhiChu = dt.Rows[i]["GhiChu"].ToString();
+                strPDT.NgayTao = Convert.ToDateTime(dt.Rows[i]["NgayTao"].ToString());
+
+                strList.Add(strPDT);
+            }
+            return strList;
+        }
+        // Thêm dữ liệu (thêm phiếu đặt tiệc)
+        public void AddPhieuDatTiec(QLPhieuDatTiec strPDT)
+        {
+            string sql = "INSERT INTO PhieuDatTiec(MaKH, MaNV, MaS, TenCR, TenCD, NgayTC, GioTC, SoMamDK, SoTienCocTT, GhiChu, NgayTao)VALUES(N'" + strPDT.MaKH + "',N'" + strPDT.MaNV + "',N'" + strPDT.MaS + "',N'" + strPDT.TenCR + "',N'" + strPDT.TenCD + "',N'" + Convert.ToDateTime(strPDT.NgayTC).ToString("yyyy-MM-dd") + "',N'" + Convert.ToDateTime(strPDT.GioTC).ToString("HH:mm") + "',N'" + strPDT.SoMamDK + "',N'" + strPDT.SoTienCocTT + "',N'" + strPDT.GhiChu + "',N'" + Convert.ToDateTime(strPDT.NgayTao).ToString("yyyy-MM-dd") + "')";
+            SqlConnection con = db.getConnection();
+            SqlCommand cmd = new SqlCommand(sql, con);
+
+            //Mở kết nối
+            con.Open();
+            cmd.ExecuteNonQuery();
+
+            //Đóng kết nối
+            cmd.Dispose();
+            con.Close();
+        }
+        // Sửa dữ liệu (sửa phiếu đặt tiệc)
+        public void EditPhieuDatTiec(QLPhieuDatTiec strPDT)
+        {
+            string sql = "UPDATE PhieuDatTiec SET  MaKH=N'" + strPDT.MaKH + "',MaNV=N'" + strPDT.MaNV + "', MaS=N'" + strPDT.MaS + "', TenCR=N'" + strPDT.TenCR + "', TenCD=N'" + strPDT.TenCD + "',NgayTC=N'" + Convert.ToDateTime(strPDT.NgayTC).ToString("yyyy-MM-dd") + "',GioTC=N'" + Convert.ToDateTime(strPDT.GioTC).ToString("HH:mm") + "',SoMamDK=N'" + strPDT.SoMamDK + "',SoTienCocTT=N'" + strPDT.SoTienCocTT + "',GhiChu=N'" + strPDT.GhiChu + "', NgayTao=N'" + Convert.ToDateTime(strPDT.NgayTao).ToString("yyyy-MM-dd") + "' WHERE MaPDT='" + strPDT.MAPDT + "'";
+            SqlConnection con = db.getConnection();
+            SqlCommand cmd = new SqlCommand(sql, con);
+
+            //Mở kết nối
+            con.Open();
+            cmd.ExecuteNonQuery();
+
+            //Đóng kết nối
+            cmd.Dispose();
+            con.Close();
+        }
+        // Xóa dữ liệu (xóa phiếu đặt tiệc)
+        public void DeletePhieuDatTiec(QLPhieuDatTiec strPDT)
+        {
+            string sql = "DELETE FROM PhieuDatTiec WHERE MaPDT='" + strPDT.MAPDT + "'";
+            SqlConnection con = db.getConnection();
+            SqlCommand cmd = new SqlCommand(sql, con);
+
+            //Mở kết nối
+            con.Open();
+            cmd.ExecuteNonQuery();
+
+            //Đóng kết nối
+            cmd.Dispose();
+            con.Close();
+        }
+    }
+}

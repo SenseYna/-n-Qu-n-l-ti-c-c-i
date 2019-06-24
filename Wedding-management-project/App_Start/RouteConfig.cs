@@ -14,12 +14,13 @@ namespace Wedding_management_project
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
-            );   
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "Wedding_management_project.Controllers" }
+            );
 
         }
     }

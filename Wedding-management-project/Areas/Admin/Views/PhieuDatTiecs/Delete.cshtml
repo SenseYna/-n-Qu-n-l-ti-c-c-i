@@ -1,0 +1,121 @@
+﻿@model Wedding_management_project.Models.QLPhieuDatTiec
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>QLPhieuDatTiec</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MAPDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAPDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenCR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenCR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenCD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenCD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayTC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayTC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioTC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioTC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoMamDK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoMamDK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoTienCocTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTienCocTT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GhiChu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayTao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayTao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

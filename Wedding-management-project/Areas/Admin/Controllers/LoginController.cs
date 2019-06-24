@@ -1,37 +1,48 @@
-﻿using Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Wedding_management_project.Areas.Admin.code;
 using Wedding_management_project.Areas.Admin.Models;
+using Wedding_management_project.Common;
+using Wedding_management_project.Models;
+
 
 namespace Wedding_management_project.Areas.Admin.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Admin/Login
-        [HttpGet]
+        // GET: Login
         public ActionResult Index()
         {
+         
+           if (Session[CommonConstants.USER_SESSION] != null) return RedirectToAction("Index", "Home");
+            else 
             return View();
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Index(LoginModel model)
+
+        public ActionResult Login(LoginModel model)
         {
-            var result = new AccountModel().Login(model.Username,model.Password);
-            if(result && ModelState.IsValid)
+            var dao = new Login();
+            if (model.Password == null) model.Password = "";
+            var result = dao.checkLogin(model.UserName, Encryptor.MD5Hash(model.Password));
+            if (result==2)
             {
-                SessionHelper.SetSession(new UserSession() { Username = model.Username });
+                var userSession = model.UserName;
+                Session.Add(CommonConstants.USER_SESSION, userSession);
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không đúng.");
+                ModelState.AddModelError("", "Đăng nhập không đúng.");
             }
-            return View(model);
+            return View("Index");
+        }
+
+        public ActionResult ClearSession()
+        {
+            Session.Clear();
+            return View("Index");
         }
     }
 }
