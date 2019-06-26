@@ -1,0 +1,161 @@
+﻿@model IEnumerable<Wedding_management_project.Models.QLSoDatTiec>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><h1>DANH SÁCH SỔ ĐẶT TIỆC</h1></li>
+        </ol>
+
+        <!-- Breadcrumbs-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Danh sách sổ đặt tiệc
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MASDT)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MaPDT)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MaNV)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MaMA1)
+                        </th>
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.MaMA2)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MaMA3)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MaMA4)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MaMA5)
+                        </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.MaTU1)
+                        </th>
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.MaTU2)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MaTU3)
+                        </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.MaDV1)
+                        </th>
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.MaDV2)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MaDV3)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MaDV4)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MaDV5)*@
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.YeuCauKhac)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SoTienCocGT)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NgayTao)
+                        </th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MASDT)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaPDT)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaNV)
+                            </td>
+                            <td>
+                                <div>@Html.DisplayFor(modelItem => item.MaMA1)</div>
+                                <div>@Html.DisplayFor(modelItem => item.MaMA2)</div>
+                                <div>@Html.DisplayFor(modelItem => item.MaMA3)</div>
+                                <div>@Html.DisplayFor(modelItem => item.MaMA4)</div>
+                                <div>@Html.DisplayFor(modelItem => item.MaMA5)</div>
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.MaMA2)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaMA3)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaMA4)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaMA5)
+                            </td>*@
+                            <td>
+                                <div>@Html.DisplayFor(modelItem => item.MaTU1)</div>
+                                <div>@Html.DisplayFor(modelItem => item.MaTU2)</div>
+                                <div>@Html.DisplayFor(modelItem => item.MaTU3)</div>
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.MaTU2)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaTU3)
+                            </td>*@
+                            <td>
+                                <div>@Html.DisplayFor(modelItem => item.MaDV1)</div>
+                                <div>@Html.DisplayFor(modelItem => item.MaDV2)</div>
+                                <div>@Html.DisplayFor(modelItem => item.MaDV3)</div>
+                                <div>@Html.DisplayFor(modelItem => item.MaDV4)</div>
+                                <div>@Html.DisplayFor(modelItem => item.MaDV5)</div>
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.MaDV2)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaDV3)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaDV4)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaDV5)
+                            </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.YeuCauKhac)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SoTienCocGT)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NgayTao)
+                            </td>
+
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <p>
+            @Html.ActionLink("Create New", "Create",new { }, new{@class="btn btn-success" })
+        </p>
+    </div>
+    </div>

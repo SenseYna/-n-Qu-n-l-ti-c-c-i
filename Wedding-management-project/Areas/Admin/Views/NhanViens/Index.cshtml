@@ -5,15 +5,10 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
-
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-        <a href="#">Dashboard</a>
-    </li>
-    <li class="breadcrumb-item active">Tables</li>
+
+    <li class="breadcrumb-item active"><h1>NHÂN SỰ</h1></li>
 </ol>
 <!-- DataTables nhân viên -->
 <div class="card mb-3">
@@ -35,8 +30,8 @@
                             <th>@Html.DisplayNameFor(model => model.Email)</th>
                             <th>@Html.DisplayNameFor(model => model.LoaiNV)</th>
                             <th>@Html.DisplayNameFor(model => model.Password)</th>
-
-                            <th> </th>
+                            <th style="border-right:unset"></th>
+                            <th style="border-left:unset"> </th>
                         </tr>
                     </thead>
                     @foreach (var item in Model)
@@ -54,8 +49,10 @@
                                 <td>@Html.DisplayFor(modelItem => item.Password)</td>
 
                                 <td>
-                                    <button type="button" class="btn btn-success">@Html.ActionLink("Sửa", "Edit", new { manv = item.MANV }, new { @style = "color:White;" }) </button>
-                                    <button type="button" class="btn btn-success">@Html.ActionLink("Xóa", "Delete", new { manv = item.MANV }, new { @style = "color:White;" })</button>
+                                    <button type="button" class="btn btn-warning">@Html.ActionLink("Sửa", "Edit", new { manv = item.MANV }, new { @style = "color:White;" }) </button>
+                                    </td>
+                                <td>
+                                    <button type="button" class="btn btn-warning">@Html.ActionLink("Xóa", "Delete", new { manv = item.MANV }, new { @style = "color:White;" })</button>
 
                                 </td>
                             </tr>
@@ -64,7 +61,7 @@
                 </table>
             </div>
         </div>
-    <div class="card-footer small text-muted"> <button type="button" class="btn btn-warning">@Html.ActionLink("Thêm nhân viên", "Create")</button></div>
+    <div class="card-footer small text-muted"> <button type="button" class="btn btn-success">@Html.ActionLink("Thêm nhân viên", "Create",new { },new { style="color:#fff"})</button></div>
 </div>
 <p class="small text-center text-muted my-5">
     <em>More table examples coming soon...</em>

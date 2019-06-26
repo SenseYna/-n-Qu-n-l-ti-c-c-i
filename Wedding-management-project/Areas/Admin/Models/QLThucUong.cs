@@ -65,8 +65,6 @@ namespace Wedding_management_project.Models
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 strTU = new QLThucUong();
-
-                strTU.ID = Convert.ToInt32(dt.Rows[i]["ID"].ToString());
                 strTU.MaTU = dt.Rows[i]["MaTU"].ToString();
                 strTU.TenTU = dt.Rows[i]["TenTU"].ToString();
                 strTU.MoTaTU = dt.Rows[i]["MoTaTU"].ToString();

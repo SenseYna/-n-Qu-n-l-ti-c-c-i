@@ -31,7 +31,9 @@ namespace Wedding_management_project.Areas.User.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Đăng nhập không đúng.");
+                return Content("<html><head><script>alert('Hello, World!');</script></head></html>");
+
+
             }
             return View("Index");
         }

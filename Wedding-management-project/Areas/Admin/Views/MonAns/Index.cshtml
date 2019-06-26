@@ -52,15 +52,15 @@
 
                     </div>
                     <div class="card-footer text-white clearfix small z-1" href="#">
-                        <a class="float-left" @Html.ActionLink("Sửa", "Edit", new { mama = item.MAMA }, new { @style = "color:White;" })
-                        <a class="float-right" @Html.ActionLink("Xóa", "Delete", new { mama = item.MAMA },new { @style = "color:White;" })
+                        <a class="float-left btn btn-warning" @Html.ActionLink("Sửa", "Edit", new { mama = item.MAMA }, new { @style = "color:White;" })
+                        <a class="float-right btn btn-warning" @Html.ActionLink("Xóa", "Delete", new { mama = item.MAMA },new { @style = "color:White;" })
                     </div>
                 </div>
             </div>
         }
     </div>
     <div class="card-header">
-        <button type="button" class="btn btn-warning" onclick="">@Html.ActionLink("Thêm món ăn", "Create")</button>
+        <button type="button" class="btn btn-success" onclick="">@Html.ActionLink("Thêm món ăn", "Create", new { }, new { @style ="color:#fff" })</button>
     </div>
 </div>
 
@@ -123,7 +123,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary" onclick="">Thêm món ăn</button>
+            <button type="submit" class="btn btn-primary" onclick="" style="color: #fff !important">Thêm món ăn</button>
         </form>
     </div>
 </div>

@@ -13,10 +13,7 @@
 
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="#">Dashboard</a>
-            </li>
-            <li class="breadcrumb-item active">Tables</li>
+            <li class="breadcrumb-item active"><h1>SỔ KHÁCH HÀNG</h1></li>
         </ol>
 
         <!-- DataTables Example -->
@@ -37,7 +34,8 @@
                                 <th>@Html.DisplayNameFor(model => model.SĐT)</th>
                                 <th>@Html.DisplayNameFor(model => model.CMND)</th>
                                 <th>@Html.DisplayNameFor(model => model.Email)</th>
-                                <th></th>
+                                <th style="border-right:unset"></th>
+                                <th style="border-left:unset"></th>
                             </tr>
                         </thead>
                         @foreach (var item in Model)
@@ -51,8 +49,10 @@
                                     <td>@Html.DisplayFor(modelItem => item.CMND)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Email)</td>
                                     <td>
-                                        <button type="button" class="btn btn-success">@Html.ActionLink("Sửa", "Edit", new { makh = item.MAKH }, new { @style = "color:White;" }) </button>
-                                        <button type="button" class="btn btn-success">@Html.ActionLink("Xóa", "Delete", new { makh = item.MAKH}, new { @style = "color:White;" })</button>
+                                        <button type="button" class="btn btn-warning">@Html.ActionLink("Sửa", "Edit", new { makh = item.MAKH }, new { @style = "color:White;" }) </button>
+                                        </td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning">@Html.ActionLink("Xóa", "Delete", new { makh = item.MAKH}, new { @style = "color:White;" })</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -60,7 +60,7 @@
                         </table>
                 </div>
             </div>
-            <div class="card-footer small text-muted"> <button type="button" class="btn btn-warning">@Html.ActionLink("Thêm khách hàng", "Create")</button></div>
+            <div class="card-footer small text-muted"> <button type="button" class="btn btn-success">@Html.ActionLink("Thêm khách hàng", "Create",new { },new { @style="color: #fff"})</button></div>
         </div>
 
         <p class="small text-center text-muted my-5">

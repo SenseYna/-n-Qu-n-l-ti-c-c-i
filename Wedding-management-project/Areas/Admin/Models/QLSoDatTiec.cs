@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Wedding_management_project.Models
 {
@@ -40,7 +41,7 @@ namespace Wedding_management_project.Models
         [Display(Name = "Mã dịch vụ 1")]
         public string MaDV1 { set; get; }
         [Display(Name = "Mã dịch vụ 2")]
-        public string MaDV2  { set; get; }
+        public string MaDV2 { set; get; }
         [Display(Name = "Mã dịch vụ 3")]
         public string MaDV3 { set; get; }
         [Display(Name = "Mã dịch vụ 4")]
@@ -57,6 +58,9 @@ namespace Wedding_management_project.Models
         [Display(Name = "Ngày tạo")]
         [DataType(DataType.Date)]
         public DateTime NgayTao { set; get; }
+
+        
+        
     }
     class ListSoDatTiec
     {
@@ -140,6 +144,7 @@ namespace Wedding_management_project.Models
         // Sửa dữ liệu (sửa phiếu đặt tiệc)
         public void EditSoDatTiec(QLSoDatTiec strSDT)
         {
+            if (strSDT.MaDV2 == "") strSDT.MaDV2 = null;
             string sql = "UPDATE SoDatTiec SET  MaPDT=N'" + strSDT.MaPDT + "',MaNV=N'" + strSDT.MaNV + "', MaMA1=N'" + strSDT.MaMA1 + "',  MaMA2=N'" + strSDT.MaMA2 + "', MaMA3=N'" + strSDT.MaMA3 + "', MaMA4=N'" + strSDT.MaMA4 + "', MaMA5=N'" + strSDT.MaMA5 + "', MaTU1=N'" + strSDT.MaTU1 + "', MaTU2=N'" + strSDT.MaTU2 + "', MaTU3=N'" + strSDT.MaTU3 + "', MaDV1=N'" + strSDT.MaDV1 + "', MaDV2=N'" + strSDT.MaDV2 + "', MaDV3=N'" + strSDT.MaDV3 + "', MaDV4=N'" + strSDT.MaDV4 + "', MaDV5=N'" + strSDT.MaDV5 + "',YeuCauKhac=N'" + strSDT.YeuCauKhac + "',SoTienCocGT=N'" + strSDT.SoTienCocGT + "', NgayTao=N'" + Convert.ToDateTime(strSDT.NgayTao).ToString("yyyy-MM-dd") + "' WHERE MaSDT='" + strSDT.MASDT + "'";
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
