@@ -157,6 +157,8 @@
     <Compile Include="Areas\User\Controllers\LoginAdminController.cs" />
     <Compile Include="Areas\User\Controllers\LoginController.cs" />
     <Compile Include="Areas\User\Controllers\LogoutController.cs" />
+    <Compile Include="Areas\User\Controllers\PhieuDatTiecsController.cs" />
+    <Compile Include="Areas\User\Controllers\SoDatTiecsController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\Encryptor.cs" />
@@ -229,6 +231,10 @@
     <Content Include="Areas\Admin\Views\NhanViens\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\NhanViens\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\NhanViens\Index.cshtml" />
+    <Content Include="Areas\User\Views\PhieuDatTiecs\Create.cshtml" />
+    <Content Include="Areas\User\Views\PhieuDatTiecs\Index.cshtml" />
+    <Content Include="Areas\User\Views\SoDatTiecs\Create.cshtml" />
+    <Content Include="Areas\User\Views\SoDatTiecs\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

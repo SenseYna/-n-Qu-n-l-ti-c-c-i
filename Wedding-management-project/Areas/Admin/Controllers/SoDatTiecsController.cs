@@ -19,6 +19,19 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         //Thêm phiếu đặt tiệc
         public ActionResult Create()
         {
+            //DropdownList
+            ListMonAn strMA = new ListMonAn();
+            List<QLMonAn> ListMA = strMA.getMonAn(string.Empty);
+            ViewBag.ListMA = ListMA;
+
+            ListThucUong strTU = new ListThucUong();
+            List<QLThucUong> ListTU = strTU.getThucUong(string.Empty);
+            ViewBag.ListTU = ListTU;
+
+            ListDichVu strDV = new ListDichVu();
+            List<QLDichVu> ListDV = strDV.getDichVu(string.Empty);
+            ViewBag.ListDV = ListDV;
+
             return View();
         }
 
@@ -39,6 +52,20 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         {
             ListSoDatTiec SDT = new ListSoDatTiec();
             List<QLSoDatTiec> obj = SDT.getSoDatTiec(masdt);
+
+            //DropdownList 
+            ListMonAn strMA = new ListMonAn();
+            List<QLMonAn> ListMA = strMA.getMonAn(string.Empty);
+            ViewBag.ListMA = ListMA;
+
+            ListThucUong strTU = new ListThucUong();
+            List<QLThucUong> ListTU = strTU.getThucUong(string.Empty);
+            ViewBag.ListTU = ListTU;
+
+            ListDichVu strDV = new ListDichVu();
+            List<QLDichVu> ListDV = strDV.getDichVu(string.Empty);
+            ViewBag.ListDV = ListDV;
+
             return View(obj.FirstOrDefault());
         }
 

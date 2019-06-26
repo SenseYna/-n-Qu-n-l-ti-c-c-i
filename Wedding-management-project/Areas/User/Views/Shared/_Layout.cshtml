@@ -100,13 +100,10 @@
                 @Html.ActionLink("Trang chủ", "Index", "Home", new { area = "User" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item border" style="margin-top: 15px">
-                @Html.ActionLink("Phiếu đặt tiệc", "Create", "PhieuDatTiecs", new { area = "Admin" }, new { @class = "nav-link" })
+                @Html.ActionLink("Phiếu đặt tiệc", "Index", "PhieuDatTiecs", new { area = "User" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item border" style="margin-top: 15px">
-                <a class="nav-link" href="thucdon.html">
-                    <!-- <i class="fas fa-fw fa-table"></i> -->
-                    <span>SỐ ĐẶT TIỆC</span>
-                </a>
+                @Html.ActionLink("Sổ đặt tiệc", "Index", "SoDatTiecs", new { area = "User" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item border" style="margin-top: 15px">
                 <a class="nav-link" href="lichsan.html">
