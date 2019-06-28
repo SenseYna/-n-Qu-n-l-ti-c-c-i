@@ -19,7 +19,10 @@
             @Html.DisplayNameFor(model => model.MaSDT)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MaNV)
+            Khách Hàng
+        </th>
+        <th>
+            Nhân Viên
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ThongTinPS)
@@ -42,7 +45,10 @@
             @Html.DisplayFor(modelItem => item.MaSDT)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MaNV)
+            @Html.DisplayFor(modelItem => item.SDT.PDT.KH.TenKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NV.TenNV)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ThongTinPS)
@@ -54,9 +60,8 @@
             @Html.DisplayFor(modelItem => item.NgayTao)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { maptdt=item.MAPTDT }) |
+            @Html.ActionLink("Delete", "Delete", new { maptdt=item.MAPTDT })
         </td>
     </tr>
 }

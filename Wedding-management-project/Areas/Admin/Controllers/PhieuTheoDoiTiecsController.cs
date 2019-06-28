@@ -38,7 +38,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         public ActionResult Edit(string maptdt = "")
         {
             ListPhieuTheoDoiTiec PTDT = new ListPhieuTheoDoiTiec();
-            List<QLPhieuTheoDoiTiec> obj = PTDT.getPhieuTheoDoiTiec(maptdt);
+            List<QLPhieuTheoDoiTiec> obj = PTDT.getPhieuTheoDoiTiec_ED(maptdt);
             return View(obj.FirstOrDefault());
         }
 
@@ -55,7 +55,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         public ActionResult Delete(string maptdt = "")
         {
             ListPhieuTheoDoiTiec PTDT = new ListPhieuTheoDoiTiec();
-            List<QLPhieuTheoDoiTiec> obj = PTDT.getPhieuTheoDoiTiec(maptdt);
+            List<QLPhieuTheoDoiTiec> obj = PTDT.getPhieuTheoDoiTiec_ED(maptdt);
             return View(obj.FirstOrDefault());
         }
 

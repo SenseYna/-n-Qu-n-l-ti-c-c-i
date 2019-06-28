@@ -38,7 +38,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         public ActionResult Edit(string mapdt = "")
         {
             ListPhieuDatTiec PDT = new ListPhieuDatTiec();
-            List<QLPhieuDatTiec> obj = PDT.getPhieuDatTiec(mapdt);
+            List<QLPhieuDatTiec> obj = PDT.getPhieuDatTiec_ED(mapdt);
             return View(obj.FirstOrDefault());
         }
 
@@ -55,7 +55,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         public ActionResult Delete(string mapdt = "")
         {
             ListPhieuDatTiec PDT = new ListPhieuDatTiec();
-            List<QLPhieuDatTiec> obj = PDT.getPhieuDatTiec(mapdt);
+            List<QLPhieuDatTiec> obj = PDT.getPhieuDatTiec_ED(mapdt);
             return View(obj.FirstOrDefault());
         }
 
