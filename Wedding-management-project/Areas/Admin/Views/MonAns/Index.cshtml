@@ -8,22 +8,10 @@
 <!-- Breadcrumbs món ăn-->
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
-        <a href="thucdon.html">Thực đơn</a>
+        <a href="thucdon.html">Món Ăn</a>
     </li>
     <li class="breadcrumb-item">
-        <a href="thucdon.html">Món ăn</a>
-    </li>
-    <li class="breadcrumb-item active">
-        <a href="thucdon-khaivi.html">Khai vị</a>
-    </li>
-    <li class="breadcrumb-item active">
-        <a href="thucdon-monchinh.html">Món chính</a>
-    </li>
-    <li class="breadcrumb-item active">
-        <a href="thucdon-monsup.html">Món súp</a>
-    </li>
-    <li class="breadcrumb-item active">
-        <a href="thucdon-montrangmieng.html">Món tráng miệng</a>
+        @Html.ActionLink("Thức Uống", "Index", "ThucUongs", new { area = "Admin" }, new { @class = "nav-link" })
     </li>
 </ol>
 <!-- DataTables food -->

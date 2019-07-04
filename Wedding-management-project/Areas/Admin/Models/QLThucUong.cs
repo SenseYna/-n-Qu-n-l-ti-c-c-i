@@ -10,10 +10,8 @@ namespace Wedding_management_project.Models
 {
     public class QLThucUong
     {
-        public int ID { set; get; }
-        [Required(ErrorMessage = "Bạn cần nhập vào Mã thức uống")]
         [Display(Name = "Mã thức uống")]
-        public string MaTU { set; get; }
+        public string MATU { set; get; }
         [Required(ErrorMessage = "Bạn cần nhập vào Tên thức uống")]
         [Display(Name = "Tên thức uống")]
         public string TenTU { set; get; }
@@ -23,7 +21,9 @@ namespace Wedding_management_project.Models
         [Required(ErrorMessage = "Bạn cần nhập vào Đơn vị tính thức uống")]
         [Display(Name = "Đơn vị tính")]
         public string DonViTinh { set; get; }
-        [Required(ErrorMessage = "Bạn cần nhập vào Đơn giá thức uống")]
+        [Required(ErrorMessage = "Bạn cần nhập vào Giá mua thức uống")]
+        [Display(Name = "Giá mua")]
+        public string GiaMua { set; get; }
         [Display(Name = "Đơn giá")]
         public string DonGiaTU { set; get; }
     }
@@ -65,10 +65,11 @@ namespace Wedding_management_project.Models
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 strTU = new QLThucUong();
-                strTU.MaTU = dt.Rows[i]["MaTU"].ToString();
+                strTU.MATU = dt.Rows[i]["MaTU"].ToString();
                 strTU.TenTU = dt.Rows[i]["TenTU"].ToString();
                 strTU.MoTaTU = dt.Rows[i]["MoTaTU"].ToString();
                 strTU.DonViTinh = dt.Rows[i]["DonViTinh"].ToString();
+                strTU.GiaMua = dt.Rows[i]["GiaMua"].ToString();
                 strTU.DonGiaTU = dt.Rows[i]["DonGiaTU"].ToString();
 
                 strList.Add(strTU);
@@ -78,7 +79,7 @@ namespace Wedding_management_project.Models
         // Thêm dữ liệu (thêm món ăn)
         public void AddThucUong(QLThucUong strTU)
         {
-            string sql = "INSERT INTO ThucUong(MaTU, TenTU, MoTaTU, DonViTinh, DonGiaTU)VALUES(N'" + strTU.MaTU + "',N'" + strTU.TenTU + "',N'" + strTU.MoTaTU + "',N'" + strTU.DonViTinh + "',N'" + strTU.DonGiaTU + "')";
+            string sql = "INSERT INTO ThucUong(TenTU, MoTaTU, DonViTinh, DonGiaTU)VALUES(N'" + strTU.TenTU + "',N'" + strTU.MoTaTU + "',N'" + strTU.DonViTinh + "',N'" + strTU.GiaMua + "',N'" + (Convert.ToInt32(strTU.GiaMua) + Convert.ToInt32(strTU.GiaMua) * 0.25) + "')";
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -93,7 +94,7 @@ namespace Wedding_management_project.Models
         // Sửa dữ liệu (sửa món ăn)
         public void EditThucUong(QLThucUong strTU)
         {
-            string sql = "UPDATE ThucUong SET MaTU = N'" + strTU.MaTU + "', TenTU=N'" + strTU.TenTU + "', MoTaTU=N'" + strTU.MoTaTU + "', DonViTinh=N'" + strTU.DonViTinh + "', DonGiaTU=N'" + strTU.DonGiaTU + "' WHERE Id=" + strTU.ID;
+            string sql = "UPDATE ThucUong SET TenTU=N'" + strTU.TenTU + "', MoTaTU=N'" + strTU.MoTaTU + "', DonViTinh=N'" + strTU.DonViTinh + "', GiaMua=N'" + strTU.GiaMua + "', DonGiaTU=N'" + (Convert.ToInt32(strTU.GiaMua) + Convert.ToInt32(strTU.GiaMua) * 0.25) + "' WHERE MaTU=" + strTU.MATU;
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -108,7 +109,7 @@ namespace Wedding_management_project.Models
         // Xóa dữ liệu (xóa món ăn)
         public void DeleteMonAn(QLThucUong strTU)
         {
-            string sql = "DELETE FROM ThucUong WHERE Id=" + strTU.ID;
+            string sql = "DELETE FROM ThucUong WHERE MaTU=" + strTU.MATU;
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 

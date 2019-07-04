@@ -30,6 +30,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
             {
                 ListPhieuTheoDoiTiec PTDT = new ListPhieuTheoDoiTiec();
                 PTDT.AddPhieuTheoDoiTiec(strPTDT);
+                System.Threading.Thread.Sleep(500);
                 return RedirectToAction("Index");
             }
             return View();
@@ -48,6 +49,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         {
             ListPhieuTheoDoiTiec PTDT = new ListPhieuTheoDoiTiec();
             PTDT.EditPhieuTheoDoiTiec(strPTDT);
+            System.Threading.Thread.Sleep(500);
             return RedirectToAction("Index");
         }
 
@@ -65,6 +67,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         {
             ListPhieuTheoDoiTiec PTDT = new ListPhieuTheoDoiTiec();
             PTDT.DeletePhieuTheoDoiTiec(strPTDT);
+            System.Threading.Thread.Sleep(500);
             return RedirectToAction("Index");
         }
     }

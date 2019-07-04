@@ -49,7 +49,7 @@
                         <div class="mr-5">Món ăn 0</div>
                     </div>
                     <div class="card-footer text-white clearfix small z-1" href="#">
-                        <span class="float-left" onclick="">@Html.ActionLink("Sửa", "Edit", new { id = item.ID })</span>
+                        <span class="float-left" onclick="">@Html.ActionLink("Sửa", "Edit", new { matu = item.MATU })</span>
                         <span class="float-right">Xoá</span>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.MaTU)
+            @Html.DisplayNameFor(model => model.MATU)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TenTU)
@@ -89,7 +89,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.MaTU)
+                @Html.DisplayFor(modelItem => item.MATU)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TenTU)
@@ -104,9 +104,9 @@
                 @Html.DisplayFor(modelItem => item.DonGiaTU)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                @Html.ActionLink("Edit", "Edit", new { matu = item.MATU }) |
+                @Html.ActionLink("Details", "Details", new { matu = item.MATU }) |
+                @Html.ActionLink("Delete", "Delete", new { matu = item.MATU })
             </td>
         </tr>
     }

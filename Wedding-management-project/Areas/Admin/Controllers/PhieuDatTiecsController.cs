@@ -30,6 +30,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
             {
                 ListPhieuDatTiec PDT = new ListPhieuDatTiec();
                 PDT.AddPhieuDatTiec(strPDT);
+                System.Threading.Thread.Sleep(500);
                 return RedirectToAction("Index");
             }
             return View();
@@ -48,6 +49,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         {
             ListPhieuDatTiec PDT = new ListPhieuDatTiec();
             PDT.EditPhieuDatTiec(strPDT);
+            System.Threading.Thread.Sleep(500);
             return RedirectToAction("Index");
         }
 
@@ -65,6 +67,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         {
             ListPhieuDatTiec PDT = new ListPhieuDatTiec();
             PDT.DeletePhieuDatTiec(strPDT);
+            System.Threading.Thread.Sleep(500);
             return RedirectToAction("Index");
         }
     }

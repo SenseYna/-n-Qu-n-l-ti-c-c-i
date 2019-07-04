@@ -1,17 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLiTiecCuoi" Class="MyDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\QuanLiTiecCuoi.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QuanLiTiecCuoiConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.PhieuTheoDoiTiec" Member="PhieuTheoDoiTiecs">
-    <Type Name="PhieuTheoDoiTiec">
-      <Column Name="MaPTDT" Type="System.String" DbType="Char(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MaSDT" Type="System.String" DbType="Char(6)" CanBeNull="true" />
-      <Column Name="MaNV" Type="System.String" DbType="Char(5)" CanBeNull="true" />
-      <Column Name="ThongTinPS" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ChiPhiPS" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="SoDatTiec_PhieuTheoDoiTiec" Member="SoDatTiec" ThisKey="MaSDT" OtherKey="MaSDT" Type="SoDatTiec" IsForeignKey="true" />
-      <Association Name="NhanVien_PhieuTheoDoiTiec" Member="NhanVien" ThisKey="MaNV" OtherKey="MaNV" Type="NhanVien" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.PhieuDatTiec" Member="PhieuDatTiecs">
     <Type Name="PhieuDatTiec">
       <Column Name="MaPDT" Type="System.String" DbType="Char(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -65,6 +52,14 @@
       <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="SoDatTiec_PhieuTheoDoiTiec" Member="PhieuTheoDoiTiecs" ThisKey="MaSDT" OtherKey="MaSDT" Type="PhieuTheoDoiTiec" />
       <Association Name="PhieuDatTiec_SoDatTiec" Member="PhieuDatTiec" ThisKey="MaPDT" OtherKey="MaPDT" Type="PhieuDatTiec" IsForeignKey="true" />
+      <Association Name="NhanVien_SoDatTiec" Member="NhanVien" ThisKey="MaNV" OtherKey="MaNV" Type="NhanVien" IsForeignKey="true" />
+      <Association Name="DichVu_SoDatTiec" Member="DichVu" ThisKey="MaDV1" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
+      <Association Name="DichVu_SoDatTiec1" Member="DichVu1" ThisKey="MaDV2" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
+      <Association Name="DichVu_SoDatTiec2" Member="DichVu2" ThisKey="MaDV3" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
+      <Association Name="DichVu_SoDatTiec3" Member="DichVu3" ThisKey="MaDV4" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
+      <Association Name="DichVu_SoDatTiec4" Member="DichVu4" ThisKey="MaDV5" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
+      <Association Name="DichVu_SoDatTiec5" Member="DichVu5" ThisKey="MaDV6" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
+      <Association Name="DichVu_SoDatTiec6" Member="DichVu6" ThisKey="MaDV7" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
       <Association Name="MonAn_SoDatTiec" Member="MonAn" ThisKey="MaMA1" OtherKey="MaMA" Type="MonAn" IsForeignKey="true" />
       <Association Name="MonAn_SoDatTiec1" Member="MonAn1" ThisKey="MaMA2" OtherKey="MaMA" Type="MonAn" IsForeignKey="true" />
       <Association Name="MonAn_SoDatTiec2" Member="MonAn2" ThisKey="MaMA3" OtherKey="MaMA" Type="MonAn" IsForeignKey="true" />
@@ -81,64 +76,6 @@
       <Association Name="ThucUong_SoDatTiec5" Member="ThucUong5" ThisKey="MaTU6" OtherKey="MaTU" Type="ThucUong" IsForeignKey="true" />
       <Association Name="ThucUong_SoDatTiec6" Member="ThucUong6" ThisKey="MaTU7" OtherKey="MaTU" Type="ThucUong" IsForeignKey="true" />
       <Association Name="ThucUong_SoDatTiec7" Member="ThucUong7" ThisKey="MaTU8" OtherKey="MaTU" Type="ThucUong" IsForeignKey="true" />
-      <Association Name="DichVu_SoDatTiec" Member="DichVu" ThisKey="MaDV1" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
-      <Association Name="DichVu_SoDatTiec1" Member="DichVu1" ThisKey="MaDV2" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
-      <Association Name="DichVu_SoDatTiec2" Member="DichVu2" ThisKey="MaDV3" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
-      <Association Name="DichVu_SoDatTiec3" Member="DichVu3" ThisKey="MaDV4" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
-      <Association Name="DichVu_SoDatTiec4" Member="DichVu4" ThisKey="MaDV5" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
-      <Association Name="DichVu_SoDatTiec5" Member="DichVu5" ThisKey="MaDV6" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
-      <Association Name="DichVu_SoDatTiec6" Member="DichVu6" ThisKey="MaDV7" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
-      <Association Name="NhanVien_SoDatTiec" Member="NhanVien" ThisKey="MaNV" OtherKey="MaNV" Type="NhanVien" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.MonAn" Member="MonAns">
-    <Type Name="MonAn">
-      <Column Name="MaMA" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenMA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="MoTaMA" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DonGiaMA" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="LoaiMA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="MonAn_SoDatTiec" Member="SoDatTiecs" ThisKey="MaMA" OtherKey="MaMA1" Type="SoDatTiec" />
-      <Association Name="MonAn_SoDatTiec1" Member="SoDatTiecs1" ThisKey="MaMA" OtherKey="MaMA2" Type="SoDatTiec" />
-      <Association Name="MonAn_SoDatTiec2" Member="SoDatTiecs2" ThisKey="MaMA" OtherKey="MaMA3" Type="SoDatTiec" />
-      <Association Name="MonAn_SoDatTiec3" Member="SoDatTiecs3" ThisKey="MaMA" OtherKey="MaMA4" Type="SoDatTiec" />
-      <Association Name="MonAn_SoDatTiec4" Member="SoDatTiecs4" ThisKey="MaMA" OtherKey="MaMA5" Type="SoDatTiec" />
-      <Association Name="MonAn_SoDatTiec5" Member="SoDatTiecs5" ThisKey="MaMA" OtherKey="MaMA6" Type="SoDatTiec" />
-      <Association Name="MonAn_SoDatTiec6" Member="SoDatTiecs6" ThisKey="MaMA" OtherKey="MaMA7" Type="SoDatTiec" />
-      <Association Name="MonAn_SoDatTiec7" Member="SoDatTiecs7" ThisKey="MaMA" OtherKey="MaMA8" Type="SoDatTiec" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ThucUong" Member="ThucUongs">
-    <Type Name="ThucUong">
-      <Column Name="MaTU" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenTU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="MoTaTU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DonGiaTU" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="ThucUong_SoDatTiec" Member="SoDatTiecs" ThisKey="MaTU" OtherKey="MaTU1" Type="SoDatTiec" />
-      <Association Name="ThucUong_SoDatTiec1" Member="SoDatTiecs1" ThisKey="MaTU" OtherKey="MaTU2" Type="SoDatTiec" />
-      <Association Name="ThucUong_SoDatTiec2" Member="SoDatTiecs2" ThisKey="MaTU" OtherKey="MaTU3" Type="SoDatTiec" />
-      <Association Name="ThucUong_SoDatTiec3" Member="SoDatTiecs3" ThisKey="MaTU" OtherKey="MaTU4" Type="SoDatTiec" />
-      <Association Name="ThucUong_SoDatTiec4" Member="SoDatTiecs4" ThisKey="MaTU" OtherKey="MaTU5" Type="SoDatTiec" />
-      <Association Name="ThucUong_SoDatTiec5" Member="SoDatTiecs5" ThisKey="MaTU" OtherKey="MaTU6" Type="SoDatTiec" />
-      <Association Name="ThucUong_SoDatTiec6" Member="SoDatTiecs6" ThisKey="MaTU" OtherKey="MaTU7" Type="SoDatTiec" />
-      <Association Name="ThucUong_SoDatTiec7" Member="SoDatTiecs7" ThisKey="MaTU" OtherKey="MaTU8" Type="SoDatTiec" />
-    </Type>
-  </Table>
-  <Table Name="dbo.DichVu" Member="DichVus">
-    <Type Name="DichVu">
-      <Column Name="MaDV" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenDV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="MoTa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DonGia" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Association Name="DichVu_SoDatTiec" Member="SoDatTiecs" ThisKey="MaDV" OtherKey="MaDV1" Type="SoDatTiec" />
-      <Association Name="DichVu_SoDatTiec1" Member="SoDatTiecs1" ThisKey="MaDV" OtherKey="MaDV2" Type="SoDatTiec" />
-      <Association Name="DichVu_SoDatTiec2" Member="SoDatTiecs2" ThisKey="MaDV" OtherKey="MaDV3" Type="SoDatTiec" />
-      <Association Name="DichVu_SoDatTiec3" Member="SoDatTiecs3" ThisKey="MaDV" OtherKey="MaDV4" Type="SoDatTiec" />
-      <Association Name="DichVu_SoDatTiec4" Member="SoDatTiecs4" ThisKey="MaDV" OtherKey="MaDV5" Type="SoDatTiec" />
-      <Association Name="DichVu_SoDatTiec5" Member="SoDatTiecs5" ThisKey="MaDV" OtherKey="MaDV6" Type="SoDatTiec" />
-      <Association Name="DichVu_SoDatTiec6" Member="SoDatTiecs6" ThisKey="MaDV" OtherKey="MaDV7" Type="SoDatTiec" />
     </Type>
   </Table>
   <Table Name="dbo.KhachHang" Member="KhachHangs">
@@ -163,9 +100,9 @@
       <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="LoaiNV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="NhanVien_PhieuTheoDoiTiec" Member="PhieuTheoDoiTiecs" ThisKey="MaNV" OtherKey="MaNV" Type="PhieuTheoDoiTiec" />
       <Association Name="NhanVien_PhieuDatTiec" Member="PhieuDatTiecs" ThisKey="MaNV" OtherKey="MaNV" Type="PhieuDatTiec" />
       <Association Name="NhanVien_SoDatTiec" Member="SoDatTiecs" ThisKey="MaNV" OtherKey="MaNV" Type="SoDatTiec" />
+      <Association Name="NhanVien_PhieuTheoDoiTiec" Member="PhieuTheoDoiTiecs" ThisKey="MaNV" OtherKey="MaNV" Type="PhieuTheoDoiTiec" />
     </Type>
   </Table>
   <Table Name="dbo.Sanh" Member="Sanhs">
@@ -178,6 +115,89 @@
       <Column Name="Gia" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Sanh_PhieuDatTiec" Member="PhieuDatTiecs" ThisKey="MaS" OtherKey="MaS" Type="PhieuDatTiec" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DichVu" Member="DichVus">
+    <Type Name="DichVu">
+      <Column Name="MaDV" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenDV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GiaThue" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="DonGia" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Association Name="DichVu_SoDatTiec" Member="SoDatTiecs" ThisKey="MaDV" OtherKey="MaDV1" Type="SoDatTiec" />
+      <Association Name="DichVu_SoDatTiec1" Member="SoDatTiecs1" ThisKey="MaDV" OtherKey="MaDV2" Type="SoDatTiec" />
+      <Association Name="DichVu_SoDatTiec2" Member="SoDatTiecs2" ThisKey="MaDV" OtherKey="MaDV3" Type="SoDatTiec" />
+      <Association Name="DichVu_SoDatTiec3" Member="SoDatTiecs3" ThisKey="MaDV" OtherKey="MaDV4" Type="SoDatTiec" />
+      <Association Name="DichVu_SoDatTiec4" Member="SoDatTiecs4" ThisKey="MaDV" OtherKey="MaDV5" Type="SoDatTiec" />
+      <Association Name="DichVu_SoDatTiec5" Member="SoDatTiecs5" ThisKey="MaDV" OtherKey="MaDV6" Type="SoDatTiec" />
+      <Association Name="DichVu_SoDatTiec6" Member="SoDatTiecs6" ThisKey="MaDV" OtherKey="MaDV7" Type="SoDatTiec" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MonAn" Member="MonAns">
+    <Type Name="MonAn">
+      <Column Name="MaMA" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenMA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MoTaMA" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GiaMua" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="DonGiaMA" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="LoaiMA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="MonAn_SoDatTiec" Member="SoDatTiecs" ThisKey="MaMA" OtherKey="MaMA1" Type="SoDatTiec" />
+      <Association Name="MonAn_SoDatTiec1" Member="SoDatTiecs1" ThisKey="MaMA" OtherKey="MaMA2" Type="SoDatTiec" />
+      <Association Name="MonAn_SoDatTiec2" Member="SoDatTiecs2" ThisKey="MaMA" OtherKey="MaMA3" Type="SoDatTiec" />
+      <Association Name="MonAn_SoDatTiec3" Member="SoDatTiecs3" ThisKey="MaMA" OtherKey="MaMA4" Type="SoDatTiec" />
+      <Association Name="MonAn_SoDatTiec4" Member="SoDatTiecs4" ThisKey="MaMA" OtherKey="MaMA5" Type="SoDatTiec" />
+      <Association Name="MonAn_SoDatTiec5" Member="SoDatTiecs5" ThisKey="MaMA" OtherKey="MaMA6" Type="SoDatTiec" />
+      <Association Name="MonAn_SoDatTiec6" Member="SoDatTiecs6" ThisKey="MaMA" OtherKey="MaMA7" Type="SoDatTiec" />
+      <Association Name="MonAn_SoDatTiec7" Member="SoDatTiecs7" ThisKey="MaMA" OtherKey="MaMA8" Type="SoDatTiec" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ThucUong" Member="ThucUongs">
+    <Type Name="ThucUong">
+      <Column Name="MaTU" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenTU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MoTaTU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GiaMua" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="DonGiaTU" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Association Name="ThucUong_SoDatTiec" Member="SoDatTiecs" ThisKey="MaTU" OtherKey="MaTU1" Type="SoDatTiec" />
+      <Association Name="ThucUong_SoDatTiec1" Member="SoDatTiecs1" ThisKey="MaTU" OtherKey="MaTU2" Type="SoDatTiec" />
+      <Association Name="ThucUong_SoDatTiec2" Member="SoDatTiecs2" ThisKey="MaTU" OtherKey="MaTU3" Type="SoDatTiec" />
+      <Association Name="ThucUong_SoDatTiec3" Member="SoDatTiecs3" ThisKey="MaTU" OtherKey="MaTU4" Type="SoDatTiec" />
+      <Association Name="ThucUong_SoDatTiec4" Member="SoDatTiecs4" ThisKey="MaTU" OtherKey="MaTU5" Type="SoDatTiec" />
+      <Association Name="ThucUong_SoDatTiec5" Member="SoDatTiecs5" ThisKey="MaTU" OtherKey="MaTU6" Type="SoDatTiec" />
+      <Association Name="ThucUong_SoDatTiec6" Member="SoDatTiecs6" ThisKey="MaTU" OtherKey="MaTU7" Type="SoDatTiec" />
+      <Association Name="ThucUong_SoDatTiec7" Member="SoDatTiecs7" ThisKey="MaTU" OtherKey="MaTU8" Type="SoDatTiec" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BaoCao" Member="BaoCaos">
+    <Type Name="BaoCao">
+      <Column Name="MaBC" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TuNgay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DenNgay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="BaoCao_ChiTietBaoCao" Member="ChiTietBaoCaos" ThisKey="MaBC" OtherKey="MaBC" Type="ChiTietBaoCao" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChiTietBaoCao" Member="ChiTietBaoCaos">
+    <Type Name="ChiTietBaoCao">
+      <Column Name="MaBC" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="MaPTDT" Type="System.String" DbType="Char(7) NOT NULL" CanBeNull="false" />
+      <Association Name="BaoCao_ChiTietBaoCao" Member="BaoCao" ThisKey="MaBC" OtherKey="MaBC" Type="BaoCao" IsForeignKey="true" />
+      <Association Name="PhieuTheoDoiTiec_ChiTietBaoCao" Member="PhieuTheoDoiTiec" ThisKey="MaPTDT" OtherKey="MaPTDT" Type="PhieuTheoDoiTiec" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhieuTheoDoiTiec" Member="PhieuTheoDoiTiecs">
+    <Type Name="PhieuTheoDoiTiec">
+      <Column Name="MaPTDT" Type="System.String" DbType="Char(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaSDT" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="ThongTinPS" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ChiPhiPS" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="SoTienThanhToan" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="PhieuTheoDoiTiec_ChiTietBaoCao" Member="ChiTietBaoCaos" ThisKey="MaPTDT" OtherKey="MaPTDT" Type="ChiTietBaoCao" />
+      <Association Name="SoDatTiec_PhieuTheoDoiTiec" Member="SoDatTiec" ThisKey="MaSDT" OtherKey="MaSDT" Type="SoDatTiec" IsForeignKey="true" />
+      <Association Name="NhanVien_PhieuTheoDoiTiec" Member="NhanVien" ThisKey="MaNV" OtherKey="MaNV" Type="NhanVien" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
