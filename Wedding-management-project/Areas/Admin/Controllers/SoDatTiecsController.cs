@@ -51,7 +51,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         public ActionResult Edit(string masdt = "")
         {
             ListSoDatTiec SDT = new ListSoDatTiec();
-            List<QLSoDatTiec> obj = SDT.getSoDatTiec(masdt);
+            List<QLSoDatTiec> obj = SDT.getSoDatTiec_ED(masdt);
 
             //DropdownList 
             ListMonAn strMA = new ListMonAn();
@@ -82,7 +82,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         public ActionResult Delete(string masdt = "")
         {
             ListSoDatTiec SDT = new ListSoDatTiec();
-            List<QLSoDatTiec> obj = SDT.getSoDatTiec(masdt);
+            List<QLSoDatTiec> obj = SDT.getSoDatTiec_ED(masdt);
             return View(obj.FirstOrDefault());
         }
 

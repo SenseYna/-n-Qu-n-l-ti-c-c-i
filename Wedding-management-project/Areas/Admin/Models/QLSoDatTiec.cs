@@ -19,36 +19,63 @@ namespace Wedding_management_project.Models
         [Required(ErrorMessage = "Bạn cần nhập vào Mã Nhân viên")]
         [Display(Name = "Mã Nhân viên")]
         public string MaNV { set; get; }
-        [Required(ErrorMessage = "Bạn cần nhập vào Mã Món ăn 1")]
-        [Display(Name = "Mã Món ăn 1")]
+        [Required(ErrorMessage = "Bạn cần chọn Món ăn 1")]
+        [Display(Name = "Món ăn 1")]
         public string MaMA1 { set; get; }
-        [Display(Name = "Mã Món ăn 2")]
+        [Required(ErrorMessage = "Bạn cần chọn Món ăn 2")]
+        [Display(Name = "Món ăn 2")]
         public string MaMA2 { set; get; }
-        [Display(Name = "Mã Món ăn 3")]
+        [Required(ErrorMessage = "Bạn cần chọn Món ăn 3")]
+        [Display(Name = "Món ăn 3")]
         public string MaMA3 { set; get; }
-        [Display(Name = "Mã Món ăn 4")]
+        [Required(ErrorMessage = "Bạn cần chọn Món ăn 4")]
+        [Display(Name = "Món ăn 4")]
         public string MaMA4 { set; get; }
-        [Display(Name = "Mã Món ăn 5")]
+        [Required(ErrorMessage = "Bạn cần chọn Món ăn 5")]
+        [Display(Name = "Món ăn 5")]
         public string MaMA5 { set; get; }
-        [Required(ErrorMessage = "Bạn cần nhập vào Mã Thức uống 1")]
-        [Display(Name = "Mã Thức uống 1")]
+        [Display(Name = "Món ăn 6")]
+        public string MaMA6 { set; get; }
+        [Display(Name = "Món ăn 7")]
+        public string MaMA7 { set; get; }
+        [Display(Name = "Món ăn 8")]
+        public string MaMA8 { set; get; }
+        [Required(ErrorMessage = "Bạn cần chọn Thức uống 1")]
+        [Display(Name = "Thức uống 1")]
         public string MaTU1 { set; get; }
-        [Display(Name = "Mã Thức uống 2")]
+        [Required(ErrorMessage = "Bạn cần chọn Thức uống 2")]
+        [Display(Name = "Thức uống 2")]
         public string MaTU2 { set; get; }
-        [Display(Name = "Mã Thức uống 3")]
+        [Required(ErrorMessage = "Bạn cần chọn Thức uống 3")]
+        [Display(Name = "Thức uống 3")]
         public string MaTU3 { set; get; }
-        [Required(ErrorMessage = "Bạn cần nhập vào Mã Dịch vụ 1")]
-        [Display(Name = "Mã dịch vụ 1")]
+        [Display(Name = "Thức uống 4")]
+        public string MaTU4 { set; get; }
+        [Display(Name = "Thức uống 5")]
+        public string MaTU5 { set; get; }
+        [Display(Name = "Thức uống 6")]
+        public string MaTU6 { set; get; }
+        [Display(Name = "Thức uống 7")]
+        public string MaTU7 { set; get; }
+        [Display(Name = "Thức uống 8")]
+        public string MaTU8 { set; get; }
+        [Required(ErrorMessage = "Bạn cần chọn Dịch vụ 1")]
+        [Display(Name = "Dịch vụ 1")]
         public string MaDV1 { set; get; }
-        [Display(Name = "Mã dịch vụ 2")]
+        [Required(ErrorMessage = "Bạn cần chọn Dịch vụ 2")]
+        [Display(Name = "Dịch vụ 2")]
         public string MaDV2 { set; get; }
-        [Display(Name = "Mã dịch vụ 3")]
+        [Required(ErrorMessage = "Bạn cần chọn Dịch vụ 3")]
+        [Display(Name = "Dịch vụ 3")]
         public string MaDV3 { set; get; }
-        [Display(Name = "Mã dịch vụ 4")]
+        [Display(Name = "Dịch vụ 4")]
         public string MaDV4 { set; get; }
-        [Display(Name = "Mã dịch vụ 5")]
+        [Display(Name = "Dịch vụ 5")]
         public string MaDV5 { set; get; }
-        [Required(ErrorMessage = "Bạn cần nhập vào yêu cầu khác")]
+        [Display(Name = "Dịch vụ 6")]
+        public string MaDV6 { set; get; }
+        [Display(Name = "Dịch vụ 7")]
+        public string MaDV7 { set; get; }
         [Display(Name = "Yêu cầu khác")]
         public string YeuCauKhac { set; get; }
         [Required(ErrorMessage = "Bạn cần nhập Số tiền cọc Giữa tiệc")]
@@ -58,9 +85,8 @@ namespace Wedding_management_project.Models
         [Display(Name = "Ngày tạo")]
         [DataType(DataType.Date)]
         public DateTime NgayTao { set; get; }
-
-        
-        
+        public QLMonAn MA { get; set; }
+        public QLPhieuDatTiec PDT { set; get; }
     }
     class ListSoDatTiec
     {
@@ -72,6 +98,75 @@ namespace Wedding_management_project.Models
 
         //Viết phương thức lấy dữ liệu nhân viên từ CSDL
         public List<QLSoDatTiec> getSoDatTiec(string MASDT)
+        {
+            string sql;
+            if (string.IsNullOrEmpty(MASDT))
+            {
+                //SELECT* FROM SoDatTiec,MonAn WHERE SoDatTiec.MaMA1 = MonAn.MaMA AND SoDatTiec.MaMA2 = MonAn.MaMA AND SoDatTiec.MaMA3 = MonAn.MaMA AND SoDatTiec.MaMA4 = MonAn.MaMA AND SoDatTiec.MaMA5 = MonAn.MaMA AND SoDatTiec.MaMA6 = MonAn.MaMA AND SoDatTiec.MaMA7 = MonAn.MaMA AND SoDatTiec.MaMA8 = MonAn.MaMA
+                sql = "SELECT * FROM SoDatTiec,PhieuDatTiec,KhachHang WHERE SoDatTiec.MaPDT=PhieuDatTiec.MaPDT AND PhieuDatTiec.MaKH=KhachHang.MaKH";
+            }
+            else
+            {
+                sql = "SELECT * FROM SoDatTiec WHERE MaSDT='" + MASDT + "'";
+            }
+
+            List<QLSoDatTiec> strList = new List<QLSoDatTiec>();
+            SqlConnection con = db.getConnection();
+            SqlDataAdapter cmd = new SqlDataAdapter(sql, con);
+            DataTable dt = new DataTable();
+
+            //Mở kết nối
+            con.Open();
+            cmd.Fill(dt);
+
+            //Đóng kết nối
+            cmd.Dispose();
+            con.Close();
+
+            QLSoDatTiec strSDT;
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                strSDT = new QLSoDatTiec();
+                strSDT.MA = new QLMonAn();
+                strSDT.PDT = new QLPhieuDatTiec();
+                strSDT.PDT.KH = new QLKhachHang();
+
+                strSDT.MASDT = dt.Rows[i]["MASDT"].ToString();
+                strSDT.MaPDT = dt.Rows[i]["MaPDT"].ToString();
+                strSDT.MaNV = dt.Rows[i]["MaNV"].ToString();
+                strSDT.MaMA1 = dt.Rows[i]["MaMA1"].ToString();
+                strSDT.MaMA2 = dt.Rows[i]["MAMA2"].ToString();
+                strSDT.MaMA3 = dt.Rows[i]["MaMA3"].ToString();
+                strSDT.MaMA4 = dt.Rows[i]["MaMA4"].ToString();
+                strSDT.MaMA5 = dt.Rows[i]["MaMA5"].ToString();
+                strSDT.MaMA6 = dt.Rows[i]["MaMA6"].ToString();
+                strSDT.MaMA7 = dt.Rows[i]["MaMA7"].ToString();
+                strSDT.MaMA8 = dt.Rows[i]["MaMA8"].ToString();
+                strSDT.MaTU1 = dt.Rows[i]["MaTU1"].ToString();
+                strSDT.MaTU2 = dt.Rows[i]["MaTU2"].ToString();
+                strSDT.MaTU3 = dt.Rows[i]["MaTU3"].ToString();
+                strSDT.MaTU4 = dt.Rows[i]["MaTU4"].ToString();
+                strSDT.MaTU5 = dt.Rows[i]["MaTU5"].ToString();
+                strSDT.MaTU6 = dt.Rows[i]["MaTU6"].ToString();
+                strSDT.MaTU7 = dt.Rows[i]["MaTU7"].ToString();
+                strSDT.MaTU8 = dt.Rows[i]["MaTU8"].ToString();
+                strSDT.MaDV1 = dt.Rows[i]["MaDV1"].ToString();
+                strSDT.MaDV2 = dt.Rows[i]["MaDV2"].ToString();
+                strSDT.MaDV3 = dt.Rows[i]["MaDV3"].ToString();
+                strSDT.MaDV4 = dt.Rows[i]["MaDV4"].ToString();
+                strSDT.MaDV5 = dt.Rows[i]["MaDV5"].ToString();
+                strSDT.MaDV6 = dt.Rows[i]["MaDV6"].ToString();
+                strSDT.MaDV7 = dt.Rows[i]["MaDV7"].ToString();
+                strSDT.YeuCauKhac = dt.Rows[i]["YeuCauKhac"].ToString();
+                strSDT.SoTienCocGT = Convert.ToDecimal(dt.Rows[i]["SoTienCocGT"].ToString());
+                strSDT.NgayTao = Convert.ToDateTime(dt.Rows[i]["NgayTao"].ToString());
+                strSDT.PDT.KH.TenKH = dt.Rows[i]["TenKH"].ToString();
+
+                strList.Add(strSDT);
+            }
+            return strList;
+        }
+        public List<QLSoDatTiec> getSoDatTiec_ED(string MASDT)
         {
             string sql;
             if (string.IsNullOrEmpty(MASDT))
@@ -105,18 +200,28 @@ namespace Wedding_management_project.Models
                 strSDT.MaPDT = dt.Rows[i]["MaPDT"].ToString();
                 strSDT.MaNV = dt.Rows[i]["MaNV"].ToString();
                 strSDT.MaMA1 = dt.Rows[i]["MaMA1"].ToString();
-                strSDT.MaMA2 = dt.Rows[i]["MaMA2"].ToString();
+                strSDT.MaMA2 = dt.Rows[i]["MAMA2"].ToString();
                 strSDT.MaMA3 = dt.Rows[i]["MaMA3"].ToString();
                 strSDT.MaMA4 = dt.Rows[i]["MaMA4"].ToString();
                 strSDT.MaMA5 = dt.Rows[i]["MaMA5"].ToString();
+                strSDT.MaMA6 = dt.Rows[i]["MaMA6"].ToString();
+                strSDT.MaMA7 = dt.Rows[i]["MaMA7"].ToString();
+                strSDT.MaMA8 = dt.Rows[i]["MaMA8"].ToString();
                 strSDT.MaTU1 = dt.Rows[i]["MaTU1"].ToString();
                 strSDT.MaTU2 = dt.Rows[i]["MaTU2"].ToString();
                 strSDT.MaTU3 = dt.Rows[i]["MaTU3"].ToString();
+                strSDT.MaTU4 = dt.Rows[i]["MaTU4"].ToString();
+                strSDT.MaTU5 = dt.Rows[i]["MaTU5"].ToString();
+                strSDT.MaTU6 = dt.Rows[i]["MaTU6"].ToString();
+                strSDT.MaTU7 = dt.Rows[i]["MaTU7"].ToString();
+                strSDT.MaTU8 = dt.Rows[i]["MaTU8"].ToString();
                 strSDT.MaDV1 = dt.Rows[i]["MaDV1"].ToString();
                 strSDT.MaDV2 = dt.Rows[i]["MaDV2"].ToString();
                 strSDT.MaDV3 = dt.Rows[i]["MaDV3"].ToString();
                 strSDT.MaDV4 = dt.Rows[i]["MaDV4"].ToString();
                 strSDT.MaDV5 = dt.Rows[i]["MaDV5"].ToString();
+                strSDT.MaDV6 = dt.Rows[i]["MaDV6"].ToString();
+                strSDT.MaDV7 = dt.Rows[i]["MaDV7"].ToString();
                 strSDT.YeuCauKhac = dt.Rows[i]["YeuCauKhac"].ToString();
                 strSDT.SoTienCocGT = Convert.ToDecimal(dt.Rows[i]["SoTienCocGT"].ToString());
                 strSDT.NgayTao = Convert.ToDateTime(dt.Rows[i]["NgayTao"].ToString());
@@ -125,6 +230,7 @@ namespace Wedding_management_project.Models
             }
             return strList;
         }
+
         // Thêm dữ liệu (thêm phiếu đặt tiệc)
         public void AddSoDatTiec(QLSoDatTiec strSDT)
         {

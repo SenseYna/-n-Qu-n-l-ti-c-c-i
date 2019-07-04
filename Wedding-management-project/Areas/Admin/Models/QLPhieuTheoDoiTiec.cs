@@ -10,7 +10,7 @@ namespace Wedding_management_project.Models
 {
     public class QLPhieuTheoDoiTiec
     {
-        [Display(Name = "Mã phiếu theo dõi tiệc")]
+        [Display(Name = "Mã Phiếu theo dõi tiệc")]
         public string MAPTDT { set; get; }
         [Required(ErrorMessage = "Bạn cần nhập vào Mã Sổ đặt tiệc")]
         [Display(Name = "Mã Sổ đặt tiệc")]
@@ -28,6 +28,8 @@ namespace Wedding_management_project.Models
         [Display(Name = "Ngày tạo")]
         [DataType(DataType.Date)]
         public DateTime NgayTao { set; get; }
+        public QLNhanVien NV { set; get; }
+        public QLSoDatTiec SDT { set; get; }
     }
     class ListPhieuTheoDoiTiec
     {
@@ -39,6 +41,54 @@ namespace Wedding_management_project.Models
 
         //Viết phương thức lấy dữ liệu nhân viên từ CSDL
         public List<QLPhieuTheoDoiTiec> getPhieuTheoDoiTiec(string MAPTDT)
+        {
+            string sql;
+            if (string.IsNullOrEmpty(MAPTDT))
+            {
+                sql = "SELECT * FROM PhieuTheoDoiTiec,NhanVien,SoDatTiec,PhieuDatTiec,KhachHang WHERE PhieuTheoDoiTiec.MaNV=NhanVien.MaNV AND PhieuTheoDoiTiec.MaSDT=SoDatTiec.MaSDT AND SoDatTiec.MaPDT=PhieuDatTiec.MaPDT AND PhieuDatTiec.MaKH=KhachHang.MaKH";
+            }
+            else
+            {
+                sql = "SELECT * FROM PhieuTheoDoiTiec WHERE MaPTDT='" + MAPTDT + "'";
+            }
+
+            List<QLPhieuTheoDoiTiec> strList = new List<QLPhieuTheoDoiTiec>();
+            SqlConnection con = db.getConnection();
+            SqlDataAdapter cmd = new SqlDataAdapter(sql, con);
+            DataTable dt = new DataTable();
+
+            //Mở kết nối
+            con.Open();
+            cmd.Fill(dt);
+
+            //Đóng kết nối
+            cmd.Dispose();
+            con.Close();
+
+            QLPhieuTheoDoiTiec strPTDT;
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                strPTDT = new QLPhieuTheoDoiTiec();
+                strPTDT.NV = new QLNhanVien();
+                strPTDT.SDT = new QLSoDatTiec();
+                strPTDT.SDT.PDT = new QLPhieuDatTiec();
+                strPTDT.SDT.PDT.KH = new QLKhachHang();
+
+                strPTDT.MAPTDT = dt.Rows[i]["MAPTDT"].ToString();
+                strPTDT.MaSDT = dt.Rows[i]["MaSDT"].ToString();
+                strPTDT.MaNV = dt.Rows[i]["MaNV"].ToString();
+                strPTDT.ThongTinPS = dt.Rows[i]["ThongTinPS"].ToString();
+                strPTDT.ChiPhiPS = Convert.ToDecimal(dt.Rows[i]["ChiPhiPS"].ToString());
+                strPTDT.NgayTao = Convert.ToDateTime(dt.Rows[i]["NgayTao"].ToString());
+                strPTDT.NV.TenNV =  dt.Rows[i]["TenNV"].ToString();
+                strPTDT.SDT.PDT.KH.TenKH = dt.Rows[i]["TenKH"].ToString();
+
+                strList.Add(strPTDT);
+            }
+            return strList;
+        }
+
+        public List<QLPhieuTheoDoiTiec> getPhieuTheoDoiTiec_ED(string MAPTDT)
         {
             string sql;
             if (string.IsNullOrEmpty(MAPTDT))
@@ -79,6 +129,7 @@ namespace Wedding_management_project.Models
             }
             return strList;
         }
+
         // Thêm dữ liệu (thêm phiếu đặt tiệc)
         public void AddPhieuTheoDoiTiec(QLPhieuTheoDoiTiec strPTDT)
         {

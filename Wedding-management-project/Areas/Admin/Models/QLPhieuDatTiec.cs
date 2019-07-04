@@ -48,6 +48,9 @@ namespace Wedding_management_project.Models
         [Display(Name = "Ngày tạo")]
         [DataType(DataType.Date)]
         public DateTime NgayTao { set; get; }
+        public QLKhachHang KH { set; get; }
+        public QLNhanVien NV { set; get; }
+        public QLSanh S { set; get; }
     }
     class ListPhieuDatTiec
     {
@@ -59,6 +62,60 @@ namespace Wedding_management_project.Models
 
         //Viết phương thức lấy dữ liệu nhân viên từ CSDL
         public List<QLPhieuDatTiec> getPhieuDatTiec(string MAPDT)
+        {
+            string sql;
+            if (string.IsNullOrEmpty(MAPDT))
+            {
+                sql = "SELECT * FROM PhieuDatTiec, KhachHang, NhanVien, Sanh WHERE PhieuDatTiec.MaKH=KhachHang.MaKH AND PhieuDatTiec.MaNV=NhanVien.MaNV AND PhieuDatTiec.MaS=Sanh.MaS";
+            }
+            else
+            {
+                sql = "SELECT * FROM PhieuDatTiec WHERE MaPDT='" + MAPDT + "'";
+            }
+
+            List<QLPhieuDatTiec> strList = new List<QLPhieuDatTiec>();
+            SqlConnection con = db.getConnection();
+            SqlDataAdapter cmd = new SqlDataAdapter(sql, con);
+            DataTable dt = new DataTable();
+
+            //Mở kết nối
+            con.Open();
+            cmd.Fill(dt);
+
+            //Đóng kết nối
+            cmd.Dispose();
+            con.Close();
+
+            QLPhieuDatTiec strPDT;
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                strPDT = new QLPhieuDatTiec();
+                strPDT.KH = new QLKhachHang();
+                strPDT.NV = new QLNhanVien();
+                strPDT.S = new QLSanh();
+
+                strPDT.MAPDT =dt.Rows[i]["MAPDT"].ToString();
+                strPDT.MaKH = dt.Rows[i]["MaKH"].ToString();
+                strPDT.MaNV = dt.Rows[i]["MaNV"].ToString();
+                strPDT.MaS = dt.Rows[i]["MaS"].ToString();
+                strPDT.TenCR = dt.Rows[i]["TenCR"].ToString();
+                strPDT.TenCD = dt.Rows[i]["TenCD"].ToString();
+                strPDT.NgayTC = Convert.ToDateTime(dt.Rows[i]["NgayTC"].ToString());
+                strPDT.GioTC = Convert.ToDateTime(dt.Rows[i]["GioTC"].ToString());
+                strPDT.SoMamDK = Convert.ToInt32(dt.Rows[i]["SoMamDK"].ToString());
+                strPDT.SoTienCocTT = Convert.ToDecimal(dt.Rows[i]["SoTienCocTT"].ToString());
+                strPDT.GhiChu = dt.Rows[i]["GhiChu"].ToString();
+                strPDT.NgayTao = Convert.ToDateTime(dt.Rows[i]["NgayTao"].ToString());
+                strPDT.KH.TenKH = dt.Rows[i]["TenKH"].ToString();
+                strPDT.NV.TenNV = dt.Rows[i]["TenNV"].ToString();
+                strPDT.S.TenS = dt.Rows[i]["TenS"].ToString();
+
+                strList.Add(strPDT);
+            }
+            return strList;
+        }
+
+        public List<QLPhieuDatTiec> getPhieuDatTiec_ED(string MAPDT)
         {
             string sql;
             if (string.IsNullOrEmpty(MAPDT))
@@ -87,8 +144,8 @@ namespace Wedding_management_project.Models
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 strPDT = new QLPhieuDatTiec();
-
-                strPDT.MAPDT =dt.Rows[i]["MAPDT"].ToString();
+             
+                strPDT.MAPDT = dt.Rows[i]["MAPDT"].ToString();
                 strPDT.MaKH = dt.Rows[i]["MaKH"].ToString();
                 strPDT.MaNV = dt.Rows[i]["MaNV"].ToString();
                 strPDT.MaS = dt.Rows[i]["MaS"].ToString();
@@ -100,11 +157,12 @@ namespace Wedding_management_project.Models
                 strPDT.SoTienCocTT = Convert.ToDecimal(dt.Rows[i]["SoTienCocTT"].ToString());
                 strPDT.GhiChu = dt.Rows[i]["GhiChu"].ToString();
                 strPDT.NgayTao = Convert.ToDateTime(dt.Rows[i]["NgayTao"].ToString());
-
+              
                 strList.Add(strPDT);
             }
             return strList;
         }
+
         // Thêm dữ liệu (thêm phiếu đặt tiệc)
         public void AddPhieuDatTiec(QLPhieuDatTiec strPDT)
         {
