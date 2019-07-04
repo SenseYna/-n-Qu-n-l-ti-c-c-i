@@ -40,7 +40,7 @@ namespace Wedding_management_project.Models
         public int SoMamDK { set; get; }
         [Required(ErrorMessage = "Bạn cần nhập Số tiền cọc  trước tiệc")]
         [Display(Name = "Số tiền cọc trước tiệc")]
-        public decimal SoTienCocTT { set; get; }
+        public string SoTienCocTT { set; get; }
         [Required(ErrorMessage = "Bạn cần nhập vào Ghi chú")]
         [Display(Name = "Ghi chú")]
         public string GhiChu { set; get; }
@@ -103,7 +103,7 @@ namespace Wedding_management_project.Models
                 strPDT.NgayTC = Convert.ToDateTime(dt.Rows[i]["NgayTC"].ToString());
                 strPDT.GioTC = Convert.ToDateTime(dt.Rows[i]["GioTC"].ToString());
                 strPDT.SoMamDK = Convert.ToInt32(dt.Rows[i]["SoMamDK"].ToString());
-                strPDT.SoTienCocTT = Convert.ToDecimal(dt.Rows[i]["SoTienCocTT"].ToString());
+                strPDT.SoTienCocTT = dt.Rows[i]["SoTienCocTT"].ToString();
                 strPDT.GhiChu = dt.Rows[i]["GhiChu"].ToString();
                 strPDT.NgayTao = Convert.ToDateTime(dt.Rows[i]["NgayTao"].ToString());
                 strPDT.KH.TenKH = dt.Rows[i]["TenKH"].ToString();
@@ -154,7 +154,7 @@ namespace Wedding_management_project.Models
                 strPDT.NgayTC = Convert.ToDateTime(dt.Rows[i]["NgayTC"].ToString());
                 strPDT.GioTC = Convert.ToDateTime(dt.Rows[i]["GioTC"].ToString());
                 strPDT.SoMamDK = Convert.ToInt32(dt.Rows[i]["SoMamDK"].ToString());
-                strPDT.SoTienCocTT = Convert.ToDecimal(dt.Rows[i]["SoTienCocTT"].ToString());
+                strPDT.SoTienCocTT = dt.Rows[i]["SoTienCocTT"].ToString();
                 strPDT.GhiChu = dt.Rows[i]["GhiChu"].ToString();
                 strPDT.NgayTao = Convert.ToDateTime(dt.Rows[i]["NgayTao"].ToString());
               

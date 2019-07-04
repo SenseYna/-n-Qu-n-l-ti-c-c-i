@@ -87,6 +87,10 @@ namespace Wedding_management_project.Models
         public DateTime NgayTao { set; get; }
         public QLMonAn MA { get; set; }
         public QLPhieuDatTiec PDT { set; get; }
+
+        public List<string> ListMA { set; get; }
+
+
     }
     class ListSoDatTiec
     {
@@ -100,20 +104,30 @@ namespace Wedding_management_project.Models
         public List<QLSoDatTiec> getSoDatTiec(string MASDT)
         {
             string sql;
+            string sql1;
             if (string.IsNullOrEmpty(MASDT))
             {
-                //SELECT* FROM SoDatTiec,MonAn WHERE SoDatTiec.MaMA1 = MonAn.MaMA AND SoDatTiec.MaMA2 = MonAn.MaMA AND SoDatTiec.MaMA3 = MonAn.MaMA AND SoDatTiec.MaMA4 = MonAn.MaMA AND SoDatTiec.MaMA5 = MonAn.MaMA AND SoDatTiec.MaMA6 = MonAn.MaMA AND SoDatTiec.MaMA7 = MonAn.MaMA AND SoDatTiec.MaMA8 = MonAn.MaMA
-                sql = "SELECT * FROM SoDatTiec,PhieuDatTiec,KhachHang WHERE SoDatTiec.MaPDT=PhieuDatTiec.MaPDT AND PhieuDatTiec.MaKH=KhachHang.MaKH";
+                sql = " SELECT * FROM SoDatTiec,PhieuDatTiec,KhachHang WHERE SoDatTiec.MaPDT=PhieuDatTiec.MaPDT AND PhieuDatTiec.MaKH=KhachHang.MaKH";
+                //sql = "SELECT * FROM SoDatTiec,PhieuDatTiec,KhachHang,MonAn WHERE SoDatTiec.MaPDT=PhieuDatTiec.MaPDT AND PhieuDatTiec.MaKH=KhachHang.MaKH";
+                sql1 = " SELECT TenMA, MaSDT FROM SoDatTiec,MonAn,PhieuDatTiec,KhachHang WHERE SoDatTiec.MaPDT=PhieuDatTiec.MaPDT AND PhieuDatTiec.MaKH=KhachHang.MaKH AND (SoDatTiec.MaMA1 = MonAn.MaMA OR SoDatTiec.MaMA2 = MonAn.MaMA OR SoDatTiec.MaMA3 = MonAn.MaMA OR SoDatTiec.MaMA4 = MonAn.MaMA OR SoDatTiec.MaMA5 = MonAn.MaMA OR SoDatTiec.MaMA6 = MonAn.MaMA OR SoDatTiec.MaMA7 = MonAn.MaMA OR SoDatTiec.MaMA8 = MonAn.MaMA)";
+
             }
             else
             {
                 sql = "SELECT * FROM SoDatTiec WHERE MaSDT='" + MASDT + "'";
+                sql1 = "SELECT * FROM SoDatTiec WHERE MaSDT='" + MASDT + "'";
             }
 
             List<QLSoDatTiec> strList = new List<QLSoDatTiec>();
             SqlConnection con = db.getConnection();
             SqlDataAdapter cmd = new SqlDataAdapter(sql, con);
             DataTable dt = new DataTable();
+
+            List<List<string>> strList1 = new List<List<string>>();
+            List<string> strList2 = new List<string>();
+            SqlConnection con1 = db.getConnection();
+            SqlDataAdapter cmd1 = new SqlDataAdapter(sql1, con1);
+            DataTable dt1 = new DataTable();
 
             //Mở kết nối
             con.Open();
@@ -123,13 +137,48 @@ namespace Wedding_management_project.Models
             cmd.Dispose();
             con.Close();
 
+
+            //Mở kết nối
+            con1.Open();
+            cmd1.Fill(dt1);
+
+            //Đóng kết nối
+            cmd1.Dispose();
+            con1.Close();
+
             QLSoDatTiec strSDT;
+
+            var temp = dt1.Rows[0]["MaSDT"].ToString();
+
+            for (int i = 0; i < dt1.Rows.Count; i++)
+            {
+                if (i + 1 == dt1.Rows.Count)
+                {
+                    strList2.Add(dt1.Rows[i]["TenMA"].ToString());
+                    strList1.Add(strList2);
+                }
+                else if (dt1.Rows[i]["MaSDT"].ToString() == temp )
+                {
+                    strList2.Add(dt1.Rows[i]["TenMA"].ToString());
+                }
+                else 
+                {
+                    strList1.Add(new List<string>(strList2) ) ;
+                    strList2.Clear();
+                    strList2.Add(dt1.Rows[i]["TenMA"].ToString());              
+                    temp = dt1.Rows[i]["MaSDT"].ToString();
+            
+                }
+                
+            }
+            
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 strSDT = new QLSoDatTiec();
                 strSDT.MA = new QLMonAn();
                 strSDT.PDT = new QLPhieuDatTiec();
                 strSDT.PDT.KH = new QLKhachHang();
+                strSDT.ListMA = strList1[i];
 
                 strSDT.MASDT = dt.Rows[i]["MASDT"].ToString();
                 strSDT.MaPDT = dt.Rows[i]["MaPDT"].ToString();
@@ -161,6 +210,7 @@ namespace Wedding_management_project.Models
                 strSDT.SoTienCocGT = Convert.ToDecimal(dt.Rows[i]["SoTienCocGT"].ToString());
                 strSDT.NgayTao = Convert.ToDateTime(dt.Rows[i]["NgayTao"].ToString());
                 strSDT.PDT.KH.TenKH = dt.Rows[i]["TenKH"].ToString();
+               // strSDT.MA.TenMA = dt.Rows[i]["TenMA"].ToString();
 
                 strList.Add(strSDT);
             }

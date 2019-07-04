@@ -147,6 +147,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyData.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Admin\Models\QLBaoCao.cs" />
     <Compile Include="Areas\Admin\Models\QLDichVu.cs" />
     <Compile Include="Areas\Admin\Models\QLKhachHang.cs" />
     <Compile Include="Areas\Admin\Models\QLMonAn.cs" />
