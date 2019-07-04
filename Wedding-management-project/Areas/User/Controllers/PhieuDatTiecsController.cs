@@ -14,6 +14,7 @@ namespace Wedding_management_project.Areas.User.Controllers
         {
             ListPhieuDatTiec strPDT = new ListPhieuDatTiec();
             List<QLPhieuDatTiec> obj = strPDT.getPhieuDatTiec(string.Empty);
+            @ViewBag.PhieuDatTiecs = "active";
             return View(obj);
         }
         //Thêm phiếu đặt tiệc

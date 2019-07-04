@@ -242,3 +242,6 @@ C:\Users\thien\Desktop\Wedding-management-project\Wedding-management-project\bin
 C:\Users\thien\Desktop\Wedding-management-project\Wedding-management-project\bin\QuanLiTiecCuoi_log.ldf
 D:\Học Đại\CNPM\Wedding-management-project\Wedding-management-project\bin\QuanLiTiecCuoi.mdf
 D:\Học Đại\CNPM\Wedding-management-project\Wedding-management-project\bin\QuanLiTiecCuoi_log.ldf
+C:\Users\thien\Desktop\Wedding-management-project\Wedding-management-project\bin\EPPlus.dll
+C:\Users\thien\Desktop\Wedding-management-project\Wedding-management-project\bin\EPPlus.xml
+C:\Users\thien\Desktop\Wedding-management-project\Wedding-management-project\bin\Rotativa.dll

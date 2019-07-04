@@ -14,6 +14,7 @@ namespace Wedding_management_project.Areas.User.Controllers
 
 
             if (Session[CommonConstants.USER_SESSION] == null) return RedirectToAction("Index", "Login"); //Check session Đăng nhập
+            @ViewBag.Home = "active";
             return View();
         }
 

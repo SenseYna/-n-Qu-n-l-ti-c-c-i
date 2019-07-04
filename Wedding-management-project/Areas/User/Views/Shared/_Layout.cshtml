@@ -96,14 +96,14 @@
 
         <!-- Sidebar -->
         <ul class="sidebar navbar-nav">
-            <li class="nav-item active border" style="margin-top: 15px">
-                @Html.ActionLink("Trang chủ", "Index", "Home", new { area = "User" }, new { @class = "nav-link" })
+            <li class="@ViewBag.Home" style="margin-top: 15px" >
+                @Html.ActionLink("Trang chủ", "Index", "Home", new { area = "User" }, new { @class = "nav-item nav-link" })
             </li>
-            <li class="nav-item border" style="margin-top: 15px">
-                @Html.ActionLink("Phiếu đặt tiệc", "Index", "PhieuDatTiecs", new { area = "User" }, new { @class = "nav-link" })
+            <li class="@ViewBag.PhieuDatTiecs" style="margin-top: 15px" >
+                @Html.ActionLink("Phiếu đặt tiệc", "Index", "PhieuDatTiecs", new { area = "User" }, new { @class = "border-live" })
             </li>
-            <li class="nav-item border" style="margin-top: 15px">
-                @Html.ActionLink("Sổ đặt tiệc", "Index", "SoDatTiecs", new { area = "User" }, new { @class = "nav-link" })
+            <li  style="margin-top: 15px">
+                @Html.ActionLink("Sổ đặt tiệc", "Index", "SoDatTiecs", new { area = "User" }, new { @class = "nav-link nav-item" })
             </li>
             <li class="nav-item border" style="margin-top: 15px">
                 <a class="nav-link" href="lichsan.html">
@@ -111,7 +111,7 @@
                     <span>LỊCH SẢNH</span>
                 </a>
             </li>
-            <li class="nav-item border" style="margin-top: 15px">
+            <li class="nav-item border " style="margin-top: 15px">
                 <a class="nav-link" href="tracuu.html">
                     <!-- <i class="fas fa-fw fa-table"></i> -->
                     <span>TRA CỨU</span>
