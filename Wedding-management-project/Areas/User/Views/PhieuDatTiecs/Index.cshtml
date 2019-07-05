@@ -10,29 +10,26 @@
 <div id="content-wrapper">
 
     <div class="container-fluid">
-
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item active"><h1>DANH SÁCH PHIẾU ĐẶT TIỆC</h1></li>
         </ol>
-
+        <div class="card-footer small text-muted"> <button type="button" class="btn btn-success">@Html.ActionLink("Thêm phiếu đặt tiệc", "Create", "", new { style = "color: #fff !important " })</button></div>
         <!-- DataTables Example -->
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fas fa-table"></i>
-               Danh sách phiếu đặt tiệc
+                Danh sách phiếu đặt tiệc
             </div>
             <div class="card-body">
-
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-
                                 <th>@Html.DisplayNameFor(model => model.MAPDT)</th>
-                                <th>@Html.DisplayNameFor(model => model.MaKH)</th>
-                                <th>@Html.DisplayNameFor(model => model.MaNV)</th>
-                                <th>@Html.DisplayNameFor(model => model.MaS)</th>
+                                <th>Khách Hàng</th>
+                                <th>Nhân Viên</th>
+                                <th>Sảnh</th>
                                 <th>@Html.DisplayNameFor(model => model.TenCR)</th>
                                 <th>@Html.DisplayNameFor(model => model.TenCD)</th>
                                 <th>@Html.DisplayNameFor(model => model.NgayTC)</th>
@@ -59,16 +56,15 @@
                                     <td>@Html.DisplayFor(modelItem => item.SoTienCocTT)</td>
                                     <td>@Html.DisplayFor(modelItem => item.GhiChu)</td>
                                     <td>@Html.DisplayFor(modelItem => item.NgayTao)</td>
-                                 
+
                                 </tr>
                             </tbody>
                         }
-                        </table>
+                    </table>
                 </div>
             </div>
-            <div class="card-footer small text-muted"> <button type="button" class="btn btn-success">@Html.ActionLink("Thêm phiếu đặt tiệc", "Create" , "" , new { style ="color: #fff !important " })</button></div>
+            <div class="card-footer small text-muted"> <button type="button" class="btn btn-success">@Html.ActionLink("Thêm phiếu đặt tiệc", "Create", "", new { style = "color: #fff !important " })</button></div>
         </div>
-
     </div>
     <!-- /.container-fluid -->
     <!-- Sticky Footer -->

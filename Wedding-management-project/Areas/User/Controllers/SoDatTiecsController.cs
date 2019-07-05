@@ -43,6 +43,7 @@ namespace Wedding_management_project.Areas.User.Controllers
             {
                 ListSoDatTiec SDT = new ListSoDatTiec();
                 SDT.AddSoDatTiec(strSDT);
+                System.Threading.Thread.Sleep(500);
                 return RedirectToAction("Index");
             }
             return View();

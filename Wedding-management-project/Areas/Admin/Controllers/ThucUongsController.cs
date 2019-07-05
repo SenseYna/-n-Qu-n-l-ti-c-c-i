@@ -13,7 +13,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         // GET: ThucUongs
         public ActionResult Index()
         {
-            if (Session[CommonConstants.USER_SESSION] == null) return RedirectToAction("Index", "Login"); //Check session Đăng nhập
+            if (Session[CommonConstants.ADMIN_SESSION] == null) return RedirectToAction("Index", "LoginAdmin", new { area = "user" }); //Check session Đăng nhập
 
             ListThucUong strTU = new ListThucUong();
             List<QLThucUong> obj = strTU.getThucUong(string.Empty);

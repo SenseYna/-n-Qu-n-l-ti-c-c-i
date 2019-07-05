@@ -23,8 +23,11 @@ namespace Wedding_management_project.Models
         public string ThongTinPS { set; get; }
         [Required(ErrorMessage = "Bạn cần nhập vào chi phí phát sinh")]
         [Display(Name = "Chi phí phát sinh")]
-        public decimal ChiPhiPS { set; get; }
-        [Required(ErrorMessage = "Bạn cần nhập vào ngay tao")]
+        public string ChiPhiPS { set; get; }
+        [Required(ErrorMessage = "Bạn cần nhập vào số tiền thanh toán")]
+        [Display(Name = "Số tiền thanh toán")]
+        public string SoTienThanhToan { set; get; }
+        [Required(ErrorMessage = "Bạn cần nhập vào ngày tạo")]
         [Display(Name = "Ngày tạo")]
         [DataType(DataType.Date)]
         public DateTime NgayTao { set; get; }
@@ -78,7 +81,8 @@ namespace Wedding_management_project.Models
                 strPTDT.MaSDT = dt.Rows[i]["MaSDT"].ToString();
                 strPTDT.MaNV = dt.Rows[i]["MaNV"].ToString();
                 strPTDT.ThongTinPS = dt.Rows[i]["ThongTinPS"].ToString();
-                strPTDT.ChiPhiPS = Convert.ToDecimal(dt.Rows[i]["ChiPhiPS"].ToString());
+                strPTDT.ChiPhiPS = dt.Rows[i]["ChiPhiPS"].ToString();
+                strPTDT.SoTienThanhToan = dt.Rows[i]["SoTienThanhToan"].ToString();
                 strPTDT.NgayTao = Convert.ToDateTime(dt.Rows[i]["NgayTao"].ToString());
                 strPTDT.NV.TenNV =  dt.Rows[i]["TenNV"].ToString();
                 strPTDT.SDT.PDT.KH.TenKH = dt.Rows[i]["TenKH"].ToString();
@@ -122,7 +126,8 @@ namespace Wedding_management_project.Models
                 strPTDT.MaSDT = dt.Rows[i]["MaSDT"].ToString();
                 strPTDT.MaNV = dt.Rows[i]["MaNV"].ToString();
                 strPTDT.ThongTinPS = dt.Rows[i]["ThongTinPS"].ToString();
-                strPTDT.ChiPhiPS = Convert.ToDecimal(dt.Rows[i]["ChiPhiPS"].ToString());
+                strPTDT.ChiPhiPS = dt.Rows[i]["ChiPhiPS"].ToString();
+                strPTDT.SoTienThanhToan = dt.Rows[i]["SoTienThanhToan"].ToString();
                 strPTDT.NgayTao = Convert.ToDateTime(dt.Rows[i]["NgayTao"].ToString());
 
                 strList.Add(strPTDT);
@@ -133,7 +138,7 @@ namespace Wedding_management_project.Models
         // Thêm dữ liệu (thêm phiếu đặt tiệc)
         public void AddPhieuTheoDoiTiec(QLPhieuTheoDoiTiec strPTDT)
         {
-            string sql = "INSERT INTO PhieuTheoDoiTiec(MaSDT, MaNV, ThongTinPS, ChiPhiPS, NgayTao)VALUES(N'" + strPTDT.MaSDT + "',N'" + strPTDT.MaNV + "',N'" + strPTDT.ThongTinPS + "',N'" + strPTDT.ChiPhiPS + "',N'" + Convert.ToDateTime(strPTDT.NgayTao).ToString("yyyy-MM-dd") + "')";
+            string sql = "INSERT INTO PhieuTheoDoiTiec(MaSDT, MaNV, ThongTinPS, ChiPhiPS, SoTienThanhToan, NgayTao)VALUES(N'" + strPTDT.MaSDT + "',N'" + strPTDT.MaNV + "',N'" + strPTDT.ThongTinPS + "',N'" + strPTDT.ChiPhiPS + "',N'" + strPTDT.SoTienThanhToan + "',N'" + Convert.ToDateTime(strPTDT.NgayTao).ToString("yyyy-MM-dd") + "')";
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -148,7 +153,7 @@ namespace Wedding_management_project.Models
         // Sửa dữ liệu (sửa phiếu đặt tiệc)
         public void EditPhieuTheoDoiTiec(QLPhieuTheoDoiTiec strPTDT)
         {
-            string sql = "UPDATE PhieuTheoDoiTiec SET  MaSDT=N'" + strPTDT.MaSDT + "',MaNV=N'" + strPTDT.MaNV + "', ThongTinPS=N'" + strPTDT.ThongTinPS + "', ChiPhiPS=N'" + strPTDT.ChiPhiPS + "', NgayTao=N'" + Convert.ToDateTime(strPTDT.NgayTao).ToString("yyyy-MM-dd") + "' WHERE MaPTDT='" + strPTDT.MAPTDT + "'";
+            string sql = "UPDATE PhieuTheoDoiTiec SET  MaSDT=N'" + strPTDT.MaSDT + "',MaNV=N'" + strPTDT.MaNV + "', ThongTinPS=N'" + strPTDT.ThongTinPS + "', ChiPhiPS=N'" + strPTDT.ChiPhiPS + "', SoTienThanhToan=N'" + strPTDT.SoTienThanhToan + "', NgayTao=N'" + Convert.ToDateTime(strPTDT.NgayTao).ToString("yyyy-MM-dd") + "' WHERE MaPTDT='" + strPTDT.MAPTDT + "'";
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 
