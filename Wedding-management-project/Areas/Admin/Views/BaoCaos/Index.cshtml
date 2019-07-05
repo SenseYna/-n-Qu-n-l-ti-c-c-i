@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Wedding_management_project.Models.QLBaoCao>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Báo Cáo Tháng Hiện Tại</h2>
+
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.MABC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThangBC)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.PTDT.MAPTDT)
+        </th>
+        <th>
+            Khách Hàng
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDT.SoTienThanhToan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDT.NgayTao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.MABC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThangBC)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDT.MAPTDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDT.SDT.PDT.KH.TenKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDT.SoTienThanhToan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDT.NgayTao)
+        </td>
+    </tr>
+}
+
+</table>

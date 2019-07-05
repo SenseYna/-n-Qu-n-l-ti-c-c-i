@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLiTiecCuoi" Class="MyDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\QuanLiTiecCuoi.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QuanLiTiecCuoiConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.PhieuDatTiec" Member="PhieuDatTiecs">
     <Type Name="PhieuDatTiec">
       <Column Name="MaPDT" Type="System.String" DbType="Char(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -170,20 +171,12 @@
       <Association Name="ThucUong_SoDatTiec7" Member="SoDatTiecs7" ThisKey="MaTU" OtherKey="MaTU8" Type="SoDatTiec" />
     </Type>
   </Table>
-  <Table Name="dbo.BaoCao" Member="BaoCaos">
-    <Type Name="BaoCao">
-      <Column Name="MaBC" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TuNgay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DenNgay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="BaoCao_ChiTietBaoCao" Member="ChiTietBaoCaos" ThisKey="MaBC" OtherKey="MaBC" Type="ChiTietBaoCao" />
-    </Type>
-  </Table>
   <Table Name="dbo.ChiTietBaoCao" Member="ChiTietBaoCaos">
     <Type Name="ChiTietBaoCao">
       <Column Name="MaBC" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
       <Column Name="MaPTDT" Type="System.String" DbType="Char(7) NOT NULL" CanBeNull="false" />
-      <Association Name="BaoCao_ChiTietBaoCao" Member="BaoCao" ThisKey="MaBC" OtherKey="MaBC" Type="BaoCao" IsForeignKey="true" />
       <Association Name="PhieuTheoDoiTiec_ChiTietBaoCao" Member="PhieuTheoDoiTiec" ThisKey="MaPTDT" OtherKey="MaPTDT" Type="PhieuTheoDoiTiec" IsForeignKey="true" />
+      <Association Name="BaoCao_ChiTietBaoCao" Member="BaoCao" ThisKey="MaBC" OtherKey="MaBC" Type="BaoCao" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PhieuTheoDoiTiec" Member="PhieuTheoDoiTiecs">
@@ -198,6 +191,13 @@
       <Association Name="PhieuTheoDoiTiec_ChiTietBaoCao" Member="ChiTietBaoCaos" ThisKey="MaPTDT" OtherKey="MaPTDT" Type="ChiTietBaoCao" />
       <Association Name="SoDatTiec_PhieuTheoDoiTiec" Member="SoDatTiec" ThisKey="MaSDT" OtherKey="MaSDT" Type="SoDatTiec" IsForeignKey="true" />
       <Association Name="NhanVien_PhieuTheoDoiTiec" Member="NhanVien" ThisKey="MaNV" OtherKey="MaNV" Type="NhanVien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BaoCao" Member="BaoCaos">
+    <Type Name="BaoCao">
+      <Column Name="MaBC" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ThangBC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BaoCao_ChiTietBaoCao" Member="ChiTietBaoCaos" ThisKey="MaBC" OtherKey="MaBC" Type="ChiTietBaoCao" />
     </Type>
   </Table>
 </Database>

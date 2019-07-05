@@ -54,13 +54,19 @@ namespace Wedding_management_project.Areas.Admin.Models
     partial void InsertThucUong(ThucUong instance);
     partial void UpdateThucUong(ThucUong instance);
     partial void DeleteThucUong(ThucUong instance);
-    partial void InsertBaoCao(BaoCao instance);
-    partial void UpdateBaoCao(BaoCao instance);
-    partial void DeleteBaoCao(BaoCao instance);
     partial void InsertPhieuTheoDoiTiec(PhieuTheoDoiTiec instance);
     partial void UpdatePhieuTheoDoiTiec(PhieuTheoDoiTiec instance);
     partial void DeletePhieuTheoDoiTiec(PhieuTheoDoiTiec instance);
+    partial void InsertBaoCao(BaoCao instance);
+    partial void UpdateBaoCao(BaoCao instance);
+    partial void DeleteBaoCao(BaoCao instance);
     #endregion
+		
+		public MyDataDataContext() : 
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QuanLiTiecCuoiConnectionString"].ConnectionString, mappingSource)
+		{
+			OnCreated();
+		}
 		
 		public MyDataDataContext(string connection) : 
 				base(connection, mappingSource)
@@ -150,14 +156,6 @@ namespace Wedding_management_project.Areas.Admin.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<BaoCao> BaoCaos
-		{
-			get
-			{
-				return this.GetTable<BaoCao>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ChiTietBaoCao> ChiTietBaoCaos
 		{
 			get
@@ -171,6 +169,14 @@ namespace Wedding_management_project.Areas.Admin.Models
 			get
 			{
 				return this.GetTable<PhieuTheoDoiTiec>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BaoCao> BaoCaos
+		{
+			get
+			{
+				return this.GetTable<BaoCao>();
 			}
 		}
 	}
@@ -4411,116 +4417,6 @@ namespace Wedding_management_project.Areas.Admin.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BaoCao")]
-	public partial class BaoCao : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MaBC;
-		
-		private System.Nullable<System.DateTime> _TuNgay;
-		
-		private System.Nullable<System.DateTime> _DenNgay;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaBCChanging(string value);
-    partial void OnMaBCChanged();
-    partial void OnTuNgayChanging(System.Nullable<System.DateTime> value);
-    partial void OnTuNgayChanged();
-    partial void OnDenNgayChanging(System.Nullable<System.DateTime> value);
-    partial void OnDenNgayChanged();
-    #endregion
-		
-		public BaoCao()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBC", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MaBC
-		{
-			get
-			{
-				return this._MaBC;
-			}
-			set
-			{
-				if ((this._MaBC != value))
-				{
-					this.OnMaBCChanging(value);
-					this.SendPropertyChanging();
-					this._MaBC = value;
-					this.SendPropertyChanged("MaBC");
-					this.OnMaBCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TuNgay", DbType="Date")]
-		public System.Nullable<System.DateTime> TuNgay
-		{
-			get
-			{
-				return this._TuNgay;
-			}
-			set
-			{
-				if ((this._TuNgay != value))
-				{
-					this.OnTuNgayChanging(value);
-					this.SendPropertyChanging();
-					this._TuNgay = value;
-					this.SendPropertyChanged("TuNgay");
-					this.OnTuNgayChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DenNgay", DbType="Date")]
-		public System.Nullable<System.DateTime> DenNgay
-		{
-			get
-			{
-				return this._DenNgay;
-			}
-			set
-			{
-				if ((this._DenNgay != value))
-				{
-					this.OnDenNgayChanging(value);
-					this.SendPropertyChanging();
-					this._DenNgay = value;
-					this.SendPropertyChanged("DenNgay");
-					this.OnDenNgayChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ChiTietBaoCao")]
 	public partial class ChiTietBaoCao
 	{
@@ -4829,6 +4725,92 @@ namespace Wedding_management_project.Areas.Admin.Models
 						this._MaNV = default(string);
 					}
 					this.SendPropertyChanged("NhanVien");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BaoCao")]
+	public partial class BaoCao : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MaBC;
+		
+		private System.Nullable<int> _ThangBC;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaBCChanging(string value);
+    partial void OnMaBCChanged();
+    partial void OnThangBCChanging(System.Nullable<int> value);
+    partial void OnThangBCChanged();
+    #endregion
+		
+		public BaoCao()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBC", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaBC
+		{
+			get
+			{
+				return this._MaBC;
+			}
+			set
+			{
+				if ((this._MaBC != value))
+				{
+					this.OnMaBCChanging(value);
+					this.SendPropertyChanging();
+					this._MaBC = value;
+					this.SendPropertyChanged("MaBC");
+					this.OnMaBCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThangBC", DbType="Int")]
+		public System.Nullable<int> ThangBC
+		{
+			get
+			{
+				return this._ThangBC;
+			}
+			set
+			{
+				if ((this._ThangBC != value))
+				{
+					this.OnThangBCChanging(value);
+					this.SendPropertyChanging();
+					this._ThangBC = value;
+					this.SendPropertyChanged("ThangBC");
+					this.OnThangBCChanged();
 				}
 			}
 		}

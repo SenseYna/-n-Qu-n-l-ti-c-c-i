@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaoCaosController.cs" />
     <Compile Include="Areas\Admin\Controllers\DichVusController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhachHangsController.cs" />
@@ -161,6 +162,11 @@
     <Compile Include="Areas\User\Controllers\PhieuDatTiecsController.cs" />
     <Compile Include="Areas\User\Controllers\SoDatTiecsController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="BaoCaoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaoCaoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -236,6 +242,18 @@
     <Content Include="Areas\User\Views\PhieuDatTiecs\Index.cshtml" />
     <Content Include="Areas\User\Views\SoDatTiecs\Create.cshtml" />
     <Content Include="Areas\User\Views\SoDatTiecs\Index.cshtml" />
+    <Content Include="BaoCaoDataSet.xsc">
+      <DependentUpon>BaoCaoDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\BaoCaos\Index.cshtml" />
+    <None Include="BaoCaoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BaoCaoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="BaoCaoDataSet.xss">
+      <DependentUpon>BaoCaoDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
