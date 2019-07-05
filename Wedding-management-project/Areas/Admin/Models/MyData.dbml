@@ -27,6 +27,7 @@
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="PhieuDatTiec_SoDatTiec" Member="SoDatTiecs" ThisKey="MaPDT" OtherKey="MaPDT" Type="SoDatTiec" />
+      <Association Name="PhieuDatTiec_TinhTrangSanh" Member="TinhTrangSanhs" ThisKey="MaPDT" OtherKey="MaPDT" Type="TinhTrangSanh" />
       <Association Name="KhachHang_PhieuDatTiec" Member="KhachHang" ThisKey="MaKH" OtherKey="MaKH" Type="KhachHang" IsForeignKey="true" />
       <Association Name="NhanVien_PhieuDatTiec" Member="NhanVien" ThisKey="MaNV" OtherKey="MaNV" Type="NhanVien" IsForeignKey="true" />
       <Association Name="Sanh_PhieuDatTiec" Member="Sanh" ThisKey="MaS" OtherKey="MaS" Type="Sanh" IsForeignKey="true" />
@@ -178,6 +179,17 @@
       <Column Name="Gia" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Sanh_PhieuDatTiec" Member="PhieuDatTiecs" ThisKey="MaS" OtherKey="MaS" Type="PhieuDatTiec" />
+      <Association Name="Sanh_TinhTrangSanh" Member="TinhTrangSanhs" ThisKey="MaS" OtherKey="MaS" Type="TinhTrangSanh" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TinhTrangSanh" Member="TinhTrangSanhs">
+    <Type Name="TinhTrangSanh">
+      <Column Name="MaTTS" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ngay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MaPDT" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="MaS" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Association Name="PhieuDatTiec_TinhTrangSanh" Member="PhieuDatTiec" ThisKey="MaPDT" OtherKey="MaPDT" Type="PhieuDatTiec" IsForeignKey="true" />
+      <Association Name="Sanh_TinhTrangSanh" Member="Sanh" ThisKey="MaS" OtherKey="MaS" Type="Sanh" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

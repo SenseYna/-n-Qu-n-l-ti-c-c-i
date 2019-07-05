@@ -1,0 +1,115 @@
+﻿@*@model IEnumerable<Wedding_management_project.Models.QLTinhTrangSanh>*@
+@using Wedding_management_project.Models
+@model dynamic
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <!-- calender  -->
+        <div class="month">
+            <ul>
+                <li class="prev">&#10094;</li>
+                <li class="next">&#10095;</li>
+                <li>
+                    <h1>Lịch sảnh Tháng @Model.month       </h1>          
+                @*<div class="form-group col-md-6">
+                    @using (Html.BeginForm("Index_custom", "LichSanhs"))
+                    {
+                        @Html.ValidationSummary()
+                        <p>Chọn tháng: </p>
+                         @Html.TextBox("string", (string)Model.index)
+                         
+                         @Html.EditorFor(model => Model.index, new { htmlAttributes = new { @class = "form-control" } })
+
+                         @Html.ValidationMessageFor(model => model.MaNV, "", new { @class = "text-danger" })
+                        <input type="submit" value="Submit"/>
+                     }
+                </div>*@
+                    
+                    
+                    
+                    
+                    <br>
+                                <span style="font-size:18px">@Model.year</span>
+
+                </li>
+            </ul>
+        </div>
+        <div class="calendar" data-toggle="calendar" style="padding-top:10px">
+            <div class="row">     
+                @for (int i = 1; i< 32; i++)
+                {
+                <div class="col-xs-12 calendar-day calendar-no-current-month border-success">
+                     @i
+                    <table class="table border">
+                        @foreach (QLTinhTrangSanh item in Model.TTS)
+                        {
+                            if (item.Month == Model.month && item.Year == Model.year)
+                            {
+                                if (i.ToString().Length == 1)
+                                {
+                                    if (item.Day[1].ToString() == i.ToString() && item.Day[0].ToString() == "0")
+                                    {
+                                    <tr>
+                                        <p style="background-color: blue" data-toggle="tooltip" data-placement="bottom"
+                                           title="300 khách , 500 mét vuông">@item.MaS</p>
+                                    </tr>
+                                    }
+                                }
+                                else if (item.Day == i.ToString())
+                                {
+                                <tr>
+                                    <p style="background-color: blue" data-toggle="tooltip" data-placement="bottom"
+                                       title="300 khách , 500 mét vuông">@item.MaS</p>
+                                </tr>
+                                }
+                             }
+                        }
+                    </table>
+                </div>
+                @*<div class="col-xs-12 calendar-day calendar-no-current-month border-success">
+                    2
+                    <table class="table border"></table>
+                </div>
+                <div class="col-xs-12 calendar-day calendar-no-current-month border-success">
+                    3
+                    <table class="table border"></table>
+                </div>
+                <div class="col-xs-12 calendar-day calendar-no-current-month border-success">
+                    4
+                    <table class="table border"></table>
+                </div>
+                <div class="col-xs-12 calendar-day calendar-no-current-month border-success">
+                    5
+                    <table class="table border"></table>
+                </div>
+                <div class="col-xs-12 calendar-day calendar-no-current-month border-success">
+                    6
+                    <table class="table border"></table>
+                </div>
+                <div class="col-xs-12 calendar-day calendar-no-current-month border-success">
+                    7
+                    <table class="table border"></table>
+                </div>*@
+
+                }
+            </div>
+        </div>
+    </div>
+    <p class="text-center">Bản test</p>
+
+</div>
+<!-- /.container-fluid -->
+</div>
+<!-- /.content-wrapper -->

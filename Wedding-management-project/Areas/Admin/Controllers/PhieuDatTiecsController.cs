@@ -29,8 +29,8 @@ namespace Wedding_management_project.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 ListPhieuDatTiec PDT = new ListPhieuDatTiec();
-                PDT.AddPhieuDatTiec(strPDT);
-                return RedirectToAction("Index");
+                if (!PDT.AddPhieuDatTiec(strPDT)) return  View(); 
+                else return RedirectToAction("Index");
             }
             return View();
         }

@@ -16,7 +16,7 @@
     <link href="~/Content/js/sb-admin.min.js" rel="stylesheet" type="text/javascript" />
     <link href="~/Content/js/demo/datatables-demo.js" rel="stylesheet" type="text/javascript" />
     <link href="~/Content/js/demo/chart-area-demo.js" rel="stylesheet" type="text/javascript" />
-
+    
     <!-- The custom styles for this Layout-->
     <link href="~/Content/sb-admin.css" rel="stylesheet" type="text/css" />
     <!--font awesome bootstrap-->
@@ -106,10 +106,7 @@
                 @Html.ActionLink("Sổ đặt tiệc", "Index", "SoDatTiecs", new { area = "User" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item border" style="margin-top: 15px">
-                <a class="nav-link" href="lichsan.html">
-                    <!-- <i class="fas fa-fw fa-table"></i> -->
-                    <span>LỊCH SẢNH</span>
-                </a>
+                @Html.ActionLink("Lịch sảnh", "Index", "LichSanhs", new { area = "User" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item border" style="margin-top: 15px">
                 <a class="nav-link" href="tracuu.html">
