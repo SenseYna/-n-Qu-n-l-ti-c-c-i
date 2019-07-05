@@ -17,7 +17,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
             return View(obj);
         }
         //Thêm phiếu đặt tiệc
-        public ActionResult Create()
+        public ActionResult Create() 
         {
             //DropdownList
             ListMonAn strMA = new ListMonAn();
@@ -43,6 +43,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
             {
                 ListSoDatTiec SDT = new ListSoDatTiec();
                 SDT.AddSoDatTiec(strSDT);
+                System.Threading.Thread.Sleep(500);
                 return RedirectToAction("Index");
             }
             return View();
@@ -75,6 +76,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         {
             ListSoDatTiec SDT = new ListSoDatTiec();
             SDT.EditSoDatTiec(strSDT);
+            System.Threading.Thread.Sleep(500);
             return RedirectToAction("Index");
         }
 
@@ -92,6 +94,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         {
             ListSoDatTiec SDT = new ListSoDatTiec();
             SDT.DeleteSoDatTiec(strSDT);
+            System.Threading.Thread.Sleep(500);
             return RedirectToAction("Index");
         }
     }

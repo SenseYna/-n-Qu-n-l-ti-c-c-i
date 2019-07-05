@@ -1,0 +1,1 @@
+﻿select * from TinhTrangSanh where MaTTS = '00111111111'

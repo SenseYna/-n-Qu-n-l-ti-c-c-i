@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using Wedding_management_project.Areas.Admin.Models;
 
 namespace Wedding_management_project.Models
 {
@@ -164,19 +165,69 @@ namespace Wedding_management_project.Models
         }
 
         // Thêm dữ liệu (thêm phiếu đặt tiệc)
-        public void AddPhieuDatTiec(QLPhieuDatTiec strPDT)
+        public bool AddPhieuDatTiec(QLPhieuDatTiec strPDT)
         {
-            string sql = "INSERT INTO PhieuDatTiec(MaKH, MaNV, MaS, TenCR, TenCD, NgayTC, GioTC, SoMamDK, SoTienCocTT, GhiChu, NgayTao)VALUES(N'" + strPDT.MaKH + "',N'" + strPDT.MaNV + "',N'" + strPDT.MaS + "',N'" + strPDT.TenCR + "',N'" + strPDT.TenCD + "',N'" + Convert.ToDateTime(strPDT.NgayTC).ToString("yyyy-MM-dd") + "',N'" + Convert.ToDateTime(strPDT.GioTC).ToString("HH:mm") + "',N'" + strPDT.SoMamDK + "',N'" + strPDT.SoTienCocTT + "',N'" + strPDT.GhiChu + "',N'" + Convert.ToDateTime(strPDT.NgayTao).ToString("yyyy-MM-dd") + "')";
-            SqlConnection con = db.getConnection();
-            SqlCommand cmd = new SqlCommand(sql, con);
+            try
+            {
+                string sql = "INSERT INTO PhieuDatTiec(MaKH, MaNV, MaS, TenCR, TenCD, NgayTC, GioTC, SoMamDK, SoTienCocTT, GhiChu, NgayTao)VALUES(N'" + strPDT.MaKH + "',N'" + strPDT.MaNV + "',N'" + strPDT.MaS + "',N'" + strPDT.TenCR + "',N'" + strPDT.TenCD + "',N'" + Convert.ToDateTime(strPDT.NgayTC).ToString("yyyy-MM-dd") + "',N'" + Convert.ToDateTime(strPDT.GioTC).ToString("HH:mm") + "',N'" + strPDT.SoMamDK + "',N'" + strPDT.SoTienCocTT + "',N'" + strPDT.GhiChu + "',N'" + Convert.ToDateTime(strPDT.NgayTao).ToString("yyyy-MM-dd") + "')";
+                ListTinhTrangSanh danhdauSanh = new ListTinhTrangSanh();
 
-            //Mở kết nối
-            con.Open();
-            cmd.ExecuteNonQuery();
+                var ngayTC_tostring = Convert.ToDateTime(strPDT.NgayTC).ToString("ddMMyyyy");
+                ngayTC_tostring = strPDT.MaS + ngayTC_tostring;
+                string sql2 = "select * from TinhTrangSanh where MaTTS = '"+ngayTC_tostring+"'";
 
-            //Đóng kết nối
-            cmd.Dispose();
-            con.Close();
+                db = new DataConnection();
+                SqlConnection con2 = db.getConnection();
+                SqlDataAdapter cmd2= new SqlDataAdapter(sql2, con2);
+                DataTable dt2 = new DataTable();
+                //Mở kết nối
+                con2.Open();
+                cmd2.Fill(dt2);
+
+                //Đóng kết nối
+                cmd2.Dispose();
+                con2.Close();
+                if (dt2.Rows.Count > 0) return false;
+
+                SqlConnection con = db.getConnection();
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                //Mở kết nối
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                //Đóng kết nối
+                cmd.Dispose();
+                con.Close();
+
+                /////////////////////// update Tinh Trang Sanh
+
+                string sql1 = "SELECT TOP 1 MaPDT as LastMaPDT FROM PhieuDatTiec ORDER BY MaPDT DESC ";
+                SqlConnection con1 = db.getConnection();
+                SqlDataAdapter cmd1 = new SqlDataAdapter(sql1, con1);
+                DataTable dt1 = new DataTable();
+
+               
+                
+
+                //Mở kết nối
+                con1.Open();
+                cmd1.Fill(dt1);
+
+                //Đóng kết nối
+                cmd1.Dispose();
+                con1.Close();
+
+                var maPDT = dt1.Rows[0]["LastMaPDT"].ToString();
+
+                if (!danhdauSanh.AddTinhTrangSanh(strPDT.NgayTC, strPDT.MaS, maPDT)) return false;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
         }
         // Sửa dữ liệu (sửa phiếu đặt tiệc)
         public void EditPhieuDatTiec(QLPhieuDatTiec strPDT)

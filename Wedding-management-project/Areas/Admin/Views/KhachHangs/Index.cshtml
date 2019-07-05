@@ -10,11 +10,11 @@
 <div id="content-wrapper">
 
     <div class="container-fluid">
-
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item active"><h1>SỔ KHÁCH HÀNG</h1></li>
         </ol>
+        <div class="card-footer small text-muted"> <button type="button" class="btn btn-success">@Html.ActionLink("Thêm khách hàng", "Create", new { }, new { @style = "color: #fff" })</button></div>
 
         <!-- DataTables Example -->
         <div class="card mb-3">
@@ -23,7 +23,6 @@
                 Sổ khách hàng
             </div>
             <div class="card-body">
-
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
@@ -50,23 +49,21 @@
                                     <td>@Html.DisplayFor(modelItem => item.Email)</td>
                                     <td>
                                         <button type="button" class="btn btn-warning">@Html.ActionLink("Sửa", "Edit", new { makh = item.MAKH }, new { @style = "color:White;" }) </button>
-                                        </td>
+                                    </td>
                                     <td>
-                                        <button type="button" class="btn btn-warning">@Html.ActionLink("Xóa", "Delete", new { makh = item.MAKH}, new { @style = "color:White;" })</button>
+                                        <button type="button" class="btn btn-warning">@Html.ActionLink("Xóa", "Delete", new { makh = item.MAKH }, new { @style = "color:White;" })</button>
                                     </td>
                                 </tr>
                             </tbody>
                         }
-                        </table>
+                    </table>
                 </div>
             </div>
-            <div class="card-footer small text-muted"> <button type="button" class="btn btn-success">@Html.ActionLink("Thêm khách hàng", "Create",new { },new { @style="color: #fff"})</button></div>
+            <div class="card-footer small text-muted"> <button type="button" class="btn btn-success">@Html.ActionLink("Thêm khách hàng", "Create", new { }, new { @style = "color: #fff" })</button></div>
         </div>
-
         <p class="small text-center text-muted my-5">
             <em>More table examples coming soon...</em>
         </p>
-
     </div>
     <!-- /.container-fluid -->
     <!-- Sticky Footer -->
