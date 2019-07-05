@@ -7,111 +7,298 @@
  @using (Html.BeginForm())
  {
             @Html.AntiForgeryToken()
-<div class="container-fluid" style="margin-top: 20px">
-    <div class="form-group">
-        <h1 style="color:#000">PHIẾU ĐẶT TIỆC</h1>
-    </div>
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="input-group mb-3">
-        @Html.LabelFor(model => model.MaKH)
-        @Html.EditorFor(model => model.MaKH, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập mã khách hàng" } })
-        @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
-        <div class="">
-            <button class="btn btn-warning" type="button" id="button-addon2">Xác nhận</button>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            @Html.LabelFor(model => model.MaNV)
-            @Html.EditorFor(model => model.MaNV, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.MaNV, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group col-md-6">
-            @Html.LabelFor(model => model.MaS)
-            @Html.EditorFor(model => model.MaS, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.MaS, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group col-md-8">
-            @Html.LabelFor(model => model.TenCR)
-            @Html.EditorFor(model => model.TenCR, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.TenCR, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group col-md-4">
-            <label for="inputAddress" style="color:#000"> NĂM SINH </label>
-            <input type="text" class="form-control" id="inputAddress" placeholder=" ">
-        </div>
-        <div class="form-group col-md-8">
-            @Html.LabelFor(model => model.TenCD)
-            @Html.EditorFor(model => model.TenCD, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.TenCD, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group col-md-4">
-            <label for="inputAddress" style="color:#000"> NĂM SINH</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder=" ">
-        </div>
-        <div class="form-group col-md-8">
-            <label for="inputAddress" style="color:#000"> SỐ LƯỢNG BÀN TIỆC</label>
-            @Html.EditorFor(model => model.SoMamDK, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SoMamDK, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group col-md-4">
-            <label for="inputAddress" style="color:#000"> SỐ LƯỢNG KHÁCH</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder=" ">
-        </div>
-        <div class="form-group col-md-8">
-            <label for="inputAddress" style="color:#000"> NGÀY TỔ CHỨC </label>
-            @Html.EditorFor(model => model.NgayTC, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NgayTC, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group col-md-4">
-            <label for="inputAddress" style="color:#000"> THỜI GIAN TỔ CHỨC </label>
-            @Html.EditorFor(model => model.GioTC, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.GioTC, "", new { @class = "text-danger" })
-        </div>
-    <div class="form-group col-md-12">
-        <label for="inputAddress" style="color:#000"> SỐ TIỀN CỌC TRƯỚC TIỆC ( BẰNG SỐ )</label>
-        @Html.EditorFor(model => model.SoTienCocTT, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.SoTienCocTT, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group col-md-12">
-        <label for="inputAddress2" style="color:#000"> SỐ TIỀN CỌC ( BẰNG CHỮ )</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="">
-    </div>
-    <div class="form-group col-md-12">
-        <label for="exampleFormControlTextarea1">GHI CHÚ</label>
-        @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group col-md-12">
-        <div class="form-check">
-            <input class="form-check-input col-md-3" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck" style="color:#000">
-                Xác nhận
-            </label>
-        </div>
-    </div>
-    <div class="form-row col-md-12" style="padding-bottom:20px">
-        <button class="btn btn-primary col-md-3" style="margin-left:50px">LÀM LẠI</button>
-        <button class="btn btn-primary col-md-3" style="margin-left:50px">CHỈNH SỬA</button>
-        <button type="submit" class="btn btn-primary col-md-3" style="margin-left:50px">HOÀN TẤT</button>
-    </div>
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="form-group">
+        <h1 style="color:#000">PHIẾU ĐẶT TIỆC</h1>
+    </div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="input-group mb-3">
+        @*@Html.LabelFor(model => model.MaKH)*@
+        @Html.EditorFor(model => model.MaKH, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập mã khách hàng" } })
+        @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
+        <div class="">
+            <button class="btn btn-warning" type="button" id="button-addon2">Xác nhận</button>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.MaNV)
+            @Html.EditorFor(model => model.MaNV, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaNV, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.MaS)
+            @Html.EditorFor(model => model.MaS, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaS, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group col-md-8">
+            @Html.LabelFor(model => model.TenCR)
+            @Html.EditorFor(model => model.TenCR, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TenCR, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputAddress" style="color:#000"> NĂM SINH </label>
+            <input type="text" class="form-control" id="inputAddress" placeholder=" ">
+        </div>
+        <div class="form-group col-md-8">
+            @Html.LabelFor(model => model.TenCD)
+            @Html.EditorFor(model => model.TenCD, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TenCD, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputAddress" style="color:#000"> NĂM SINH</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder=" ">
+        </div>
+        <div class="form-group col-md-8">
+            <label for="inputAddress" style="color:#000"> SỐ LƯỢNG BÀN TIỆC</label>
+            @Html.EditorFor(model => model.SoMamDK, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SoMamDK, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputAddress" style="color:#000"> SỐ LƯỢNG KHÁCH</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder=" ">
+        </div>
+        <div class="form-group col-md-8">
+            <label for="inputAddress" style="color:#000"> NGÀY TỔ CHỨC </label>
+            @Html.EditorFor(model => model.NgayTC, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NgayTC, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputAddress" style="color:#000"> THỜI GIAN TỔ CHỨC </label>
+            @Html.EditorFor(model => model.GioTC, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.GioTC, "", new { @class = "text-danger" })
+        </div>
+    <div class="form-group col-md-12">
+        <label for="inputAddress" style="color:#000"> SỐ TIỀN CỌC TRƯỚC TIỆC ( BẰNG SỐ )</label>
+        @Html.EditorFor(model => model.SoTienCocTT, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.SoTienCocTT, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group col-md-12">
+        <label for="inputAddress2" style="color:#000"> SỐ TIỀN CỌC ( BẰNG CHỮ )</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="">
+    </div>
+    <div class="form-group col-md-12">
+        <label for="exampleFormControlTextarea1">GHI CHÚ</label>
+        @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group col-md-12">
+        <div class="form-check">
+            <input class="form-check-input col-md-3" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck" style="color:#000">
+                Xác nhận
+            </label>
+        </div>
+    </div>
+    <div class="form-row col-md-12" style="padding-bottom:20px">
+        <button class="btn btn-primary col-md-3" style="margin-left:50px">LÀM LẠI</button>
+        <button class="btn btn-primary col-md-3" style="margin-left:50px">CHỈNH SỬA</button>
+        <button type="submit" class="btn btn-primary col-md-3" style="margin-left:50px">HOÀN TẤT</button>
+    </div>
 </div>
     </div>
- }
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+}
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Page level plugin JavaScript-->
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+<!-- Page level plugin JavaScript-->
+<script src="vendor/datatables/jquery.dataTables.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin.min.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin.min.js"></script>
 
-    <!-- Demo scripts for this page-->
-    <script src="js/demo/datatables-demo.js"></script>
+<!-- Demo scripts for this page-->
+<script src="js/demo/datatables-demo.js"></script>
+<!-- Thêm -->
+<script src="~/Content/assets/js/jquery.min.js"></script>
+<script src="~/Content/assets/js/popper.min.js"></script>
+<script src="~/Content/assets/js/bootstrap.min.js"></script>
+<script src="~/Content/assets/js/detect.js"></script>
+<script src="~/Content/assets/js/fastclick.js"></script>
+<script src="~/Content/assets/js/jquery.blockUI.js"></script>
+<script src="~/Content/assets/js/waves.js"></script>
+<script src="~/Content/assets/js/jquery.nicescroll.js"></script>
+<script src="~/Content/assets/js/jquery.slimscroll.js"></script>
+<script src="~/Content/assets/js/jquery.scrollTo.min.js"></script>
+
+<!-- Sweet Alert Js  -->
+<script src="~/Content/assets/plugins/sweet-alert/sweetalert2.min.js"></script>
+<script src="~/Content/assets/pages/jquery.sweet-alert.init.js"></script>
+
+<!-- App js -->
+<script src="~/Content/assets/js/jquery.core.js"></script>
+<script src="~/Content/assets/js/jquery.app.js"></script>
+
+<script src="~/Content/assets/js/modernizr.min.js"></script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid" style="margin-top: 20px">
+
+        <div class="form-group">
+
+            <h1 style="color:#000">PHIẾU ĐẶT TIỆC</h1>
+
+        </div>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="input-group mb-3">
+
+            @*@Html.LabelFor(model => model.MaKH)*@
+
+            @Html.EditorFor(model => model.MaKH, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập mã khách hàng" } })
+
+            @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
+
+            <div class="">
+
+                <button class="btn btn-warning" type="button" id="button-addon2">Xác nhận</button>
+
+            </div>
+
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+
+                @Html.LabelFor(model => model.MaNV)
+
+                @Html.EditorFor(model => model.MaNV, new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.MaNV, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-6">
+
+                @Html.LabelFor(model => model.MaS)
+
+                @Html.EditorFor(model => model.MaS, new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.MaS, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-8">
+
+                @Html.LabelFor(model => model.TenCR)
+
+                @Html.EditorFor(model => model.TenCR, new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.TenCR, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-4">
+
+                <label for="inputAddress" style="color:#000"> NĂM SINH </label>
+
+                <input type="text" class="form-control" id="inputAddress" placeholder=" ">
+
+            </div>
+
+            <div class="form-group col-md-8">
+
+                @Html.LabelFor(model => model.TenCD)
+
+                @Html.EditorFor(model => model.TenCD, new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.TenCD, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-4">
+
+                <label for="inputAddress" style="color:#000"> NĂM SINH</label>
+
+                <input type="text" class="form-control" id="inputAddress" placeholder=" ">
+
+            </div>
+
+            <div class="form-group col-md-8">
+
+                <label for="inputAddress" style="color:#000"> SỐ LƯỢNG BÀN TIỆC</label>
+
+                @Html.EditorFor(model => model.SoMamDK, new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.SoMamDK, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-4">
+
+                <label for="inputAddress" style="color:#000"> SỐ LƯỢNG KHÁCH</label>
+
+                <input type="text" class="form-control" id="inputAddress" placeholder=" ">
+
+            </div>
+
+            <div class="form-group col-md-8">
+
+                <label for="inputAddress" style="color:#000"> NGÀY TỔ CHỨC </label>
+
+                @Html.EditorFor(model => model.NgayTC, new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.NgayTC, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-4">
+
+                <label for="inputAddress" style="color:#000"> THỜI GIAN TỔ CHỨC </label>
+
+                @Html.EditorFor(model => model.GioTC, new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.GioTC, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-12">
+
+                <label for="inputAddress" style="color:#000"> SỐ TIỀN CỌC TRƯỚC TIỆC ( BẰNG SỐ )</label>
+
+                @Html.EditorFor(model => model.SoTienCocTT, new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.SoTienCocTT, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-md-12">
+
+                <label for="inputAddress2" style="color:#000"> SỐ TIỀN CỌC ( BẰNG CHỮ )</label>
+
+                <input type="text" class="form-control" id="inputAddress2" placeholder="">
+
+            </div>
+
+            <div class="form-group col-md-12">
+
+                <label for="exampleFormControlTextarea1">GHI CHÚ</label>
+
+                @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger" })
+
+            </div>
+
+
+
+            <div class="form-row col-md-12" style="padding-bottom:20px">
+
+                <button class="btn btn-primary col-md-3" style="margin-left:50px">LÀM LẠI</button>
+
+                <button class="btn btn-primary col-md-3" style="margin-left:50px">CHỈNH SỬA</button>
+
+                <button type="submit" class="btn btn-primary col-md-3 waves-effect waves-light btn-sm" id="sa-create" style="margin-left:50px">HOÀN TẤT</button>
+
+            </div>
+
+        </div>

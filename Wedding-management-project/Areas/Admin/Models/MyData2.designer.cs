@@ -107,22 +107,6 @@ namespace Wedding_management_project.Areas.Admin.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<ThucUong> ThucUongs
-		{
-			get
-			{
-				return this.GetTable<ThucUong>();
-			}
-		}
-		
-		public System.Data.Linq.Table<DichVu> DichVus
-		{
-			get
-			{
-				return this.GetTable<DichVu>();
-			}
-		}
-		
 		public System.Data.Linq.Table<KhachHang> KhachHangs
 		{
 			get
@@ -2361,22 +2345,36 @@ namespace Wedding_management_project.Areas.Admin.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonViTinh", DbType="NVarChar(50)")]
-		public string DonViTinh
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ThucUong_SoDatTiec3", Storage="_ThucUong3", ThisKey="MaTU4", OtherKey="MaTU", IsForeignKey=true)]
+		public ThucUong ThucUong3
 		{
 			get
 			{
-				return this._DonViTinh;
+				return this._ThucUong3.Entity;
 			}
 			set
 			{
-				if ((this._DonViTinh != value))
+				ThucUong previousValue = this._ThucUong3.Entity;
+				if (((previousValue != value) 
+							|| (this._ThucUong3.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnDonViTinhChanging(value);
 					this.SendPropertyChanging();
-					this._DonViTinh = value;
-					this.SendPropertyChanged("DonViTinh");
-					this.OnDonViTinhChanged();
+					if ((previousValue != null))
+					{
+						this._ThucUong3.Entity = null;
+						previousValue.SoDatTiecs3.Remove(this);
+					}
+					this._ThucUong3.Entity = value;
+					if ((value != null))
+					{
+						value.SoDatTiecs3.Add(this);
+						this._MaTU4 = value.MaTU;
+					}
+					else
+					{
+						this._MaTU4 = default(string);
+					}
+					this.SendPropertyChanged("ThucUong3");
 				}
 			}
 		}
@@ -2426,7 +2424,7 @@ namespace Wedding_management_project.Areas.Admin.Models
 		{
 			get
 			{
-				return this._SoDatTiecs;
+				return this._ThucUong5.Entity;
 			}
 			set
 			{

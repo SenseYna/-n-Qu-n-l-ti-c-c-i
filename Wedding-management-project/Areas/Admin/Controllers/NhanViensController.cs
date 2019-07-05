@@ -33,6 +33,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
             {
                 ListNhanVien NV = new ListNhanVien();
                 NV.AddNhanVien(strNV);
+                System.Threading.Thread.Sleep(500);
                 return RedirectToAction("Index");
             }
             return View();
@@ -66,6 +67,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
 
         public ActionResult Delete(QLNhanVien strNV)
         {
+            System.Threading.Thread.Sleep(500);
             ListNhanVien NV = new ListNhanVien();
             NV.DeleteNhanVien(strNV);
             return RedirectToAction("Index");

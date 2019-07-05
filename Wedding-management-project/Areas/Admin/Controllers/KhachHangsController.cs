@@ -31,6 +31,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
             {
                 ListKhachHang KH = new ListKhachHang();
                 KH.AddKhachHang(strKH);
+                System.Threading.Thread.Sleep(500);
                 return RedirectToAction("Index");
             }
             return View();
@@ -49,6 +50,7 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         {
             ListKhachHang KH = new ListKhachHang();
             KH.EditKhachHang(strKH);
+            System.Threading.Thread.Sleep(500);
             return RedirectToAction("Index");
         }
 

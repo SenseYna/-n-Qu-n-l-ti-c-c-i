@@ -1,21 +1,22 @@
 ﻿@model IEnumerable<Wedding_management_project.Models.QLNhanVien>
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
 
     <li class="breadcrumb-item active"><h1>NHÂN SỰ</h1></li>
 </ol>
-<!-- DataTables nhân viên -->
-<div class="card mb-3">
-    <div class="card-header">
-        <i class="fas fa-table"></i>
-        Danh sách nhân viên
+<div class="card-footer small text-muted">
+    <button type="button" class="btn btn-success">@Html.ActionLink("Thêm nhân viên", "Create", new { }, new { style = "color:#fff" })</button>
     </div>
+    <!-- DataTables nhân viên -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Danh sách nhân viên
+        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -47,13 +48,11 @@
                                 <td>@Html.DisplayFor(modelItem => item.Email)</td>
                                 <td>@Html.DisplayFor(modelItem => item.LoaiNV)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Password)</td>
-
                                 <td>
                                     <button type="button" class="btn btn-warning">@Html.ActionLink("Sửa", "Edit", new { manv = item.MANV }, new { @style = "color:White;" }) </button>
-                                    </td>
+                                </td>
                                 <td>
                                     <button type="button" class="btn btn-warning">@Html.ActionLink("Xóa", "Delete", new { manv = item.MANV }, new { @style = "color:White;" })</button>
-
                                 </td>
                             </tr>
                         </tbody>
@@ -61,8 +60,8 @@
                 </table>
             </div>
         </div>
-    <div class="card-footer small text-muted"> <button type="button" class="btn btn-success">@Html.ActionLink("Thêm nhân viên", "Create",new { },new { style="color:#fff"})</button></div>
-</div>
-<p class="small text-center text-muted my-5">
-    <em>More table examples coming soon...</em>
-</p>
+        <div class="card-footer small text-muted"> <button type="button" class="btn btn-success">@Html.ActionLink("Thêm nhân viên", "Create", new { }, new { style = "color:#fff" })</button></div>
+    </div>
+    <p class="small text-center text-muted my-5">
+        <em>More table examples coming soon...</em>
+    </p>
