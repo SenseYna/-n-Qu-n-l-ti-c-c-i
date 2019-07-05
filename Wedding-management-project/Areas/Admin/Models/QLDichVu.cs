@@ -18,7 +18,9 @@ namespace Wedding_management_project.Models
         [Required(ErrorMessage = "Bạn cần nhập vào Mô tả")]
         [Display(Name = "Mô tả")]
         public string MoTa { set; get; }
-        [Required(ErrorMessage = "Bạn cần nhập vào Đơn giá dịch vụ")]
+        [Required(ErrorMessage = "Bạn cần nhập vào Giá thuê dịch vụ")]
+        [Display(Name = "Giá thuê")]
+        public string GiaThue { set; get; }
         [Display(Name = "Đơn giá")]
         public string DonGia { set; get; }
     }
@@ -64,6 +66,7 @@ namespace Wedding_management_project.Models
                 strDV.MADV = dt.Rows[i]["MADV"].ToString();
                 strDV.TenDV = dt.Rows[i]["TenDV"].ToString();
                 strDV.MoTa = dt.Rows[i]["MoTa"].ToString();
+                strDV.GiaThue= dt.Rows[i]["GiaThue"].ToString();
                 strDV.DonGia = dt.Rows[i]["DonGia"].ToString();
 
                 strList.Add(strDV);
@@ -74,7 +77,7 @@ namespace Wedding_management_project.Models
         public void AddDichVu(QLDichVu strDV)
         {
 
-            string sql = "INSERT INTO DichVu(TenDV, MoTa, DonGia)VALUES(N'" + strDV.TenDV + "',N'" + strDV.MoTa + "',N'" + strDV.DonGia + "')";
+            string sql = "INSERT INTO DichVu(TenDV, MoTa, GiaThue, DonGia)VALUES(N'" + strDV.TenDV + "',N'" + strDV.MoTa + "',N'" + strDV.GiaThue + "',N'" + (Convert.ToInt32(strDV.GiaThue)+ Convert.ToInt32(strDV.GiaThue)*0.25) + "')";
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -90,7 +93,7 @@ namespace Wedding_management_project.Models
         public void EditDichVu(QLDichVu strDV)
         {
 
-            string sql = "UPDATE DichVu SET  TenDV=N'" + strDV.TenDV + "', MoTa=N'" + strDV.MoTa + "', DonGia=N'" + strDV.DonGia + "' WHERE MaDV='" + strDV.MADV + "'";
+            string sql = "UPDATE DichVu SET  TenDV=N'" + strDV.TenDV + "', MoTa=N'" + strDV.MoTa + "', GiaThue=N'" + strDV.GiaThue + "', DonGia=N'" + (Convert.ToInt32(strDV.GiaThue) + Convert.ToInt32(strDV.GiaThue) * 0.25) + "' WHERE MaDV='" + strDV.MADV + "'";
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 

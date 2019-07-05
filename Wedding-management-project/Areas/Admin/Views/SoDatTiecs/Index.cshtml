@@ -34,7 +34,7 @@
                                 @Html.DisplayNameFor(model => model.MaNV)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.MaMA1)
+                                Danh sách món ăn
                             </th>
                             @*<th>
                                     @Html.DisplayNameFor(model => model.MaMA2)
@@ -97,11 +97,11 @@
                                     @Html.DisplayFor(modelItem => item.MaNV)
                                 </td>
                                 <td>
-                                    <div>@Html.DisplayFor(modelItem => item.MaMA1)</div>
-                                    <div>@Html.DisplayFor(modelItem => item.MaMA2)</div>
-                                    <div>@Html.DisplayFor(modelItem => item.MaMA3)</div>
-                                    <div>@Html.DisplayFor(modelItem => item.MaMA4)</div>
-                                    <div>@Html.DisplayFor(modelItem => item.MaMA5)</div>
+                                   @foreach (var item1 in item.ListMA)
+                                   {
+                                    <div>@Html.DisplayFor(modelItem => item1)</div>
+                                   }
+
                                 </td>
                                 @*<td>
                                         @Html.DisplayFor(modelItem => item.MaMA2)

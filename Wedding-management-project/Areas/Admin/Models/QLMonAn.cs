@@ -21,7 +21,9 @@ namespace Wedding_management_project.Models
         [Required(ErrorMessage = "Bạn cần nhập vào Đơn vị tính Món Ăn")]
         [Display(Name = "Đơn vị tính")]
         public string DonViTinh { set; get; }
-        [Required(ErrorMessage = "Bạn cần nhập vào Đơn giá Món Ăn")]
+        [Required(ErrorMessage = "Bạn cần nhập vào Giá mua Món Ăn")]
+        [Display(Name = "Giá Mua")]
+        public string GiaMua { set; get; }
         [Display(Name = "Đơn giá")]
         public string DonGiaMA { set; get; }
         [Required(ErrorMessage = "Bạn cần nhập vào Loại Món Ăn")]
@@ -64,7 +66,7 @@ namespace Wedding_management_project.Models
             con.Close();
 
             QLMonAn strMA;
-            for (int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 1; i < dt.Rows.Count; i++)
             {
                 strMA = new QLMonAn();
 
@@ -72,7 +74,8 @@ namespace Wedding_management_project.Models
                 strMA.TenMA = dt.Rows[i]["TenMA"].ToString();
                 strMA.MoTaMA= dt.Rows[i]["MoTaMA"].ToString();
                 strMA.DonViTinh = dt.Rows[i]["DonViTinh"].ToString();
-                strMA.DonGiaMA = dt.Rows[i]["DonGiaMA"].ToString();
+                strMA.GiaMua = dt.Rows[i]["GiaMua"].ToString();
+                strMA.DonGiaMA= dt.Rows[i]["DonGiaMA"].ToString();
                 strMA.LoaiMA = dt.Rows[i]["LoaiMA"].ToString();
 
                 strList.Add(strMA);
@@ -82,7 +85,7 @@ namespace Wedding_management_project.Models
         // Thêm dữ liệu (thêm món ăn)
         public void AddMonAn(QLMonAn strMA)
         {
-            string sql = "INSERT INTO MonAn(TenMA, MoTaMA, DonViTinh, DonGiaMA, LoaiMA)VALUES(N'" + strMA.TenMA + "',N'" + strMA.MoTaMA + "',N'" + strMA.DonViTinh + "',N'" + strMA.DonGiaMA + "',N'" + strMA.LoaiMA + "')";
+            string sql = "INSERT INTO MonAn(TenMA, MoTaMA, DonViTinh, GiaMua, DonGiaMA, LoaiMA)VALUES(N'" + strMA.TenMA + "',N'" + strMA.MoTaMA + "',N'" + strMA.DonViTinh + "',N'" + strMA.GiaMua + "',N'" + (Convert.ToInt32(strMA.GiaMua)+Convert.ToInt32(strMA.GiaMua)*0.25) + "',N'" + strMA.LoaiMA + "')";
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -97,7 +100,7 @@ namespace Wedding_management_project.Models
         // Sửa dữ liệu (sửa món ăn)
         public void EditMonAn(QLMonAn strMA)
         {
-            string sql = "UPDATE MonAn SET  TenMA=N'" + strMA.TenMA + "', MoTaMA=N'" + strMA.MoTaMA + "', DonViTinh=N'" + strMA.DonViTinh + "', DonGiaMA=N'" + strMA.DonGiaMA + "', LoaiMA=N'" + strMA.LoaiMA + "' WHERE MaMA='" + strMA.MAMA + "'";
+            string sql = "UPDATE MonAn SET  TenMA=N'" + strMA.TenMA + "', MoTaMA=N'" + strMA.MoTaMA + "', DonViTinh=N'" + strMA.DonViTinh + "', GiaMua=N'" + strMA.GiaMua + "', DonGiaMA=N'" + (Convert.ToInt32(strMA.GiaMua) + Convert.ToInt32(strMA.GiaMua) * 0.25) + "', LoaiMA=N'" + strMA.LoaiMA + "' WHERE MaMA='" + strMA.MAMA + "'";
             SqlConnection con = db.getConnection();
             SqlCommand cmd = new SqlCommand(sql, con);
 
