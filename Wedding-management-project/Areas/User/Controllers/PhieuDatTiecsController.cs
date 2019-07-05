@@ -30,7 +30,6 @@ namespace Wedding_management_project.Areas.User.Controllers
             {
                 ListPhieuDatTiec PDT = new ListPhieuDatTiec();
                 PDT.AddPhieuDatTiec(strPDT);
-                System.Threading.Thread.Sleep(500);
                 return RedirectToAction("Index");
             }
             return View();

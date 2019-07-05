@@ -60,7 +60,16 @@ namespace Wedding_management_project.Areas.Admin.Models
     partial void InsertPhieuTheoDoiTiec(PhieuTheoDoiTiec instance);
     partial void UpdatePhieuTheoDoiTiec(PhieuTheoDoiTiec instance);
     partial void DeletePhieuTheoDoiTiec(PhieuTheoDoiTiec instance);
+    partial void InsertTinhTrangSanh(TinhTrangSanh instance);
+    partial void UpdateTinhTrangSanh(TinhTrangSanh instance);
+    partial void DeleteTinhTrangSanh(TinhTrangSanh instance);
     #endregion
+		
+		public MyDataDataContext() : 
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QuanLiTiecCuoiConnectionString"].ConnectionString, mappingSource)
+		{
+			OnCreated();
+		}
 		
 		public MyDataDataContext(string connection) : 
 				base(connection, mappingSource)
@@ -173,6 +182,14 @@ namespace Wedding_management_project.Areas.Admin.Models
 				return this.GetTable<PhieuTheoDoiTiec>();
 			}
 		}
+		
+		public System.Data.Linq.Table<TinhTrangSanh> TinhTrangSanhs
+		{
+			get
+			{
+				return this.GetTable<TinhTrangSanh>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PhieuDatTiec")]
@@ -206,6 +223,8 @@ namespace Wedding_management_project.Areas.Admin.Models
 		private System.Nullable<System.DateTime> _NgayTao;
 		
 		private EntitySet<SoDatTiec> _SoDatTiecs;
+		
+		private EntitySet<TinhTrangSanh> _TinhTrangSanhs;
 		
 		private EntityRef<KhachHang> _KhachHang;
 		
@@ -246,6 +265,7 @@ namespace Wedding_management_project.Areas.Admin.Models
 		public PhieuDatTiec()
 		{
 			this._SoDatTiecs = new EntitySet<SoDatTiec>(new Action<SoDatTiec>(this.attach_SoDatTiecs), new Action<SoDatTiec>(this.detach_SoDatTiecs));
+			this._TinhTrangSanhs = new EntitySet<TinhTrangSanh>(new Action<TinhTrangSanh>(this.attach_TinhTrangSanhs), new Action<TinhTrangSanh>(this.detach_TinhTrangSanhs));
 			this._KhachHang = default(EntityRef<KhachHang>);
 			this._NhanVien = default(EntityRef<NhanVien>);
 			this._Sanh = default(EntityRef<Sanh>);
@@ -517,6 +537,19 @@ namespace Wedding_management_project.Areas.Admin.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PhieuDatTiec_TinhTrangSanh", Storage="_TinhTrangSanhs", ThisKey="MaPDT", OtherKey="MaPDT")]
+		public EntitySet<TinhTrangSanh> TinhTrangSanhs
+		{
+			get
+			{
+				return this._TinhTrangSanhs;
+			}
+			set
+			{
+				this._TinhTrangSanhs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHang_PhieuDatTiec", Storage="_KhachHang", ThisKey="MaKH", OtherKey="MaKH", IsForeignKey=true)]
 		public KhachHang KhachHang
 		{
@@ -646,6 +679,18 @@ namespace Wedding_management_project.Areas.Admin.Models
 		}
 		
 		private void detach_SoDatTiecs(SoDatTiec entity)
+		{
+			this.SendPropertyChanging();
+			entity.PhieuDatTiec = null;
+		}
+		
+		private void attach_TinhTrangSanhs(TinhTrangSanh entity)
+		{
+			this.SendPropertyChanging();
+			entity.PhieuDatTiec = this;
+		}
+		
+		private void detach_TinhTrangSanhs(TinhTrangSanh entity)
 		{
 			this.SendPropertyChanging();
 			entity.PhieuDatTiec = null;
@@ -3009,6 +3054,8 @@ namespace Wedding_management_project.Areas.Admin.Models
 		
 		private EntitySet<PhieuDatTiec> _PhieuDatTiecs;
 		
+		private EntitySet<TinhTrangSanh> _TinhTrangSanhs;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3032,6 +3079,7 @@ namespace Wedding_management_project.Areas.Admin.Models
 		public Sanh()
 		{
 			this._PhieuDatTiecs = new EntitySet<PhieuDatTiec>(new Action<PhieuDatTiec>(this.attach_PhieuDatTiecs), new Action<PhieuDatTiec>(this.detach_PhieuDatTiecs));
+			this._TinhTrangSanhs = new EntitySet<TinhTrangSanh>(new Action<TinhTrangSanh>(this.attach_TinhTrangSanhs), new Action<TinhTrangSanh>(this.detach_TinhTrangSanhs));
 			OnCreated();
 		}
 		
@@ -3188,6 +3236,19 @@ namespace Wedding_management_project.Areas.Admin.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sanh_TinhTrangSanh", Storage="_TinhTrangSanhs", ThisKey="MaS", OtherKey="MaS")]
+		public EntitySet<TinhTrangSanh> TinhTrangSanhs
+		{
+			get
+			{
+				return this._TinhTrangSanhs;
+			}
+			set
+			{
+				this._TinhTrangSanhs.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -3215,6 +3276,18 @@ namespace Wedding_management_project.Areas.Admin.Models
 		}
 		
 		private void detach_PhieuDatTiecs(PhieuDatTiec entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sanh = null;
+		}
+		
+		private void attach_TinhTrangSanhs(TinhTrangSanh entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sanh = this;
+		}
+		
+		private void detach_TinhTrangSanhs(TinhTrangSanh entity)
 		{
 			this.SendPropertyChanging();
 			entity.Sanh = null;
@@ -4829,6 +4902,222 @@ namespace Wedding_management_project.Areas.Admin.Models
 						this._MaNV = default(string);
 					}
 					this.SendPropertyChanged("NhanVien");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TinhTrangSanh")]
+	public partial class TinhTrangSanh : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MaTTS;
+		
+		private System.Nullable<System.DateTime> _Ngay;
+		
+		private string _MaPDT;
+		
+		private string _MaS;
+		
+		private EntityRef<PhieuDatTiec> _PhieuDatTiec;
+		
+		private EntityRef<Sanh> _Sanh;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaTTSChanging(string value);
+    partial void OnMaTTSChanged();
+    partial void OnNgayChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayChanged();
+    partial void OnMaPDTChanging(string value);
+    partial void OnMaPDTChanged();
+    partial void OnMaSChanging(string value);
+    partial void OnMaSChanged();
+    #endregion
+		
+		public TinhTrangSanh()
+		{
+			this._PhieuDatTiec = default(EntityRef<PhieuDatTiec>);
+			this._Sanh = default(EntityRef<Sanh>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaTTS", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaTTS
+		{
+			get
+			{
+				return this._MaTTS;
+			}
+			set
+			{
+				if ((this._MaTTS != value))
+				{
+					this.OnMaTTSChanging(value);
+					this.SendPropertyChanging();
+					this._MaTTS = value;
+					this.SendPropertyChanged("MaTTS");
+					this.OnMaTTSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngay", DbType="Date")]
+		public System.Nullable<System.DateTime> Ngay
+		{
+			get
+			{
+				return this._Ngay;
+			}
+			set
+			{
+				if ((this._Ngay != value))
+				{
+					this.OnNgayChanging(value);
+					this.SendPropertyChanging();
+					this._Ngay = value;
+					this.SendPropertyChanged("Ngay");
+					this.OnNgayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPDT", DbType="Char(6)")]
+		public string MaPDT
+		{
+			get
+			{
+				return this._MaPDT;
+			}
+			set
+			{
+				if ((this._MaPDT != value))
+				{
+					if (this._PhieuDatTiec.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaPDTChanging(value);
+					this.SendPropertyChanging();
+					this._MaPDT = value;
+					this.SendPropertyChanged("MaPDT");
+					this.OnMaPDTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaS", DbType="Char(4)")]
+		public string MaS
+		{
+			get
+			{
+				return this._MaS;
+			}
+			set
+			{
+				if ((this._MaS != value))
+				{
+					if (this._Sanh.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaSChanging(value);
+					this.SendPropertyChanging();
+					this._MaS = value;
+					this.SendPropertyChanged("MaS");
+					this.OnMaSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PhieuDatTiec_TinhTrangSanh", Storage="_PhieuDatTiec", ThisKey="MaPDT", OtherKey="MaPDT", IsForeignKey=true)]
+		public PhieuDatTiec PhieuDatTiec
+		{
+			get
+			{
+				return this._PhieuDatTiec.Entity;
+			}
+			set
+			{
+				PhieuDatTiec previousValue = this._PhieuDatTiec.Entity;
+				if (((previousValue != value) 
+							|| (this._PhieuDatTiec.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PhieuDatTiec.Entity = null;
+						previousValue.TinhTrangSanhs.Remove(this);
+					}
+					this._PhieuDatTiec.Entity = value;
+					if ((value != null))
+					{
+						value.TinhTrangSanhs.Add(this);
+						this._MaPDT = value.MaPDT;
+					}
+					else
+					{
+						this._MaPDT = default(string);
+					}
+					this.SendPropertyChanged("PhieuDatTiec");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sanh_TinhTrangSanh", Storage="_Sanh", ThisKey="MaS", OtherKey="MaS", IsForeignKey=true)]
+		public Sanh Sanh
+		{
+			get
+			{
+				return this._Sanh.Entity;
+			}
+			set
+			{
+				Sanh previousValue = this._Sanh.Entity;
+				if (((previousValue != value) 
+							|| (this._Sanh.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sanh.Entity = null;
+						previousValue.TinhTrangSanhs.Remove(this);
+					}
+					this._Sanh.Entity = value;
+					if ((value != null))
+					{
+						value.TinhTrangSanhs.Add(this);
+						this._MaS = value.MaS;
+					}
+					else
+					{
+						this._MaS = default(string);
+					}
+					this.SendPropertyChanged("Sanh");
 				}
 			}
 		}

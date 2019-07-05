@@ -153,11 +153,13 @@
     <Compile Include="Areas\Admin\Models\QLMonAn.cs" />
     <Compile Include="Areas\Admin\Models\QLNhanVien.cs" />
     <Compile Include="Areas\Admin\Models\QLSanh.cs" />
-    <Compile Include="Areas\Admin\Models\QLThucUong.cs" />
+    <Compile Include="Areas\Admin\Models\QLThucUong - Copy.cs" />
+    <Compile Include="Areas\Admin\Models\QLTinhTrangSanh.cs" />
     <Compile Include="Areas\User\Controllers\HomeController.cs" />
     <Compile Include="Areas\User\Controllers\LoginAdminController.cs" />
     <Compile Include="Areas\User\Controllers\LoginController.cs" />
     <Compile Include="Areas\User\Controllers\LogoutController.cs" />
+    <Compile Include="Areas\User\Controllers\LichSanhsController.cs" />
     <Compile Include="Areas\User\Controllers\PhieuDatTiecsController.cs" />
     <Compile Include="Areas\User\Controllers\SoDatTiecsController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
@@ -236,6 +238,7 @@
     <Content Include="Areas\User\Views\PhieuDatTiecs\Index.cshtml" />
     <Content Include="Areas\User\Views\SoDatTiecs\Create.cshtml" />
     <Content Include="Areas\User\Views\SoDatTiecs\Index.cshtml" />
+    <Content Include="Areas\User\Views\LichSanhs\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
