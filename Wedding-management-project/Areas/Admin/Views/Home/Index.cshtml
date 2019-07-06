@@ -1,0 +1,252 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item active"><h1>TRANG CHỦ</h1></li>
+</ol>
+
+
+<!-- DataTables khách hàng -->
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Sổ khách hàng
+    </div>
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã KH</th>
+                        <th>Tên KH</th>
+                        <th>Giới tính</th>
+                        <th>Địa chỉ</th>
+                        <th>SĐT</th>
+                        <th>Email</th>
+                        <th>CMND</th>
+                        <th>Tên chú rể</th>
+                        <th>Ngày sinh chú rể</th>
+                        <th>Tên cô dâu</th>
+                        <th>Ngày sinh cô đâu</th>
+                        <th>Số lượng bàn tiệc</th>
+                        <th>Số lượng khách</th>
+                        <th>Ngày đặt tiệc</th>
+                        <th>Thời gian đặt tiệc</th>
+                        <th>Số tiền đặt cọc 'bằng chữ'</th>
+                        <th>Số tiền đặt cọc 'bằng số'</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Mã KH</th>
+                        <th>Tên KH</th>
+                        <th>Giới tính</th>
+                        <th>Địa chỉ</th>
+                        <th>SĐT</th>
+                        <th>Email</th>
+                        <th>CNND</th>
+                        <th>Tên chú rể</th>
+                        <th>Ngày sinh chú rể</th>
+                        <th>Tên cô dâu</th>
+                        <th>Ngày sinh cô đâu</th>
+                        <th>Số lượng bàn tiệc</th>
+                        <th>Số lượng khách</th>
+                        <th>Ngày đặt tiệc</th>
+                        <th>Thời gian đặt tiệc</th>
+                        <th>Số tiền đặt cọc 'bằng chữ'</th>
+                        <th>Số tiền đặt cọc 'bằng số'</th>
+                        <th> </th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>Nguyễn văn a</td>
+                        <td>1998</td>
+                        <td>Nguyễn thị b</td>
+                        <td>2000</td>
+                        <td>100</td>
+                        <td>1000</td>
+                        <td>23/11/2012</td>
+                        <td>14h</td>
+                        <td>Một trăm nghìn</td>
+                        <td>100.000</td>
+                    </tr>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>Nguyễn văn a</td>
+                        <td>1998</td>
+                        <td>Nguyễn thị b</td>
+                        <td>2000</td>
+                        <td>100</td>
+                        <td>1000</td>
+                        <td>23/11/2012</td>
+                        <td>14h</td>
+                        <td>Một trăm nghìn</td>
+                        <td>100.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted"></div>
+</div>
+<!-- DataTables admin -->
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Danh sách admin
+    </div>
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã NV</th>
+                        <th>Tên NV</th>
+                        <th>Giới tính</th>
+                        <th>Địa chỉ</th>
+                        <th>SĐT</th>
+                        <th>Email</th>
+                        <th>CNND</th>
+                        <th>Chức vụ</th>
+                        <th>username</th>
+                        <th>password</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Mã NV</th>
+                        <th>Tên NV</th>
+                        <th>Giới tính</th>
+                        <th>Địa chỉ</th>
+                        <th>SĐT</th>
+                        <th>Email</th>
+                        <th>CNND</th>
+                        <th>Chức vụ</th>
+                        <th>username</th>
+                        <th>password</th>
+                        <th> </th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user1</td>
+                        <td>********</td>
+                    </tr>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user2</td>
+                        <td>******</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted"></div>
+</div>
+<!-- DataTables nhân viên -->
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Danh sách nhân viên
+    </div>
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã NV</th>
+                        <th>Tên NV</th>
+                        <th>Giới tính</th>
+                        <th>Địa chỉ</th>
+                        <th>SĐT</th>
+                        <th>Email</th>
+                        <th>CNND</th>
+                        <th>Chức vụ</th>
+                        <th>username</th>
+                        <th>password</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Mã NV</th>
+                        <th>Tên NV</th>
+                        <th>Giới tính</th>
+                        <th>Địa chỉ</th>
+                        <th>SĐT</th>
+                        <th>Email</th>
+                        <th>CNND</th>
+                        <th>Chức vụ</th>
+                        <th>username</th>
+                        <th>password</th>
+                        <th> </th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user1</td>
+                        <td>********</td>
+                    </tr>
+                    <tr>
+                        <td>KH01</td>
+                        <td>Đạt 09</td>
+                        <td>Chưa rõ</td>
+                        <td>KTX KHU B</td>
+                        <td>012345678</td>
+                        <td>dat09@gmail.com</td>
+                        <td>12345667</td>
+                        <td>giám đốc</td>
+                        <td>user2</td>
+                        <td>******</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted"></div>
+</div>

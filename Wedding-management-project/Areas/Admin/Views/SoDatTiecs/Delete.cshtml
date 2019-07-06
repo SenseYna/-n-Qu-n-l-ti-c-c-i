@@ -1,0 +1,166 @@
+﻿@model Wedding_management_project.Models.QLSoDatTiec
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quản lí sổ đặt tiệc</h2> 
+
+<h3>Bạn có muốn xóa sổ đặt tiệc @Html.DisplayFor(model=>model.MaPDT) ra khỏi danh sách sổ đặt tiệc ? </h3>
+<div>
+    <hr />
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MASDT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaPDT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaNV)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaMA1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaMA2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaMA3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaMA4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaMA5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaTU1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaTU2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaTU3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaDV1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaDV2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaDV3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaDV4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaDV5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.YeuCauKhac)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SoTienCocGT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NgayTao)
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayFor(model => model.MASDT)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaPDT)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaNV)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaMA1)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaMA2)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaMA3)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaMA4)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaMA5)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaTU1)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaTU2)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaTU3)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaDV1)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaDV2)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaDV3)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaDV4)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaDV5)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.YeuCauKhac)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.SoTienCocGT)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.NgayTao)
+                </th>
+            </tr>
+        </table>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                @Html.ActionLink("QUAY LẠI", "Index", new { }, new { @class = "btn btn-danger col-md-3", @style = "padding:20" })
+                <button type="button" value="Delete" class="btn btn-danger col-md-3 waves-effect waves-light" id="sa-error" >XÓA</button>
+
+            </div>
+        }
+    </div>
+    <!-- Thêm -->
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/detect.js"></script>
+    <script src="~/Content/assets/js/fastclick.js"></script>
+    <script src="~/Content/assets/js/jquery.blockUI.js"></script>
+    <script src="~/Content/assets/js/waves.js"></script>
+    <script src="~/Content/assets/js/jquery.nicescroll.js"></script>
+    <script src="~/Content/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/Content/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- Sweet Alert Js  -->
+    <script src="~/Content/assets/plugins/sweet-alert/sweetalert2.min.js"></script>
+    <script src="~/Content/assets/pages/jquery.sweet-alert.init.js"></script>
+
+    <!-- App js -->
+    <script src="~/Content/assets/js/jquery.core.js"></script>
+    <script src="~/Content/assets/js/jquery.app.js"></script>
+
+    <script src="~/Content/assets/js/modernizr.min.js"></script>

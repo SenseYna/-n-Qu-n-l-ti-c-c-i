@@ -1,0 +1,128 @@
+﻿@model Wedding_management_project.Models.QLPhieuDatTiec
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quản lí phiếu đặt tiệc</h2>
+
+<h3>Bạn có muốn xóa phiếu đặt tiệc @Html.DisplayFor(model=>model.MAPDT) ra khỏi danh sách phiếu đặt tiệc</h3>
+<div>
+    <hr />
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MAPDT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaKH)
+                </th>
+                <th>
+
+                    @Html.DisplayNameFor(model => model.MaNV)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TenCR)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TenCD)
+                </th>
+                <th>
+
+                    @Html.DisplayNameFor(model => model.NgayTC)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GioTC)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SoMamDK)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SoTienCocTT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GhiChu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NgayTao)
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayFor(model => model.MAPDT)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaKH)
+                </th>
+                <th>
+
+                    @Html.DisplayFor(model => model.MaNV)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.MaS)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.TenCR)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.TenCD)
+                </th>
+                <th>
+
+                    @Html.DisplayFor(model => model.NgayTC)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.GioTC)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.SoMamDK)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.SoTienCocTT)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.GhiChu)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.NgayTao)
+                </th>
+            </tr>
+        </table>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                @Html.ActionLink("QUAY LẠI", "Index", new { }, new { @class = "btn btn-danger col-md-3", @style = "padding:20" })
+                <button type="button" value="Delete" class="btn btn-danger col-md-3 waves-effect waves-light" id="sa-error" >XÓA</button>
+
+            </div>
+        }
+    </div>
+    <!-- Thêm -->
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/detect.js"></script>
+    <script src="~/Content/assets/js/fastclick.js"></script>
+    <script src="~/Content/assets/js/jquery.blockUI.js"></script>
+    <script src="~/Content/assets/js/waves.js"></script>
+    <script src="~/Content/assets/js/jquery.nicescroll.js"></script>
+    <script src="~/Content/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/Content/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- Sweet Alert Js  -->
+    <script src="~/Content/assets/plugins/sweet-alert/sweetalert2.min.js"></script>
+    <script src="~/Content/assets/pages/jquery.sweet-alert.init.js"></script>
+
+    <!-- App js -->
+    <script src="~/Content/assets/js/jquery.core.js"></script>
+    <script src="~/Content/assets/js/jquery.app.js"></script>
+
+    <script src="~/Content/assets/js/modernizr.min.js"></script>

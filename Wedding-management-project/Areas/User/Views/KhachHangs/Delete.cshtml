@@ -1,0 +1,86 @@
+﻿@model Wedding_management_project.Models.QLKhachHang
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+<h2>Quản lí khách hàng</h2>
+<h3>Bạn có muốn xóa @Html.DisplayFor(model => model.TenKH) ra khỏi danh sách khách hàng ?</h3>
+
+<hr />
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MAKH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenKH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaChi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SĐT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CMND)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+
+            </th>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayFor(model => model.MAKH)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.TenKH)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.DiaChi)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.SĐT)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.CMND)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.Email)
+            </th>
+        </tr>
+    </table>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("QUAY LẠI", "Index", new { }, new { @class = "btn btn-danger col-md-3", style = "padding:20" })
+            <button type="button" value="Delete" class="btn btn-danger col-md-3 waves-effect waves-light" id="sa-error" >XÓA</button>
+
+        </div>
+    }
+</div>
+<!-- Thêm -->
+<script src="~/Content/assets/js/jquery.min.js"></script>
+<script src="~/Content/assets/js/popper.min.js"></script>
+<script src="~/Content/assets/js/bootstrap.min.js"></script>
+<script src="~/Content/assets/js/detect.js"></script>
+<script src="~/Content/assets/js/fastclick.js"></script>
+<script src="~/Content/assets/js/jquery.blockUI.js"></script>
+<script src="~/Content/assets/js/waves.js"></script>
+<script src="~/Content/assets/js/jquery.nicescroll.js"></script>
+<script src="~/Content/assets/js/jquery.slimscroll.js"></script>
+<script src="~/Content/assets/js/jquery.scrollTo.min.js"></script>
+
+<!-- Sweet Alert Js  -->
+<script src="~/Content/assets/plugins/sweet-alert/sweetalert2.min.js"></script>
+<script src="~/Content/assets/pages/jquery.sweet-alert.init.js"></script>
+
+<!-- App js -->
+<script src="~/Content/assets/js/jquery.core.js"></script>
+<script src="~/Content/assets/js/jquery.app.js"></script>
+
+<script src="~/Content/assets/js/modernizr.min.js"></script>

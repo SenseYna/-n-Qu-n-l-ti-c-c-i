@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Wedding_management_project.Models.QLKhachHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><h1>SỔ KHÁCH HÀNG</h1></li>
+        </ol>
+        <div class="card-footer small text-muted"> <button type="button" class="btn btn-success">@Html.ActionLink("Thêm khách hàng", "Create", new { }, new { @style = "color: #fff" })</button></div>
+
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Sổ khách hàng
+            </div>
+            <div class="card-body">
+                <button type="button" class="btn btn-warning " style="background-color: cadetblue !important; margin-left: 25px; margin-bottom: 20px">@Html.ActionLink("Xuất Excel", "Export", new { }, new { @style = "color:White;" })</button>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.MAKH)</th>
+                                <th>@Html.DisplayNameFor(model => model.TenKH)</th>
+                                <th>@Html.DisplayNameFor(model => model.DiaChi)</th>
+                                <th>@Html.DisplayNameFor(model => model.SĐT)</th>
+                                <th>@Html.DisplayNameFor(model => model.CMND)</th>
+                                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                                <th style="border-right:unset"></th>
+                                <th style="border-left:unset"></th>
+                            </tr>
+                        </thead>
+                        @foreach (var item in Model)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.MAKH)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TenKH)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.DiaChi)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SĐT)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.CMND)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning">@Html.ActionLink("Sửa", "Edit", new { makh = item.MAKH }, new { @style = "color:White;" }) </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning">@Html.ActionLink("Xóa", "Delete", new { makh = item.MAKH }, new { @style = "color:White;" })</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted"> <button type="button" class="btn btn-success">@Html.ActionLink("Thêm khách hàng", "Create", new { }, new { @style = "color: #fff" })</button></div>
+        </div>
+        <p class="small text-center text-muted my-5">
+            <em>More table examples coming soon...</em>
+        </p>
+    </div>
+    <!-- /.container-fluid -->
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright © KyNguyen 2019</span>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- /.content-wrapper -->
+

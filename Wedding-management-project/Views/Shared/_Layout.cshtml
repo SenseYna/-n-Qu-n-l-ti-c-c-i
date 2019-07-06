@@ -24,15 +24,15 @@
 
 </head>
 
-<body id="">
+<body>
 
-    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top" >
 
         <a class="navbar-brand mr-1" href="index.html">ADMIN QUẢN LÍ TIỆC CƯỚI</a>
 
 
         <!-- Navbar Search -->
-        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" >
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search for..." aria-label="Search"
                        aria-describedby="basic-addon2">
@@ -97,28 +97,31 @@
                 @Html.ActionLink("Trang chủ", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Thực đơn", "Menu", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Thực đơn", "Index", "MonAns", new { area = "" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Dịch vụ", "DichVu", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Dịch vụ", "Index", "DichVus", new { area = "" }, new { @class = "nav-link" })
+            </li>>
+            <li class="nav-item">
+                @Html.ActionLink("Nhân sự", "Index", "NhanViens", new { area = "" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Doanh Thu", "DoanhThu", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Báo cáo", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Nhân sự", "NhanSu", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Khách Hàng", "Index", "KhachHangs", new { area = "" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Báo cáo", "BaoCao", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Phiếu đặt tiệc", "Index", "PhieuDatTiecs", new { area = "" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Sổ Khách Hàng", "SoKhachHang", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Sổ đặt tiệc", "Index", "SoDatTiecs", new { area = "" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Phiếu Khách Hàng", "PhieuKhachHang", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Phiếu theo dõi tiệc", "Index", "PhieuTheoDoiTiecs", new { area = "" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Hóa đơn", "HoaDon", "Home", new { @class = "nav-link" })
+                @Html.ActionLink("Đăng xuất", "ClearSession", "Login", new { area = "" }, new { @class = "nav-link" })
             </li>
         </ul>
 

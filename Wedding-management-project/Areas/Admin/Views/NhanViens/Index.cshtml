@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Wedding_management_project.Models.QLNhanVien>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+
+    <li class="breadcrumb-item active"><h1>NHÂN SỰ</h1></li>
+</ol>
+<div class="card-footer small text-muted">
+    <button type="button" class="btn btn-success">@Html.ActionLink("Thêm nhân viên", "Create", new { }, new { style = "color:#fff" })</button>
+    </div>
+    <!-- DataTables nhân viên -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Danh sách nhân viên
+        </div>
+        <div class="card-body"> <button type="button" class="btn btn-warning " style="background-color: cadetblue !important; margin-left: 25px; margin-bottom: 20px">@Html.ActionLink("Xuất Excel", "Export", new { }, new { @style = "color:White;" })</button>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.MANV)</th>
+                            <th>@Html.DisplayNameFor(model => model.TenNV)</th>
+                            <th>@Html.DisplayNameFor(model => model.GioiTinh)</th>
+                            <th>@Html.DisplayNameFor(model => model.DiaChi)</th>
+                            <th>@Html.DisplayNameFor(model => model.SĐT)</th>
+                            <th>@Html.DisplayNameFor(model => model.CMND)</th>
+                            <th>@Html.DisplayNameFor(model => model.Email)</th>
+                            <th>@Html.DisplayNameFor(model => model.LoaiNV)</th>
+                            <th>@Html.DisplayNameFor(model => model.Password)</th>
+                            <th style="border-right:unset"></th>
+                            <th style="border-left:unset"> </th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.MANV)</td>
+                                <td>@Html.DisplayFor(modelItem => item.TenNV)</td>
+                                <td>@Html.DisplayFor(modelItem => item.GioiTinh)</td>
+                                <td>@Html.DisplayFor(modelItem => item.DiaChi)</td>
+                                <td>@Html.DisplayFor(modelItem => item.SĐT)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CMND)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                <td>@Html.DisplayFor(modelItem => item.LoaiNV)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Password)</td>
+                                <td>
+                                    <button type="button" class="btn btn-warning">@Html.ActionLink("Sửa", "Edit", new { manv = item.MANV }, new { @style = "color:White;" }) </button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-warning">@Html.ActionLink("Xóa", "Delete", new { manv = item.MANV }, new { @style = "color:White;" })</button>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted"> <button type="button" class="btn btn-success">@Html.ActionLink("Thêm nhân viên", "Create", new { }, new { style = "color:#fff" })</button></div>
+    </div>
+    <p class="small text-center text-muted my-5">
+        <em>More table examples coming soon...</em>
+    </p>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Wedding_management_project.Models.QLPhieuTheoDoiTiec>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><h1>PHIẾU THEO DÕI TIỆC</h1></li>
+        </ol>
+        <div class="card-footer small text-muted">
+            @Html.ActionLink("Thêm mới phiếu theo dõi tiệc", "Create", new { }, new { @class = "btn btn-success col-md-3" })
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Phiếu theo dõi tiệc
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MAPTDT)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MaSDT)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MaNV)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ThongTinPS)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ChiPhiPS)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SoTienThanhToan)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NgayTao)
+                                </th>
+                                <th style="border-right:0"></th>
+                                <th style="border-left:unset"></th>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MAPTDT)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MaSDT)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MaNV)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ThongTinPS)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ChiPhiPS)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SoTienThanhToan)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NgayTao)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-warning" })
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-warning" })
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+            @Html.ActionLink("Thêm mới phiếu theo dõi tiệc", "Create", new { }, new { @class = "btn btn-success col-md-3" })
+        </div>
+    </div>

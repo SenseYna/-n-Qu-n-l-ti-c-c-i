@@ -1,0 +1,210 @@
+﻿@model IEnumerable<Wedding_management_project.Models.QLThucUong>
+
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Breadcrumbs món ăn-->
+<ol class="breadcrumb">
+    <li style="padding-right:20px">
+        @Html.ActionLink("Món Ăn", "Index", "MonAns", new { area = "Admin" }, new { @class = " btn btn-danger nav-link" })
+    </li>
+
+    <li>
+        @Html.ActionLink("Thức Uống", "Index", "ThucUongs", new { area = "Admin" }, new { @class = " btn btn-danger nav-link" })
+    </li>
+</ol>
+<!-- DataTables food -->
+<div class="card mb-3">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-priTUry o-hidden h-100">
+                    <div class="card-body" style="background-color:blue !important;">
+                        <div class="card-body-icon">
+                        </div>  
+                        <div class="media">
+                            <img class="ml-3 imgFixSize" src="http://media-image.giadinhvaphapluat.vn/thumb_x500x/2018/06/25/156/1529919209-anh-minh-hoa-cam-ruou-bia.jpg"
+                                 alt="..." style="
+                          width: auto !important;
+                          height: 100px !important;
+                          
+                      ">
+                        </div>
+                        <div class="mr-5">@Html.DisplayNameFor(model => model.MATU): @Html.DisplayFor(modelItem => item.MATU) </div>
+                        <div class="mr-5">@Html.DisplayNameFor(model => model.TenTU): @Html.DisplayFor(modelItem => item.TenTU)</div>
+                        <div class="mr-5">@Html.DisplayNameFor(model => model.MoTaTU): @Html.DisplayFor(modelItem => item.MoTaTU)</div>
+                        <div class="mr-5">@Html.DisplayNameFor(model => model.DonViTinh): @Html.DisplayFor(modelItem => item.DonViTinh)</div>
+                        <div class="mr-5">@Html.DisplayNameFor(model => model.DonGiaTU): @Html.DisplayFor(modelItem => item.DonGiaTU)</div>
+                        <div class="mr-5">@Html.DisplayNameFor(model => model.MoTaTU): @Html.DisplayFor(modelItem => item.MoTaTU)</div>
+
+                    </div>
+                    <div class="card-footer text-white clearfix sTUll z-1" href="#">
+                        <a class="float-left btn btn-warning" @Html.ActionLink("Sửa", "Edit", new { TUTU = item.MATU }, new { @style = "color:White;" })
+                        <a class="float-right btn btn-warning" @Html.ActionLink("Xóa", "Delete", new { TUTU = item.MATU },new { @style = "color:White;" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="card-header">
+        <button type="button" class="btn btn-success" onclick="">@Html.ActionLink("Thêm món ăn", "Create", new { }, new { @style = "color:#fff" })</button>
+    </div>
+</div>
+
+<!-- table dữ liệu để hiển thị hoá đơn cọc trước tiệc -->
+<div id="menuFood" style="
+          width: 100%;
+          display: none;
+          position: fixed;
+        z-index: 1;
+          top: 0;
+          left: 0;
+          background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0, 0.7); ">
+    <a class="closebtn float-right" style="TUrgin-right:10px; color:#fff !important ; text-decoration-line:none" onclick="closeMenuFood()" title="Close Overlay" href="#">x</a>
+    <div class="overlay-content">
+        <form action="action_page.php">
+            <div class="form-group">
+                <h1 style="color:#fff">THÊM MÓN ĂN</h1>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputAddress" style="color:#fff">Tên món ăn</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Tên món ăn">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2" style="color:#fff">Mô tả món ăn</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Mô tả">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2" style="color:#fff">Giá món ăn</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Giá">
+            </div>
+            <div class="form-group">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputState" style="color:#fff">Loại món ăn</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Món chính</option>
+                        <option> Món khai vị </option>
+                        <option> Món súp </option>
+                        <option> Món tráng miệng </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck" style="color:#fff">
+                        Xác nhận
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-priTUry" onclick="" style="color: #fff !important">Thêm món ăn</button>
+        </form>
+    </div>
+</div>
+<!-- table dữ liệu để hiển thị hoá đơn cọc trước tiệc -->
+<div id="menuDrink" style="
+                    width: 100%;
+                    display: none;
+                    position: fixed;
+        z-index: 1;
+                    top: 0;
+                    left: 0;
+                    background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0, 0.9); ">
+    <span class="closebtn" onclick="closeMenuDrink()" title="Close Overlay" style="color:#fff">x</span>
+    <div class="overlay-content">
+        <form action="action_page.php">
+            <div class="form-group">
+                <h1 style="color:#fff">THÊM ĐỒ UỐNG</h1>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputAddress" style="color:#fff">Tên đồ uống</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Tên đồ uống">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2" style="color:#fff">Mô tả đồ uống</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Mô tả">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2" style="color:#fff">Giá món đồ uống</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Giá">
+            </div>
+            <div class="form-group">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputState" style="color:#fff">Loại đồ uống</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Bia</option>
+                        <option> Rượu </option>
+                        <option> Nước ngọt </option>
+                        <option> Nước suối </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck" style="color:#fff">
+                        Xác nhận
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-priTUry">Thêm món ăn</button>
+        </form>
+    </div>
+</div>
+<script>
+    function openMenuFood() {
+        document.getElementById("menuFood").style.display = "block";
+    }
+
+    function closeMenuFood() {
+        document.getElementById("menuFood").style.display = "none";
+    }
+</script>
+
+<script>
+    function openMenuDrink() {
+        document.getElementById("menuDrink").style.display = "block";
+    }
+
+    function closeMenuDrink() {
+        document.getElementById("menuDrink").style.display = "none";
+    }
+</script>
+
+<script>
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+</script>
+
