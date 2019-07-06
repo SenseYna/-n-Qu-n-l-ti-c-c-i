@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Wedding_management_project.Common;
 using Wedding_management_project.Models;
 
 namespace Wedding_management_project.Areas.User.Controllers
@@ -12,6 +13,7 @@ namespace Wedding_management_project.Areas.User.Controllers
         // GET: Admin/SoDatTiecs
         public ActionResult Index()
         {
+            if (Session[CommonConstants.USER_SESSION] == null) return RedirectToAction("Index", "Login"); //Check session Đăng nhập
             ListSoDatTiec strSDT = new ListSoDatTiec();
             List<QLSoDatTiec> obj = strSDT.getSoDatTiec(string.Empty);
             return View(obj);

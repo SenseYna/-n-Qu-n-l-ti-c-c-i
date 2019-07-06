@@ -11,8 +11,6 @@ namespace Wedding_management_project.Areas.User.Controllers
     {
         public ActionResult Index()
         {
-
-
             if (Session[CommonConstants.USER_SESSION] == null) return RedirectToAction("Index", "Login"); //Check session Đăng nhập
             return View();
         }

@@ -40,3 +40,5 @@ D:\Học Đại\CNPM\Wedding-management-project\Models\obj\Debug\Models.csproj.C
 D:\Học Đại\CNPM\Wedding-management-project\Models\obj\Debug\Models.csproj.CopyComplete
 D:\Học Đại\CNPM\Wedding-management-project\Models\obj\Debug\Models.dll
 D:\Học Đại\CNPM\Wedding-management-project\Models\obj\Debug\Models.pdb
+C:\Users\thien\Desktop\Wedding-management-project\Models\bin\Debug\EPPlus.dll
+C:\Users\thien\Desktop\Wedding-management-project\Models\bin\Debug\EPPlus.xml

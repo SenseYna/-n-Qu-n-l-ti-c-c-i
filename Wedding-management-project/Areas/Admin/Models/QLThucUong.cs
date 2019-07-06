@@ -62,7 +62,7 @@ namespace Wedding_management_project.Models
             con.Close();
 
             QLThucUong strTU;
-            for (int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 1; i < dt.Rows.Count; i++)
             {
                 strTU = new QLThucUong();
                 strTU.MATU = dt.Rows[i]["MaTU"].ToString();

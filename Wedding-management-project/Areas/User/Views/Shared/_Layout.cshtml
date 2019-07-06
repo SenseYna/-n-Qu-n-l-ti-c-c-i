@@ -102,27 +102,22 @@
                 @Html.ActionLink("Phiếu đặt tiệc", "Index", "PhieuDatTiecs", new { area = "User" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item border" style="margin-top: 15px">
-                @Html.ActionLink("Sổ đặt tiệc", "Index", "SoDatTiecs", new { area = "User" }, new { @class = "nav-link" })
-            </li>
-            <li class="nav-item border" style="margin-top: 15px">
                 @Html.ActionLink("Lịch sảnh", "Index", "LichSanhs", new { area = "User" }, new { @class = "nav-link" })
             </li>
             <li class="nav-item border" style="margin-top: 15px">
-                <a class="nav-link" href="tracuu.html">
-                    <!-- <i class="fas fa-fw fa-table"></i> -->
-                    <span>TRA CỨU</span>
-                </a>
+                @Html.ActionLink("Sổ đặt tiệc", "Index", "SoDatTiecs", new { area = "User" }, new { @class = "nav-link" })
             </li>
-            
+            <li class="nav-item border" style="margin-top: 15px">
+                @Html.ActionLink("Thực đơn", "Index", "MonAns", new { area = "User" }, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item border" style="margin-top: 15px">
+                @Html.ActionLink("Dịch vụ", "Index", "DichVus", new { area = "User" }, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item border" style="margin-top: 15px">
+                @Html.ActionLink("Phiếu theo dõi tiệc", "Index", "PhieuTheoDoiTiecs", new { area = "User" }, new { @class = "nav-link" })
+            </li>
             <li class="nav-item border" style="margin-top: 15px">
                 @Html.ActionLink("Quản lí", "Index", "LoginAdmin", new { area = "User" }, new { @class = "nav-link" })
-            </li>
-            
-            <li class="nav-item border" style="margin-top: 15px">
-                <a class="nav-link" href="404.html">
-                    <!-- <i class="fas fa-fw fa-table"></i> -->
-                    <span>KHÁC</span>
-                </a>
             </li>
             <li class="nav-item border" style="margin-top: 15px">
                 @Html.ActionLink("Đăng xuất", "Index", "Logout", new { area = "User" }, new { @class = "nav-link" })

@@ -59,7 +59,7 @@ namespace Wedding_management_project.Models
             con.Close();
 
             QLDichVu strDV;
-            for (int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 1; i < dt.Rows.Count; i++)
             {
                 strDV = new QLDichVu();
 

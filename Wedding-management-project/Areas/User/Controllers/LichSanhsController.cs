@@ -4,6 +4,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Wedding_management_project.Common;
 using Wedding_management_project.Models;
 
 namespace Wedding_management_project.Areas.User.Controllers
@@ -13,6 +14,7 @@ namespace Wedding_management_project.Areas.User.Controllers
         // GET: Admin/SoDatTiecs
         public ActionResult Index()
         {
+            if (Session[CommonConstants.USER_SESSION] == null) return RedirectToAction("Index", "Login"); //Check session Đăng nhập
             ListTinhTrangSanh strTTS = new ListTinhTrangSanh();
             dynamic mymodel = new ExpandoObject();
             mymodel.TTS = strTTS.getTinhTrangSanh(string.Empty);

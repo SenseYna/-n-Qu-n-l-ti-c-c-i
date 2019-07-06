@@ -7,11 +7,12 @@
 
 <!-- Breadcrumbs món ăn-->
 <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-        <a href="thucdon.html">Món Ăn</a>
+    <li style="padding-right:20px">
+        @Html.ActionLink("Món Ăn", "Index", "MonAns", new { area = "Admin" }, new { @class = " btn btn-danger nav-link" })
     </li>
-    <li class="breadcrumb-item">
-        @Html.ActionLink("Thức Uống", "Index", "ThucUongs", new { area = "Admin" }, new { @class = "nav-link" })
+
+    <li>
+        @Html.ActionLink("Thức Uống", "Index", "ThucUongs", new { area = "Admin" }, new { @class = " btn btn-danger nav-link" })
     </li>
 </ol>
 <!-- DataTables food -->
@@ -25,10 +26,10 @@
                         <div class="card-body-icon">
                         </div>
                         <div class="media">
-                            <img class="ml-3 imgFixSize" src="~/App_Data/"
+                            <img class="ml-3 imgFixSize" src="https://noithatgiakhanh.cdn.vccloud.vn/wp-content/uploads/bi-quyet-chon-thuc-don.jpg?fbclid=IwAR3u_CER4RPt3604utsFy0XOMN_Hzu9yf-_pk0NRIyLzHVK_EnhrEnjquUs"
                                  alt="..." style="
-                          width: 200px;
-                          height: 128px;
+                          width: auto !important;
+                          height: 100px !important;
                       ">
                         </div>
                         <div class="mr-5">@Html.DisplayNameFor(model => model.MAMA): @Html.DisplayFor(modelItem => item.MAMA) </div>

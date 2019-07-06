@@ -30,11 +30,12 @@ namespace Wedding_management_project.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                ListThucUong MA = new ListThucUong();
-                MA.AddThucUong(strTU);
+                ListThucUong TU = new ListThucUong();
+                TU.AddThucUong(strTU);
                 return RedirectToAction("Index");
             }
             return View();
         }
+        
     }
 }

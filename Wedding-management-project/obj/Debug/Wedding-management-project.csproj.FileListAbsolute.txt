@@ -324,3 +324,5 @@ C:\Users\Admin\Desktop\Wedding-management-project\Wedding-management-project\obj
 C:\Users\Admin\Desktop\Wedding-management-project\Wedding-management-project\obj\Debug\Wedding-management-project.csproj.CopyComplete
 C:\Users\Admin\Desktop\Wedding-management-project\Wedding-management-project\obj\Debug\Wedding-management-project.dll
 C:\Users\Admin\Desktop\Wedding-management-project\Wedding-management-project\obj\Debug\Wedding-management-project.pdb
+C:\Users\thien\Desktop\Wedding-management-project\Wedding-management-project\bin\EPPlus.dll
+C:\Users\thien\Desktop\Wedding-management-project\Wedding-management-project\bin\EPPlus.xml
